@@ -1,7 +1,7 @@
-﻿import { NextResponse } from 'next/server';
-import { appendLead } from '@/lib/leadsStore';
+﻿export const dynamic = 'force-dynamic';
 
-export const dynamic = 'force-dynamic';
+import { NextResponse } from 'next/server';
+import { appendLead } from '@/lib/leadsStore';
 import { sendAutoReply, sendInternalNotification, emailWrapper } from '@/lib/mailer';
 import { randomUUID } from 'crypto';
 

@@ -1,3 +1,8 @@
 {
-  "/page": "app/page.js"
+  "/icon.svg/route": "app/icon.svg/route.js",
+  "/page": "app/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/academy/page": "app/academy/page.js",
+  "/services/web-development/page": "app/services/web-development/page.js",
+  "/contact/page": "app/contact/page.js"
 }
