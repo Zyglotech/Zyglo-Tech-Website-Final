@@ -175,6 +175,7 @@ export default function LeadsPage() {
               <div className="flex items-center gap-2">
                 <Filter className="h-3.5 w-3.5 text-slate-500" />
                 <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}
+                  aria-label="Filter leads by status"
                   className="rounded-xl border border-white/10 bg-[#0F1C32] px-3 py-2.5 text-[12px] text-white outline-none">
                   <option value="all">All Status</option>
                   <option value="new">New</option>

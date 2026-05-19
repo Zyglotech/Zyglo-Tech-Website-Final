@@ -115,6 +115,7 @@ export function AcademyEnrollForm() {
           <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-widest text-slate-500">Interested Course</label>
           <select
             name="track" value={form.track} onChange={update}
+            aria-label="Select a course"
             className="w-full rounded-xl border border-white/10 bg-[#0B1424] px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-400/50"
           >
             <option value="">Select a course…</option>

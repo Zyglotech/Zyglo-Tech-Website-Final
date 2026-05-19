@@ -201,6 +201,7 @@ export default function DemoPage() {
                   required
                   value={form.service}
                   onChange={(e) => setForm({ ...form, service: e.target.value })}
+                  aria-label="Select a service"
                   className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-3 text-[14px] text-white outline-none transition focus:border-cyan-400/40 focus:ring-1 focus:ring-cyan-400/20">
                   <option value="" disabled>Select a service...</option>
                   {services.map((s) => (
@@ -214,6 +215,7 @@ export default function DemoPage() {
                 <select
                   value={form.budget}
                   onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                  aria-label="Select a budget range"
                   className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-3 text-[14px] text-white outline-none transition focus:border-cyan-400/40 focus:ring-1 focus:ring-cyan-400/20">
                   <option value="">Select a range (optional)</option>
                   <option value="under-25k">Under ₹25,000</option>

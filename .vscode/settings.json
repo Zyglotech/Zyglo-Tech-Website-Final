@@ -1,0 +1,18 @@
+{
+  "css.lint.compatibleVendorPrefixes": "ignore",
+  "css.lint.vendorPrefix": "ignore",
+  "css.lint.universalSelector": "ignore",
+  "css.lint.important": "ignore",
+  "html.validate.styles": false,
+  "html.validate.scripts": false,
+  "[html]": {
+    "editor.defaultFormatter": null
+  },
+  "search.exclude": {
+    ".next": true,
+    "node_modules": true
+  },
+  "files.exclude": {
+    ".next": false
+  }
+}
