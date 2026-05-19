@@ -1,0 +1,28 @@
+{
+  "name": "Zyglo Tech Enterprise",
+  "short_name": "Zyglo",
+  "description": "India's leading AI & IT enterprise platform. AI chatbots, ERP, automation, and web development.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060B17",
+  "theme_color": "#06CCE8",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/zyglo-logo/logo-black.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/services/college-projects',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'College & Institution Projects | Zyglo Tech',
+    description: 'Academic and final-year project delivery for engineering colleges in India.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/services/college-projects' },
 };
 
@@ -19,7 +24,7 @@ export default function CollegeProjectsPage() {
     <PageShell
       division="IT"
       title="College & Institution Projects"
-      description="Innovative academic, IoT, AI, and software projects for students and institutions. We deliver final-year engineering projects, research prototypes, and institution-level software systems — with full documentation, source code, and presentation support."
+      description="College project development provides students and institutions with professionally built final-year engineering projects, IoT prototypes, AI/ML research models, and institution-level software systems — delivered with full documentation, source code, and presentation support."
       features={[
         'Final-year BE/BTech/MCA/MBA project delivery',
         'IoT solutions with hardware & firmware',
@@ -31,6 +36,9 @@ export default function CollegeProjectsPage() {
         'College department-level software systems',
       ]}
       cta={{ label: 'Enquire About Project Help', href: '/contact' }}
+      servicePath="/services/college-projects"
+      serviceCategory="Academic Project Development"
     />
   );
 }
+

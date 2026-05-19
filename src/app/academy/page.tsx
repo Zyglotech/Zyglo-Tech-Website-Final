@@ -5,6 +5,18 @@ import { AcademyEnrollForm } from './AcademyEnrollForm';
 export const metadata: Metadata = {
   title: 'Zyglo Academy — IT & AI Courses',
   description: 'India\'s most complete AI & IT learning platform. 20 structured courses — from Web Development to AI Agents. Job-ready, certification-backed, mentorship-driven.',
+  keywords: ['AI courses India', 'IT courses Chennai', 'AI training', 'web development course', 'AI agent course', 'LLM course India'],
+  openGraph: {
+    title: 'Zyglo Academy — IT & AI Courses | Zyglo Tech Enterprise',
+    description: '20 structured courses — from Web Development to AI Agents. Job-ready, certification-backed, mentorship-driven.',
+    url: 'https://www.zyglo.tech/academy',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zyglo Academy — IT & AI Courses',
+    description: '20 structured AI & IT courses. Job-ready, certification-backed, mentorship-driven.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/academy' },
 };
 

@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/services/web-development',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Website Development for Indian Businesses | Zyglo Tech',
+    description: 'Modern, fast and conversion-focused websites for Indian businesses.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/services/web-development' },
 };
 
@@ -19,7 +24,7 @@ export default function WebDevelopmentPage() {
     <PageShell
       division="IT"
       title="Website Development"
-      description="Modern, responsive, and high-performance websites tailored for your business. We design and build websites that look world-class, load fast, and convert visitors into customers — from landing pages to full SaaS web applications."
+      description="Website development is the process of designing, building, and maintaining high-performance websites and web applications tailored for your business goals. We create modern, responsive sites that look world-class, load fast, and convert visitors into customers — from landing pages to full SaaS web applications."
       features={[
         'Business websites, landing pages & portfolios',
         'SaaS web application development',
@@ -31,6 +36,8 @@ export default function WebDevelopmentPage() {
         'Ongoing hosting support and maintenance',
       ]}
       cta={{ label: 'Get Website Quote', href: '/demo' }}
+      servicePath="/services/web-development"
+      serviceCategory="Website Development"
     />
   );
 }

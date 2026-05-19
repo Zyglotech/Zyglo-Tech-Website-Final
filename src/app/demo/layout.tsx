@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/demo',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Book Free Consultation | Zyglo Tech Enterprise',
+    description: 'Free 30-minute live demo — AI chatbots, ERP, automation and web development.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/demo' },
 };
 

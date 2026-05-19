@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/services/workflow-automation',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Workflow Automation for Indian Businesses | Zyglo Tech',
+    description: 'Automate invoices, approvals, HR processes and data pipelines.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/services/workflow-automation' },
 };
 
@@ -19,7 +24,7 @@ export default function WorkflowAutomationPage() {
     <PageShell
       division="AI"
       title="Workflow Automation"
-      description="Smart automation systems that eliminate repetitive tasks and boost productivity. We build intelligent workflows that connect your tools, automate manual processes, and free your team to focus on high-value work — not busywork."
+      description="Workflow automation is the use of intelligent software to eliminate repetitive manual tasks and boost operational efficiency. We build smart automation systems that connect your tools, automate approvals, invoicing, HR processes, and data pipelines — freeing your team to focus on high-value work."
       features={[
         'End-to-end business process automation',
         'API integrations across tools & platforms',
@@ -31,6 +36,9 @@ export default function WorkflowAutomationPage() {
         'Zero-code and custom-code hybrid builds',
       ]}
       cta={{ label: 'Automate My Business Processes', href: '/demo' }}
+      servicePath="/services/workflow-automation"
+      serviceCategory="Business Process Automation"
     />
   );
 }
+

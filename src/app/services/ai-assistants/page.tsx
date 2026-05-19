@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/services/ai-assistants',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Personal & Business AI Assistants | Zyglo Tech',
+    description: 'AI assistants trained on your data — answering questions, drafting emails, generating reports.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/services/ai-assistants' },
 };
 
@@ -19,7 +24,7 @@ export default function AIAssistantsPage() {
     <PageShell
       division="AI"
       title="Personal & Business AI Assistants"
-      description="Intelligent AI assistants to manage tasks, data, communication, and daily operations. We build custom AI assistants trained on your business data — capable of answering questions, generating reports, drafting responses, and streamlining daily workflows."
+      description="An AI assistant is a custom-trained artificial intelligence agent that can manage tasks, answer questions from your internal knowledge base, draft communications, and automate daily workflows. We build AI assistants trained on your business data — capable of generating reports, summarising meetings, and streamlining operations."
       features={[
         'Custom AI assistant trained on your business data',
         'Natural language queries over your documents & ERP',
@@ -31,6 +36,9 @@ export default function AIAssistantsPage() {
         'Role-specific assistants for sales, HR, finance teams',
       ]}
       cta={{ label: 'Build My AI Assistant', href: '/demo' }}
+      servicePath="/services/ai-assistants"
+      serviceCategory="AI Assistant Development"
     />
   );
 }
+

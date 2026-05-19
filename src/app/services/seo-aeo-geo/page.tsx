@@ -1,11 +1,27 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CheckCircle2, Search, Bot, Globe, TrendingUp, Zap, Shield, BarChart3, MessageCircle } from 'lucide-react';
 import { FaqAccordion } from '@/components/FaqAccordion';
+import { FaqSchema } from '@/components/FaqSchema';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { ServiceSchema } from '@/components/ServiceSchema';
 
 export const metadata: Metadata = {
   title: 'SEO, AEO & GEO Ranking Services',
   description: 'AI-powered SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO) — rank on Google, ChatGPT, Gemini & Perplexity. Built from India, for the world.',
+  keywords: ['SEO services India', 'AEO optimization', 'GEO optimization', 'AI search optimization', 'ChatGPT ranking', 'Featured Snippets India', 'Perplexity optimization'],
+  openGraph: {
+    title: 'SEO, AEO & GEO Ranking Services | Zyglo Tech Enterprise',
+    description: 'Rank on Google, ChatGPT, Gemini & Perplexity with AI-powered SEO, AEO, and GEO strategies.',
+    url: 'https://www.zyglo.tech/services/seo-aeo-geo',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SEO, AEO & GEO Ranking Services | Zyglo Tech',
+    description: 'Rank on Google, ChatGPT, Gemini & Perplexity with AI-powered SEO, AEO, and GEO strategies.',
+  },
+  alternates: { canonical: 'https://www.zyglo.tech/services/seo-aeo-geo' },
 };
 
 const stats = [
@@ -196,6 +212,13 @@ const tools = [
 export default function SeoAeoGeoPage() {
   return (
     <main className="min-h-screen" style={{ background: '#060B17' }}>
+      <FaqSchema faqs={faqs} />
+      <ServiceSchema
+        name="SEO, AEO & GEO Ranking Services"
+        description="AI-powered SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO) to rank on Google, ChatGPT, Gemini and Perplexity."
+        url="/services/seo-aeo-geo"
+        category="Search Engine Optimization"
+      />
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/[0.06] px-5 py-20 lg:px-8 lg:py-28">
@@ -203,8 +226,9 @@ export default function SeoAeoGeoPage() {
           style={{ background: 'radial-gradient(circle, #06CCE8 0%, #2563EB 50%, transparent 70%)' }} />
 
         <div className="relative mx-auto max-w-7xl">
+          <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'SEO, AEO & GEO' }]} />
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/8 px-4 py-1.5 mb-6">
-            <TrendingUp className="h-3.5 w-3.5 text-cyan-400" />
+            <TrendingUp className="h-3.5 w-3.5 text-cyan-400" aria-hidden="true" />
             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-400">AI Services Division</span>
           </div>
 

@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/services/google-business',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Google Business Setup & Local SEO | Zyglo Tech',
+    description: 'Rank on Google Maps and drive local walk-ins. Expert Google Business setup.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/services/google-business' },
 };
 
@@ -19,7 +24,7 @@ export default function GoogleBusinessPage() {
     <PageShell
       division="IT"
       title="Google Business Setup & Local SEO"
-      description="Professional Google Business setup, optimisation, and local SEO for maximum visibility. We help your business rank on Google Maps, appear in local search results, and build a credible online presence that drives walk-ins and enquiries."
+      description="Google Business Profile (formerly Google My Business) is a free tool by Google that lets businesses manage their online presence across Google Search and Maps. We provide professional setup, optimisation, and local SEO services to help your business rank higher, appear in local search results, and drive walk-ins and enquiries."
       features={[
         'Google Business Profile setup & verification',
         'Business category & attribute optimisation',
@@ -31,6 +36,9 @@ export default function GoogleBusinessPage() {
         'Monthly performance reporting',
       ]}
       cta={{ label: 'Setup My Google Business', href: '/demo' }}
+      servicePath="/services/google-business"
+      serviceCategory="Google Business Profile Management"
     />
   );
 }
+

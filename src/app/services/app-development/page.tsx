@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/services/app-development',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'App Development — Android, iOS & Cross-Platform | Zyglo Tech',
+    description: 'Custom Android, iOS and Flutter apps built for Indian businesses.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/services/app-development' },
 };
 
@@ -19,7 +24,7 @@ export default function AppDevelopmentPage() {
     <PageShell
       division="IT"
       title="App Development"
-      description="Custom Android, iOS, and cross-platform applications built for growth. We design and develop mobile apps that deliver seamless user experiences, integrate with your existing systems, and scale with your business."
+      description="App development is the process of creating mobile applications for Android, iOS, and cross-platform environments tailored to your business needs. We design and develop apps that deliver seamless user experiences, integrate with your existing systems, and scale with your business."
       features={[
         'Native Android & iOS development',
         'Cross-platform apps with Flutter & React Native',
@@ -31,6 +36,9 @@ export default function AppDevelopmentPage() {
         'Offline-first architecture for low-connectivity areas',
       ]}
       cta={{ label: 'Request App Development Quote', href: '/demo' }}
+      servicePath="/services/app-development"
+      serviceCategory="Mobile App Development"
     />
   );
 }
+

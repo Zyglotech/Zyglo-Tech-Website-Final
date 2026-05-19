@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/contact',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Zyglo Tech Enterprise | Chennai',
+    description: 'Reach our Chennai team for AI chatbots, ERP, automation and web development enquiries.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/contact' },
 };
 

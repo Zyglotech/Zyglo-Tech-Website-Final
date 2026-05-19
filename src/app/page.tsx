@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -18,8 +18,8 @@ import { ClientLogos } from '@/components/ClientLogos';
 /* ─────────────────────── DATA ─────────────────────────────── */
 
 const stats = [
-  { value: '50+', label: 'Businesses Served', icon: Building2 },
-  { value: '100+', label: 'Students Trained', icon: GraduationCap },
+  { value: '500+', label: 'Businesses Served', icon: Building2 },
+  { value: '1,200+', label: 'Students Trained', icon: GraduationCap },
   { value: '99.9%', label: 'Platform Uptime', icon: Shield },
   { value: '100+', label: 'Free Consultations', icon: Award },
 ];
@@ -259,7 +259,7 @@ export default function HomePage() {
               {/* Trust badges */}
               <div style={{ animationDelay: '320ms' }} className="hero-child mt-10 flex flex-wrap gap-3">
                 {[
-                  { label: '50+ Businesses', icon: Building2 },
+                  { label: '500+ Businesses', icon: Building2 },
                   { label: 'GST-Ready ERP', icon: Shield },
                   { label: 'WhatsApp AI Bots', icon: Bot },
                   { label: 'Chennai HQ', icon: MapPin },
@@ -660,7 +660,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8 mb-8 text-center">
           <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-slate-600 mb-3">Trusted across industries</p>
           <p className="text-[22px] sm:text-[28px] font-black text-white tracking-tight">
-            <span style={{ color: '#06CCE8' }}>50+</span> businesses run on Zyglo
+            <span style={{ color: '#06CCE8' }}>500+</span> businesses run on Zyglo
           </p>
           <p className="mt-2 text-[13px] text-slate-500">From Chennai startups to pan-India enterprises — across retail, healthcare, logistics, and more.</p>
         </div>
@@ -1107,7 +1107,7 @@ export default function HomePage() {
               Let's build intelligent solutions that drive your business into the future.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[16px] text-slate-400">
-              Join 50+ businesses across India that trust Zyglo Tech Enterprise to deliver technology that works — on time, on budget, and built for growth.
+              Join 500+ businesses across India that trust Zyglo Tech Enterprise to deliver technology that works — on time, on budget, and built for growth.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/demo" className="btn-primary text-[15px] px-10 py-4">

@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/services/ai-agents',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Sales & Lead Qualification Agents | Zyglo Tech',
+    description: 'Deploy AI agents that qualify leads and convert them — 24/7, zero manual effort.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/services/ai-agents' },
 };
 
@@ -19,7 +24,7 @@ export default function AISalesAgentsPage() {
     <PageShell
       division="AI"
       title="AI Sales & Lead Qualification Agents"
-      description="Automated AI agents that engage, qualify, and convert leads into valuable customers. Our AI sales agents work 24/7 — responding to enquiries, scoring leads, personalising follow-ups, and pushing qualified prospects directly into your CRM."
+      description="An AI sales agent is an autonomous software system that uses artificial intelligence to engage, qualify, and convert leads into valuable customers — 24/7 without manual intervention. Our AI agents respond to enquiries, score leads, personalise follow-ups, and push qualified prospects directly into your CRM."
       features={[
         'Automated lead capture from web, WhatsApp & social',
         'AI-powered lead scoring and qualification',
@@ -31,6 +36,9 @@ export default function AISalesAgentsPage() {
         'Conversion analytics and A/B testing',
       ]}
       cta={{ label: 'Deploy AI Sales Agent', href: '/demo' }}
+      servicePath="/services/ai-agents"
+      serviceCategory="AI Sales Agent Development"
     />
   );
 }
+

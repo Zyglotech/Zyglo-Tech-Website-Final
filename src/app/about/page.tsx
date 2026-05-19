@@ -1,10 +1,23 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, MessageCircle, Building2, GraduationCap, Shield, Award, Rocket, Heart, Globe, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Zyglo Tech Enterprise | Chennai AI & IT Company',
   description: 'Founded in Chennai by Vignesh & Gokul Raaj SS. Zyglo Tech builds AI chatbots, ERP systems, and automation for 500+ Indian businesses.',
+  keywords: ['about Zyglo Tech', 'Chennai IT company', 'AI company India', 'Zyglo Tech founders', 'Vignesh Zyglo', 'Gokul Raaj'],
+  openGraph: {
+    title: 'About Zyglo Tech Enterprise | Chennai AI & IT Company',
+    description: 'Founded in Chennai by Vignesh & Gokul Raaj SS. AI chatbots, ERP systems, and automation for 500+ Indian businesses.',
+    url: 'https://www.zyglo.tech/about',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Zyglo Tech Enterprise',
+    description: 'Founded in Chennai. AI chatbots, ERP systems, and automation for 500+ Indian businesses.',
+  },
+  alternates: { canonical: 'https://www.zyglo.tech/about' },
 };
 
 const timeline = [

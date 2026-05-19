@@ -4,6 +4,7 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
+import { HomeSchema } from './home-schema';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -48,10 +49,17 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   alternates: { canonical: 'https://www.zyglo.tech' },
-  icons: { icon: '/favicon.ico' },
-  verification: {
-    google: 'zyglo-google-site-verification',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',
+  },
+  manifest: '/manifest.json',
 };
 
 export const viewport: Viewport = {
@@ -80,9 +88,10 @@ const organizationSchema = {
       email: 'zyglotech@gmail.com',
       address: {
         '@type': 'PostalAddress',
+        streetAddress: '4th Floor, Tidel Park, No.4, Rajiv Gandhi Salai, Taramani',
         addressLocality: 'Chennai',
         addressRegion: 'Tamil Nadu',
-        postalCode: '600001',
+        postalCode: '600113',
         addressCountry: 'IN',
       },
       geo: {
@@ -123,6 +132,10 @@ const organizationSchema = {
         'https://twitter.com/zyglotech',
         'https://linkedin.com/company/zyglotech',
         'https://wa.me/919943907643',
+        'https://instagram.com/zyglotech',
+        'https://www.youtube.com/@zyglotech',
+        'https://github.com/zyglotech',
+        'https://www.facebook.com/zyglotech',
       ],
       openingHoursSpecification: {
         '@type': 'OpeningHoursSpecification',
@@ -160,6 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        <HomeSchema />
         <Navbar />
         <main>{children}</main>
         <Footer />

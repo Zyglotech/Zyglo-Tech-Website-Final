@@ -1,5 +1,7 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { ServiceSchema } from '@/components/ServiceSchema';
 
 interface PageShellProps {
   division?: 'IT' | 'AI';
@@ -8,28 +10,39 @@ interface PageShellProps {
   description: string;
   cta?: { label: string; href: string };
   features?: string[];
+  /** URL path for this service page (e.g. '/services/ai-chatbots') — used for Service schema */
+  servicePath?: string;
+  /** Service category for schema (e.g. 'AI Chatbot Development') */
+  serviceCategory?: string;
 }
 
-export function PageShell({ division, label, title, description, cta, features }: PageShellProps) {
+export function PageShell({ division, label, title, description, cta, features, servicePath, serviceCategory }: PageShellProps) {
   const isTech = division === 'IT';
   const accentColor = isTech ? '#3B82F6' : '#06CCE8';
   const accentBg = isTech ? 'rgba(59,130,246,0.08)' : 'rgba(6,204,232,0.08)';
   const accentBorder = isTech ? 'rgba(59,130,246,0.2)' : 'rgba(6,204,232,0.2)';
 
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    ...(division ? [{ label: division === 'IT' ? 'IT Services Division' : 'AI Services Division' }] : []),
+    { label: title },
+  ];
+
   return (
     <div className="mx-auto max-w-5xl px-5 py-12 sm:py-20 lg:px-8">
-      {/* Breadcrumb */}
-      <div className="mb-8 flex items-center gap-2 text-[12px] text-slate-500">
-        <Link href="/" className="transition hover:text-slate-300">Home</Link>
-        <span>/</span>
-        <Link href="/services" className="transition hover:text-slate-300">Services</Link>
-        {division && (
-          <>
-            <span>/</span>
-            <span style={{ color: accentColor }}>{division === 'IT' ? 'IT Services Division' : 'AI Services Division'}</span>
-          </>
-        )}
-      </div>
+      {/* Breadcrumb with structured data */}
+      <Breadcrumb items={breadcrumbItems} />
+
+      {/* Service structured data */}
+      {servicePath && (
+        <ServiceSchema
+          name={title}
+          description={description}
+          url={servicePath}
+          category={serviceCategory}
+        />
+      )}
 
       <div className="rounded-2xl border p-6 sm:p-10" style={{ borderColor: accentBorder, background: '#0B1424' }}>
         {/* Division badge */}
@@ -52,7 +65,7 @@ export function PageShell({ division, label, title, description, cta, features }
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {features.map((f) => (
               <li key={f} className="flex items-start gap-3 text-[14px] text-slate-300">
-                <span className="mt-1 h-4 w-4 shrink-0 text-[10px]" style={{ color: accentColor }}>✓</span>
+                <span className="mt-1 h-4 w-4 shrink-0 text-[10px]" style={{ color: accentColor }} aria-hidden="true">✓</span>
                 {f}
               </li>
             ))}
@@ -65,7 +78,7 @@ export function PageShell({ division, label, title, description, cta, features }
               className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-[14px] font-bold text-[#060B17] transition"
               style={{ background: accentColor }}>
               {cta.label}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
             <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white transition hover:border-white/20">

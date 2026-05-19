@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://www.zyglo.tech/services/erp-solutions',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GST-Ready ERP for Indian Businesses | Zyglo Tech',
+    description: 'Unified ERP covering finance, inventory, HR and CRM. Built for Indian GST compliance.',
+  },
   alternates: { canonical: 'https://www.zyglo.tech/services/erp-solutions' },
 };
 
@@ -19,7 +24,7 @@ export default function ERPSolutionsPage() {
     <PageShell
       division="IT"
       title="ERP Setup & Customization"
-      description="End-to-end ERP solutions customised to streamline your business operations. Our ERP platform is GST-ready, built for Indian compliance, and unifies finance, inventory, HR, CRM and billing into a single real-time dashboard — accessible from anywhere."
+      description="ERP (Enterprise Resource Planning) is a unified software platform that integrates finance, inventory, HR, CRM and billing into a single real-time dashboard. Our ERP solutions are GST-ready, built for Indian compliance, and streamline your business operations — accessible from anywhere."
       features={[
         'Finance management & automated GST-ready invoicing',
         'Inventory tracking with low-stock alerts',
@@ -33,6 +38,9 @@ export default function ERPSolutionsPage() {
         'Mobile-friendly dashboard and app',
       ]}
       cta={{ label: 'Get ERP Demo', href: '/demo' }}
+      servicePath="/services/erp-solutions"
+      serviceCategory="ERP Software Solutions"
     />
   );
 }
+
