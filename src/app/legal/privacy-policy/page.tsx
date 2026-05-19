@@ -1,0 +1,317 @@
+import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Zyglo Tech Enterprise',
+  description: 'Read how Zyglo Tech Enterprise collects, uses, stores, and protects your personal data across our websites and services.',
+};
+
+const sections = [
+  {
+    id: 'introduction',
+    title: '1. Introduction',
+    content: [
+      'Zyglo Tech Enterprise Pvt. Ltd. ("Zyglo," "we," "us," or "our") is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, share, and safeguard information when you visit our website (www.zyglo.tech), use our digital products, engage our services, or interact with us in any way.',
+      'We are headquartered in Chennai, Tamil Nadu, India, and our practices comply with the Digital Personal Data Protection Act, 2023 (DPDPA) of India, and where applicable, internationally recognized data protection standards.',
+      'By using our services or submitting your information, you acknowledge that you have read and understood this Policy. If you do not agree with any part of this Policy, please discontinue use of our services.',
+    ],
+  },
+  {
+    id: 'information-we-collect',
+    title: '2. Information We Collect',
+    subsections: [
+      {
+        subtitle: '2.1 Information You Provide Directly',
+        items: [
+          'Contact details — name, email address, phone number, company name, and designation provided through contact forms, project enquiry forms, or academy enrollment forms.',
+          'Account credentials — username and password when you register for a Zyglo platform or academy account.',
+          'Payment information — billing name, address, and transaction references (we do not store full card numbers; payments are processed through certified payment gateways).',
+          'Project materials — files, documents, brand assets, content, and any other data you share with us to enable service delivery.',
+          'Communications — messages, emails, and WhatsApp conversations you initiate with our team.',
+        ],
+      },
+      {
+        subtitle: '2.2 Information Collected Automatically',
+        items: [
+          'Usage data — pages visited, time spent, links clicked, and navigation paths on our website.',
+          'Device and browser data — IP address, browser type and version, operating system, screen resolution, and device identifiers.',
+          'Referral data — the URL that referred you to our site and search terms used.',
+          'Log data — server logs including access times, error reports, and diagnostic information.',
+        ],
+      },
+      {
+        subtitle: '2.3 Information from Third Parties',
+        items: [
+          'Social media profiles — if you connect or interact with us via LinkedIn, Instagram, or X (Twitter).',
+          'Analytics providers — aggregated and anonymized data from tools like Google Analytics that help us understand website performance.',
+          'Business partners — contact information shared by referral partners or collaborators who believe our services may benefit you.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'how-we-use',
+    title: '3. How We Use Your Information',
+    content: [
+      'We use the information we collect for the following purposes:',
+    ],
+    bullets: [
+      'Service delivery — to fulfil project work, provide access to platforms, and deliver academy content you have purchased or enrolled in.',
+      'Communication — to respond to enquiries, send project updates, provide support, and share relevant service information.',
+      'Billing & payments — to process invoices, verify transactions, and manage payment records.',
+      'Improvement — to analyze usage patterns, identify bugs, and improve the quality, performance, and design of our services.',
+      'Marketing — to send newsletters, promotional offers, and event invitations where you have consented or where we have a legitimate interest. You may opt out at any time.',
+      'Legal compliance — to comply with applicable laws, court orders, regulatory requirements, or to enforce our Terms of Service.',
+      'Security — to detect, prevent, and respond to fraud, abuse, security incidents, and other potentially harmful activities.',
+    ],
+  },
+  {
+    id: 'legal-basis',
+    title: '4. Legal Basis for Processing',
+    content: [
+      'We process your personal data under the following legal bases:',
+    ],
+    bullets: [
+      'Consent — when you voluntarily provide your data through forms, subscriptions, or communications, and where we ask for your explicit consent.',
+      'Contractual necessity — when processing is required to fulfil a project agreement or service contract between you and Zyglo.',
+      'Legitimate interests — for analytics, improving our services, and certain marketing activities, where our interests do not override your fundamental rights.',
+      'Legal obligation — where we are required by law, regulation, or court order to process your data.',
+    ],
+  },
+  {
+    id: 'sharing',
+    title: '5. Information Sharing & Disclosure',
+    content: [
+      'We do not sell, rent, or trade your personal information to third parties. We may share your information only in the following circumstances:',
+    ],
+    bullets: [
+      'Service providers — trusted vendors who assist us in operating our business (e.g., cloud hosting providers, payment processors, email delivery platforms, analytics tools). These parties are contractually bound to use your data only for the purposes we specify.',
+      'Business transfers — in the event of a merger, acquisition, restructuring, or sale of our business, your information may be transferred as part of the transaction. We will notify you before your data is subject to a different Privacy Policy.',
+      'Legal requirements — when we are compelled by law, subpoena, court order, or governmental authority, or when we believe disclosure is necessary to protect the rights, property, or safety of Zyglo, our clients, or the public.',
+      'With your consent — in any other situation where we have your explicit consent to share.',
+    ],
+  },
+  {
+    id: 'retention',
+    title: '6. Data Retention',
+    content: [
+      'We retain personal data for as long as necessary to fulfil the purposes described in this Policy, or as required by applicable law. The retention periods we apply are:',
+    ],
+    bullets: [
+      'Client project data — retained for a minimum of 5 years after project completion for accounting, audit, and legal purposes.',
+      'Contact and enquiry data — retained for up to 2 years from the date of last contact, unless you request earlier deletion.',
+      'Academy and course data — retained for the duration of your enrollment and for up to 3 years thereafter for certification verification.',
+      'Marketing data — retained until you withdraw consent or unsubscribe, after which it is deleted within 30 days.',
+      'Server logs — automatically purged on a rolling 90-day cycle.',
+    ],
+  },
+  {
+    id: 'your-rights',
+    title: '7. Your Rights & Choices',
+    content: [
+      'Under the Digital Personal Data Protection Act, 2023 (DPDPA) and other applicable laws, you have the following rights regarding your personal data:',
+    ],
+    bullets: [
+      'Right to access — request a copy of the personal data we hold about you.',
+      'Right to correction — request that we correct inaccurate or incomplete data.',
+      'Right to erasure — request deletion of your personal data, subject to our legal retention obligations.',
+      'Right to withdraw consent — withdraw consent for data processing at any time without affecting the lawfulness of prior processing.',
+      'Right to grievance redressal — raise a complaint with our designated Data Protection Officer.',
+      'Right to nominate — nominate another individual to exercise your rights on your behalf in the event of incapacity or death, as provided under the DPDPA.',
+    ],
+    footer: 'To exercise any of these rights, contact us at zyglotech@gmail.com with the subject line "Data Privacy Request." We will respond within 30 days.',
+  },
+  {
+    id: 'security',
+    title: '8. Data Security',
+    content: [
+      'We implement industry-standard technical and organizational security measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. These include:',
+    ],
+    bullets: [
+      'Encrypted data transmission using HTTPS/TLS across all our web properties.',
+      'Access controls — data is accessible only to authorized personnel on a need-to-know basis.',
+      'Regular security assessments and vulnerability scanning of our systems.',
+      'Secure payment processing through PCI-DSS compliant payment gateways.',
+    ],
+    footer: 'Despite our best efforts, no method of transmission over the internet or electronic storage is completely secure. In the event of a data breach that is likely to result in risk to your rights and freedoms, we will notify you and relevant authorities as required by law.',
+  },
+  {
+    id: 'third-party',
+    title: '9. Third-Party Services & Links',
+    content: [
+      'Our website and services may contain links to third-party websites, tools, or integrations (e.g., Google Maps, payment portals, social media platforms). This Privacy Policy does not apply to those third-party services. We encourage you to review the privacy policies of any third-party services you access through us.',
+      'We are not responsible for the privacy practices or content of external sites or services. Interaction with third-party services is at your own discretion and risk.',
+    ],
+  },
+  {
+    id: 'children',
+    title: '10. Children\'s Privacy',
+    content: [
+      'Our services are not directed at children under the age of 18. We do not knowingly collect personal data from minors. If we learn that we have inadvertently collected personal data from a child under 18, we will delete it promptly.',
+      'If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at zyglotech@gmail.com.',
+    ],
+  },
+  {
+    id: 'transfers',
+    title: '11. International Data Transfers',
+    content: [
+      'Zyglo is based in India and primarily processes data within India. Some of our third-party service providers (e.g., cloud infrastructure, analytics platforms) may be located outside India. When transferring personal data internationally, we ensure appropriate safeguards are in place in compliance with applicable Indian data protection laws.',
+      'By using our services, you acknowledge that your information may be transferred to, stored, and processed in countries outside your country of residence.',
+    ],
+  },
+  {
+    id: 'changes',
+    title: '12. Changes to This Policy',
+    content: [
+      'We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or services. When we make material changes, we will update the "Last updated" date at the top of this page and, where appropriate, notify you by email or a prominent notice on our website.',
+      'We encourage you to review this Policy periodically to stay informed about how we protect your data. Your continued use of our services after any changes constitutes your acceptance of the updated Policy.',
+    ],
+  },
+  {
+    id: 'contact',
+    title: '13. Contact & Grievance Officer',
+    content: [
+      'If you have any questions, concerns, or complaints regarding this Privacy Policy or the handling of your personal data, please contact our Data Protection / Grievance Officer:',
+    ],
+    contactBlock: {
+      name: 'Zyglo Tech Enterprise Pvt. Ltd.',
+      role: 'Data Protection & Grievance Officer',
+      email: 'zyglotech@gmail.com',
+      phone: '+91 9943 907 643',
+      address: 'Chennai, Tamil Nadu, India',
+    },
+  },
+];
+
+export default function PrivacyPolicyPage() {
+  return (
+    <div className="min-h-screen" style={{ background: '#060B17' }}>
+      <div className="mx-auto max-w-4xl px-5 py-16 lg:px-8 lg:py-24">
+
+        {/* Breadcrumb */}
+        <div className="mb-10 flex items-center gap-2 text-[12px] text-slate-500">
+          <Link href="/" className="transition hover:text-slate-300">Home</Link>
+          <span>/</span>
+          <span style={{ color: '#06CCE8' }}>Privacy Policy</span>
+        </div>
+
+        {/* Header */}
+        <div className="mb-12 border-b border-white/[0.07] pb-10">
+          <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: '#06CCE8' }}>
+            Legal · Zyglo Tech Enterprise
+          </p>
+          <h1 className="text-[32px] font-black tracking-tight text-white sm:text-[44px] lg:text-[52px]">
+            Privacy Policy
+          </h1>
+          <p className="mt-5 max-w-2xl text-[15px] leading-7 text-slate-400">
+            Your privacy matters to us. This Policy explains what personal data we collect, why we collect it, how we use it, and the choices you have over your information.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-6 text-[12px] text-slate-500">
+            <span>Effective date: <span className="text-slate-300">1 January 2026</span></span>
+            <span>Last updated: <span className="text-slate-300">17 May 2026</span></span>
+            <span>Jurisdiction: <span className="text-slate-300">India (DPDPA 2023)</span></span>
+          </div>
+        </div>
+
+        {/* Table of Contents */}
+        <div className="mb-12 rounded-2xl border border-white/[0.07] p-6" style={{ background: '#0B1424' }}>
+          <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.18em]" style={{ color: '#06CCE8' }}>
+            Table of Contents
+          </p>
+          <ol className="grid gap-y-2 sm:grid-cols-2">
+            {sections.map((s) => (
+              <li key={s.id}>
+                <a href={`#${s.id}`} className="text-[13px] text-slate-400 transition hover:text-cyan-400">
+                  {s.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        {/* Sections */}
+        <div className="space-y-12">
+          {sections.map((s) => (
+            <section key={s.id} id={s.id} className="scroll-mt-24">
+              <h2 className="mb-5 text-[18px] font-bold text-white sm:text-[21px]">{s.title}</h2>
+
+              {s.content?.map((para, i) => (
+                <p key={i} className="mb-4 text-[14px] leading-7 text-slate-400">{para}</p>
+              ))}
+
+              {s.subsections?.map((sub) => (
+                <div key={sub.subtitle} className="mb-6">
+                  <h3 className="mb-3 text-[14px] font-semibold text-white">{sub.subtitle}</h3>
+                  <ul className="space-y-2.5">
+                    {sub.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-[14px] leading-6 text-slate-400">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: '#06CCE8' }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+
+              {s.bullets && (
+                <ul className="mb-4 space-y-2.5">
+                  {s.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[14px] leading-6 text-slate-400">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: '#06CCE8' }} />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {s.footer && (
+                <p className="mt-4 text-[13.5px] leading-7 text-slate-500 italic">{s.footer}</p>
+              )}
+
+              {s.contactBlock && (
+                <div className="mt-4 rounded-xl border border-white/[0.07] p-5 text-[13.5px] leading-7 text-slate-400" style={{ background: '#0B1424' }}>
+                  <p className="font-semibold text-white">{s.contactBlock.name}</p>
+                  <p>{s.contactBlock.role}</p>
+                  <p>Email: <a href={`mailto:${s.contactBlock.email}`} className="text-cyan-400 hover:underline">{s.contactBlock.email}</a></p>
+                  <p>Phone: <a href="tel:+919943907643" className="text-cyan-400 hover:underline">{s.contactBlock.phone}</a></p>
+                  <p>Address: {s.contactBlock.address}</p>
+                </div>
+              )}
+            </section>
+          ))}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="mt-16 rounded-2xl border border-white/[0.08] p-8 text-center" style={{ background: '#0B1424' }}>
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#06CCE8' }}>Data Privacy Requests</p>
+          <p className="mx-auto mt-3 max-w-md text-[14px] text-slate-400">
+            To access, correct, or delete your data — or for any privacy-related queries — reach out to us directly.
+          </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="mailto:zyglotech@gmail.com"
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[13px] font-bold text-[#060B17] transition"
+              style={{ background: '#06CCE8' }}
+            >
+              zyglotech@gmail.com
+            </a>
+            <a
+              href="https://wa.me/919943907643"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-[13px] font-medium text-white transition hover:border-white/20"
+            >
+              💬 WhatsApp: +91 9943 907 643
+            </a>
+          </div>
+        </div>
+
+        {/* Related */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-[12px] text-slate-500">
+          <Link href="/legal/terms-of-service" className="transition hover:text-cyan-400">Terms of Service</Link>
+        </div>
+
+      </div>
+    </div>
+  );
+}

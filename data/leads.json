@@ -1,0 +1,53 @@
+[
+  {
+    "id": "8c958d4e-aa8e-48e9-bb55-d2568a348d62",
+    "type": "lead",
+    "name": "Vignesh A",
+    "email": "vigneshalagesan2004@gmail.com",
+    "phone": "9943907643",
+    "company": "Igo",
+    "service": "ai-sales-agent",
+    "budget": "25k-50k",
+    "source": "demo-page",
+    "status": "new",
+    "createdAt": "2026-05-17T17:11:32.365Z"
+  },
+  {
+    "id": "de0c5da6-a52d-47a5-ac14-2eb382a6aa05",
+    "type": "contact",
+    "name": "Test Lead",
+    "email": "zyglotech@gmail.com",
+    "phone": "+91 9999999999",
+    "company": "Test Co",
+    "message": "This is a test enquiry to verify email delivery is working correctly.",
+    "source": "contact-form",
+    "status": "new",
+    "createdAt": "2026-05-17T15:12:52.439Z"
+  },
+  {
+    "id": "aac898c4-b931-4430-b283-eb8de79bdaad",
+    "type": "lead",
+    "name": "John Doe",
+    "email": "test@example.com",
+    "phone": "+91 9876543210",
+    "company": "",
+    "service": "ai-sales-agent",
+    "budget": "",
+    "source": "demo-page",
+    "status": "new",
+    "createdAt": "2026-05-17T15:02:58.510Z"
+  },
+  {
+    "id": "a0c3e67c-3200-4e16-9898-90a8ffb067e9",
+    "type": "lead",
+    "name": "gokul",
+    "email": "gokulraajgm@gmail.com",
+    "phone": "6369974037",
+    "company": "igo",
+    "service": "seo-aeo-geo",
+    "budget": "under-25k",
+    "source": "demo-page",
+    "status": "new",
+    "createdAt": "2026-05-17T14:40:41.091Z"
+  }
+]

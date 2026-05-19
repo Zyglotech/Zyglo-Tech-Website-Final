@@ -1,0 +1,28 @@
+export function BrandLogo({
+  className,
+}: {
+  className?: string;
+  variant?: 'white' | 'black';
+  alt?: string;
+}) {
+  return (
+    <svg
+      viewBox="0 0 70 70"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="Zyglo logo mark"
+    >
+      <circle cx="19" cy="21" r="8" fill="#06CCE8" />
+      <rect
+        x="-7"
+        y="-24"
+        width="14"
+        height="48"
+        rx="7"
+        fill="#06CCE8"
+        transform="translate(40 40) rotate(38)"
+      />
+    </svg>
+  );
+}
