@@ -4,18 +4,18 @@ import { ArrowRight, CheckCircle2, MessageCircle, Building2, GraduationCap, Shie
 
 export const metadata: Metadata = {
   title: 'About Zyglo Tech Enterprise | Chennai AI & IT Company',
-  description: 'Founded in Chennai by Vignesh & Gokul Raaj SS. Zyglo Tech builds AI chatbots, ERP systems, and automation for 500+ Indian businesses.',
+  description: 'Founded in Chennai by Vignesh & Gokul Raaj SS. Zyglo Tech builds AI chatbots, ERP systems, and automation for 50+ Indian businesses.',
   keywords: ['about Zyglo Tech', 'Chennai IT company', 'AI company India', 'Zyglo Tech founders', 'Vignesh Zyglo', 'Gokul Raaj'],
   openGraph: {
     title: 'About Zyglo Tech Enterprise | Chennai AI & IT Company',
-    description: 'Founded in Chennai by Vignesh & Gokul Raaj SS. AI chatbots, ERP systems, and automation for 500+ Indian businesses.',
+    description: 'Founded in Chennai by Vignesh & Gokul Raaj SS. AI chatbots, ERP systems, and automation for 50+ Indian businesses.',
     url: 'https://www.zyglo.tech/about',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Zyglo Tech Enterprise',
-    description: 'Founded in Chennai. AI chatbots, ERP systems, and automation for 500+ Indian businesses.',
+    description: 'Founded in Chennai. AI chatbots, ERP systems, and automation for 50+ Indian businesses.',
   },
   alternates: { canonical: 'https://www.zyglo.tech/about' },
 };
@@ -24,8 +24,8 @@ const timeline = [
   { year: '2021', title: 'Founded in Chennai', desc: 'Vignesh and Gokul Raaj SS founded Zyglo Tech with a mission to make enterprise AI accessible to every Indian business.' },
   { year: '2022', title: 'First 50 Clients', desc: 'Delivered web platforms, GST-ready ERP and automation solutions to 50+ businesses across Tamil Nadu.' },
   { year: '2023', title: 'AI Division Launch', desc: 'Launched the AI Services Division — bringing WhatsApp chatbots, lead agents, and workflow automation to market.' },
-  { year: '2024', title: '500+ Businesses', desc: 'Crossed 500 businesses served. Launched Zyglo Academy for corporate and student upskilling.' },
-  { year: '2025', title: 'Scale & Expand', desc: 'Expanded to serve clients across India. 35+ enterprise-grade products shipped. 1,200+ students trained.' },
+  { year: '2024', title: '50+ Businesses', desc: 'Crossed 50 businesses served. Launched Zyglo Academy for corporate and student upskilling.' },
+  { year: '2025', title: 'Scale & Expand', desc: 'Expanded to serve clients across India. 35+ enterprise-grade products shipped. 100+ students trained.' },
 ];
 
 const values = [
@@ -66,8 +66,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {[
-              { value: '500+', label: 'Businesses Served', icon: Building2 },
-              { value: '1,200+', label: 'Students Trained', icon: GraduationCap },
+              { value: '50+', label: 'Businesses Served', icon: Building2 },
+              { value: '100+', label: 'Students Trained', icon: GraduationCap },
               { value: '35+', label: 'Products Shipped', icon: Award },
               { value: '99.9%', label: 'Platform Uptime', icon: Shield },
             ].map((s) => (
@@ -164,7 +164,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-14 text-center">
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-400">Our Journey</span>
-            <h2 className="mt-4 text-[34px] font-black tracking-tight text-white">From startup to 500+ clients.</h2>
+            <h2 className="mt-4 text-[34px] font-black tracking-tight text-white">From startup to 50+ clients.</h2>
           </div>
           <div className="relative mx-auto max-w-2xl">
             <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/30 via-blue-400/20 to-transparent" />
@@ -218,7 +218,7 @@ export default function AboutPage() {
             Ready to work with us?
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-[16px] text-slate-400">
-            Join 500+ businesses that trust Zyglo Tech to deliver technology that works — on time, on budget, and built for growth.
+            Join 50+ businesses that trust Zyglo Tech to deliver technology that works — on time, on budget, and built for growth.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/demo" className="btn-primary text-[15px] px-8 py-4">

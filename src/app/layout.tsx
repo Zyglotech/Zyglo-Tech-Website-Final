@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Zyglo Tech Enterprise — AI Chatbots, ERP & Automation for India',
-    description: 'AI chatbots, ERP systems, business automation and web development from Chennai. Trusted by 500+ Indian businesses.',
+    description: 'AI chatbots, ERP systems, business automation and web development from Chennai. Trusted by 50+ Indian businesses.',
     type: 'website',
     url: 'https://www.zyglo.tech',
     siteName: 'Zyglo Tech Enterprise',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Zyglo Tech Enterprise | AI, ERP & Automation',
-    description: 'AI chatbots, ERP and business automation built for India. 500+ businesses trust Zyglo.',
+    description: 'AI chatbots, ERP and business automation built for India. 50+ businesses trust Zyglo.',
     images: ['/og-image.png'],
   },
   alternates: { canonical: 'https://www.zyglo.tech' },
