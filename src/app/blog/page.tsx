@@ -1,94 +1,15 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowRight, Clock, MessageCircle } from 'lucide-react';
+import { blogArticles } from '@/data/blog-articles';
 
 const categories = ['All', 'AI & Automation', 'Web Development', 'ERP & Business', 'SEO & Growth', 'Case Studies'];
 
-const featured = {
-  category: 'AI & Automation',
-  date: 'May 14, 2026',
-  readTime: '8 min read',
-  title: 'How AI Chatbots Are Replacing Traditional Customer Support — And What That Means for Your Business',
-  excerpt: 'WhatsApp AI agents now handle 80% of tier-1 support queries without human intervention. We break down the architecture, cost savings, and how to deploy one for your business in under 2 weeks.',
-  tags: ['AI Chatbots', 'WhatsApp Automation', 'Customer Support'],
-};
+const featured = blogArticles[0];
 
-const articles = [
-  {
-    category: 'SEO & Growth',
-    date: 'May 10, 2026',
-    readTime: '6 min read',
-    title: 'AEO vs SEO: Why Answer Engine Optimization Is the Future of Search',
-    excerpt: 'Google\'s AI Overview and ChatGPT are changing how people find information. Here\'s how to optimize your content to appear in AI-generated answers.',
-    tags: ['AEO', 'SEO', 'AI Search'],
-  },
-  {
-    category: 'ERP & Business',
-    date: 'May 7, 2026',
-    readTime: '5 min read',
-    title: 'Odoo vs SAP for Indian SMEs: A Practical Comparison for 2026',
-    excerpt: 'Cost, customization, GST compliance, and integration capabilities compared — so you can choose the right ERP without the enterprise price tag.',
-    tags: ['ERP', 'Odoo', 'SAP', 'GST'],
-  },
-  {
-    category: 'Web Development',
-    date: 'May 3, 2026',
-    readTime: '7 min read',
-    title: 'Next.js 15 vs Remix: Which Should You Choose for Your Business Website in 2026?',
-    excerpt: 'Performance benchmarks, DX, and real-world case studies from building 30+ client sites. Our honest take on which framework wins for most Indian businesses.',
-    tags: ['Next.js', 'Web Dev', 'Performance'],
-  },
-  {
-    category: 'AI & Automation',
-    date: 'Apr 28, 2026',
-    readTime: '9 min read',
-    title: 'Building a Lead Qualification AI Agent with n8n and GPT-4o: Step-by-Step',
-    excerpt: 'A complete tutorial on building a no-code AI agent that scores inbound leads, sends personalized follow-ups, and books discovery calls — automatically.',
-    tags: ['n8n', 'AI Agents', 'Automation'],
-  },
-  {
-    category: 'SEO & Growth',
-    date: 'Apr 22, 2026',
-    readTime: '5 min read',
-    title: 'GEO: How to Make Your Brand Appear in ChatGPT, Gemini & Perplexity Answers',
-    excerpt: 'Generative Engine Optimization is the newest frontier in digital marketing. This guide explains the signals that make AI models cite your brand.',
-    tags: ['GEO', 'ChatGPT', 'AI Visibility'],
-  },
-  {
-    category: 'Case Studies',
-    date: 'Apr 16, 2026',
-    readTime: '4 min read',
-    title: 'How We Helped a Chennai Clinic Book 3x More Appointments Using WhatsApp AI',
-    excerpt: 'A real case study: deploying a WhatsApp appointment bot for a 12-doctor clinic in Chennai that increased bookings by 210% in 6 weeks.',
-    tags: ['Case Study', 'WhatsApp', 'Healthcare'],
-  },
-  {
-    category: 'AI & Automation',
-    date: 'Apr 9, 2026',
-    readTime: '6 min read',
-    title: 'Workflow Automation 101: 10 Repetitive Tasks Every SME Should Automate Today',
-    excerpt: 'From invoice generation to inventory alerts — the ten workflows that small businesses automate first and the ROI they typically see within 30 days.',
-    tags: ['Automation', 'SME', 'Productivity'],
-  },
-  {
-    category: 'Web Development',
-    date: 'Apr 2, 2026',
-    readTime: '5 min read',
-    title: 'Core Web Vitals 2026: The Only Guide Indian Businesses Need',
-    excerpt: 'LCP, INP, CLS explained in plain English — with concrete fixes for WordPress, Shopify, and custom Next.js sites. Includes a free audit checklist.',
-    tags: ['Core Web Vitals', 'Performance', 'SEO'],
-  },
-  {
-    category: 'ERP & Business',
-    date: 'Mar 25, 2026',
-    readTime: '6 min read',
-    title: 'GST-Ready ERP in 2026: What to Look For and What to Avoid',
-    excerpt: 'After implementing ERP for 40+ businesses, here\'s our honest breakdown of what matters in GST compliance modules — and the common pitfalls we\'ve seen.',
-    tags: ['GST', 'ERP', 'Compliance'],
-  },
-];
+const articles = blogArticles.slice(1);
 
 const colorMap: Record<string, string> = {
   'AI & Automation': '#06CCE8',
@@ -167,17 +88,16 @@ export default function BlogPage() {
                   <Clock className="h-3 w-3" />{featured.readTime}
                 </span>
                 <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2.5 py-0.5 text-[10.5px] font-semibold text-cyan-400">Featured</span>
-                <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-0.5 text-[10.5px] font-semibold text-amber-400">Publishing soon</span>
               </div>
               <h2 className="text-[20px] font-bold leading-snug text-white sm:text-[24px] lg:text-[28px]">
                 {featured.title}
               </h2>
               <p className="mt-3 max-w-3xl text-[14px] leading-7 text-slate-400">{featured.excerpt}</p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link href="/contact"
+                <Link href={`/blog/${featured.slug}`}
                   className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-bold text-[#060B17] transition hover:shadow-[0_0_24px_rgba(6,204,232,0.3)]"
                   style={{ background: '#06CCE8' }}>
-                  Get Notified When Published <ArrowRight className="h-3.5 w-3.5" />
+                  Read Article <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
                 <div className="flex flex-wrap gap-2">
                   {featured.tags.map((t) => (
@@ -199,19 +119,16 @@ export default function BlogPage() {
         ) : (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((article, idx) => (
-              <div key={idx}
-                className="group flex flex-col rounded-2xl border border-white/[0.07] p-5"
+              <Link key={idx} href={`/blog/${article.slug}`}
+                className="group flex flex-col rounded-2xl border border-white/[0.07] p-5 transition hover:border-cyan-400/20"
                 style={{ background: '#0B1424' }}>
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <CategoryDot category={article.category} />
                     <span className="text-[10.5px] font-bold uppercase tracking-[0.15em] text-slate-500">{article.category}</span>
                   </div>
-                  <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2 py-0.5 text-[9.5px] font-semibold text-slate-600">
-                    Coming soon
-                  </span>
                 </div>
-                <h3 className="text-[14.5px] font-bold leading-snug text-white">
+                <h3 className="text-[14.5px] font-bold leading-snug text-white group-hover:text-cyan-400 transition">
                   {article.title}
                 </h3>
                 <p className="mt-2.5 flex-1 text-[12.5px] leading-6 text-slate-500">{article.excerpt}</p>
@@ -226,7 +143,7 @@ export default function BlogPage() {
                   </span>
                 </div>
                 <p className="mt-2 text-[11px] text-slate-700">{article.date}</p>
-              </div>
+              </Link>
             ))}
           </div>
         )}

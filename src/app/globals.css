@@ -186,4 +186,13 @@ img, svg {
     background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 0 0 3px rgba(6, 204, 232, 0.1);
   }
+
+  /* Blog article content */
+  .blog-content h2 { font-size: 22px; font-weight: 900; color: #fff; margin-top: 2.5rem; margin-bottom: 1rem; }
+  .blog-content h3 { font-size: 17px; font-weight: 800; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; }
+  .blog-content p { margin-bottom: 1.25rem; }
+  .blog-content ul, .blog-content ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+  .blog-content li { margin-bottom: 0.5rem; }
+  .blog-content strong { color: #06CCE8; font-weight: 700; }
+  .blog-content a { color: #06CCE8; text-decoration: underline; text-underline-offset: 2px; }
 }

@@ -5,6 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { HomeSchema } from './home-schema';
+import { AggregateRatingSchema } from '@/components/AggregateRatingSchema';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -174,6 +175,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <HomeSchema />
+        <AggregateRatingSchema />
         <Navbar />
         <main>{children}</main>
         <Footer />
