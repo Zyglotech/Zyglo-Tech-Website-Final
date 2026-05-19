@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
@@ -23,7 +23,9 @@ const aiServices = [
 
 const navLinks = [
   { label: 'Academy', href: '/academy' },
+  { label: 'Case Studies', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Press', href: '/press' },
   { label: 'Contact', href: '/contact' },
 ];
 

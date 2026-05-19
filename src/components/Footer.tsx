@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { Linkedin, Instagram, Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 import { BrandLogo } from '@/components/BrandLogo';
 
@@ -21,7 +21,9 @@ const aiServices = [
 const company = [
   { label: 'About Us', href: '/about' },
   { label: 'Academy', href: '/academy' },
+  { label: 'Case Studies', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Press & Media', href: '/press' },
   { label: 'Careers', href: '/careers' },
   { label: 'Partners', href: '/partners' },
   { label: 'Contact', href: '/contact' },
