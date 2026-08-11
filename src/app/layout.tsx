@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Space_Grotesk, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
+import { Providers } from '@/components/Providers';
 import { HomeSchema } from './home-schema';
 import { AggregateRatingSchema } from '@/components/AggregateRatingSchema';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -15,19 +16,33 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  display: 'swap',
+  variable: '--font-display',
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
+  variable: '--font-mono',
+});
+
 export const metadata: Metadata = {
   title: {
     default: 'Zyglo Tech Enterprise | AI Chatbots, ERP, Automation & Web Development',
     template: '%s | Zyglo Tech Enterprise',
   },
-  description: 'India\'s leading AI & IT enterprise platform. AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and corporate training — built for India\'s fastest-growing businesses. Headquartered in Chennai.',
-  metadataBase: new URL('https://www.zyglo.tech'),
+  description: 'India\'s leading AI & IT enterprise platform. AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and corporate training — built for India\'s fastest-growing businesses. Headquartered in Salem.',
+  metadataBase: new URL('https://www.zyglotech.com'),
   keywords: [
-    'AI chatbot India', 'WhatsApp automation India', 'ERP solution India', 'web development Chennai',
+    'AI chatbot India', 'WhatsApp automation India', 'ERP solution India', 'web development Salem',
     'app development India', 'business automation India', 'AI assistant India', 'workflow automation',
-    'SEO AEO GEO India', 'GST ERP software', 'IT company Chennai', 'digital transformation India',
+    'SEO AEO GEO India', 'GST ERP software', 'IT company Salem', 'digital transformation India',
   ],
-  authors: [{ name: 'Zyglo Tech Enterprise', url: 'https://www.zyglo.tech' }],
+  authors: [{ name: 'Zyglo Tech Enterprise', url: 'https://www.zyglotech.com' }],
   creator: 'Zyglo Tech Enterprise',
   publisher: 'Zyglo Tech Enterprise Pvt. Ltd.',
   robots: {
@@ -37,9 +52,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Zyglo Tech Enterprise — AI Chatbots, ERP & Automation for India',
-    description: 'AI chatbots, ERP systems, business automation and web development from Chennai. Trusted by 50+ Indian businesses.',
+    description: 'AI chatbots, ERP systems, business automation and web development from Salem. Trusted by 50+ Indian businesses.',
     type: 'website',
-    url: 'https://www.zyglo.tech',
+    url: 'https://www.zyglotech.com',
     siteName: 'Zyglo Tech Enterprise',
     locale: 'en_IN',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Zyglo Tech Enterprise — AI & IT Platform for India' }],
@@ -50,7 +65,7 @@ export const metadata: Metadata = {
     description: 'AI chatbots, ERP and business automation built for India. 50+ businesses trust Zyglo.',
     images: ['/og-image.png'],
   },
-  alternates: { canonical: 'https://www.zyglo.tech' },
+  alternates: { canonical: 'https://www.zyglotech.com' },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },
@@ -74,35 +89,36 @@ const organizationSchema = {
   '@graph': [
     {
       '@type': ['Organization', 'LocalBusiness', 'ProfessionalService'],
-      '@id': 'https://www.zyglo.tech/#organization',
+      '@id': 'https://www.zyglotech.com/#organization',
       name: 'Zyglo Tech Enterprise',
       legalName: 'Zyglo Tech Enterprise Pvt. Ltd.',
-      url: 'https://www.zyglo.tech',
+      url: 'https://www.zyglotech.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.zyglo.tech/zyglo-logo.svg',
+        url: 'https://www.zyglotech.com/zyglo-logo.svg',
         width: 120,
         height: 60,
       },
-      image: 'https://www.zyglo.tech/og-image.png',
+      image: 'https://www.zyglotech.com/og-image.png',
       description: 'India\'s leading AI & IT enterprise platform offering AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and workflow automation for Indian businesses.',
       telephone: '+919943907643',
       email: 'zyglotech@gmail.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '4th Floor, Tidel Park, No.4, Rajiv Gandhi Salai, Taramani',
-        addressLocality: 'Chennai',
+        streetAddress: '18/10, Rail Nagar, Suramangalam',
+        addressLocality: 'Salem',
         addressRegion: 'Tamil Nadu',
-        postalCode: '600113',
+        postalCode: '636005',
         addressCountry: 'IN',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 13.0827,
-        longitude: 80.2707,
+        latitude: 11.6643,
+        longitude: 78.1460,
       },
       areaServed: [
         { '@type': 'Country', name: 'India' },
+        { '@type': 'City', name: 'Salem' },
         { '@type': 'City', name: 'Chennai' },
         { '@type': 'City', name: 'Bangalore' },
         { '@type': 'City', name: 'Hyderabad' },
@@ -123,11 +139,11 @@ const organizationSchema = {
         '@type': 'OfferCatalog',
         name: 'Zyglo Tech Services',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Chatbot & Appointment Agents', url: 'https://www.zyglo.tech/services/ai-chatbots' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ERP Setup & Customization', url: 'https://www.zyglo.tech/services/erp-solutions' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Development', url: 'https://www.zyglo.tech/services/web-development' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Workflow Automation', url: 'https://www.zyglo.tech/services/workflow-automation' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO, AEO & GEO Ranking', url: 'https://www.zyglo.tech/services/seo-aeo-geo' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Chatbot & Appointment Agents', url: 'https://www.zyglotech.com/services/ai-chatbots' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ERP Setup & Customization', url: 'https://www.zyglotech.com/services/erp-solutions' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Development', url: 'https://www.zyglotech.com/services/web-development' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Workflow Automation', url: 'https://www.zyglotech.com/services/workflow-automation' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO, AEO & GEO Ranking', url: 'https://www.zyglotech.com/services/seo-aeo-geo' } },
         ],
       },
       sameAs: [
@@ -153,14 +169,14 @@ const organizationSchema = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://www.zyglo.tech/#website',
-      url: 'https://www.zyglo.tech',
+      '@id': 'https://www.zyglotech.com/#website',
+      url: 'https://www.zyglotech.com',
       name: 'Zyglo Tech Enterprise',
       description: 'AI, ERP and IT solutions for Indian businesses',
-      publisher: { '@id': 'https://www.zyglo.tech/#organization' },
+      publisher: { '@id': 'https://www.zyglotech.com/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
-        target: { '@type': 'EntryPoint', urlTemplate: 'https://www.zyglo.tech/?q={search_term_string}' },
+        target: { '@type': 'EntryPoint', urlTemplate: 'https://www.zyglotech.com/?q={search_term_string}' },
         'query-input': 'required name=search_term_string',
       },
     },
@@ -169,7 +185,7 @@ const organizationSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${spaceGrotesk.variable} ${plexMono.variable}`}>
       <body className="bg-[#060B17] text-white antialiased font-sans">
         <script
           type="application/ld+json"
@@ -177,10 +193,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <HomeSchema />
         <AggregateRatingSchema />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        <Providers>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppFloat />
+        </Providers>
         <SpeedInsights />
       </body>
     </html>

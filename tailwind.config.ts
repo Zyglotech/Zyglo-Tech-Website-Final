@@ -6,6 +6,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-display)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       colors: {
         zyglo: {
@@ -14,6 +16,7 @@ const config: Config = {
           panel: '#0F1C32',
           cyan: '#06CCE8',
           blue: '#2563EB',
+          violet: '#8B6BF2',
           text: '#F0F6FF',
           muted: '#8BA3C4',
           border: 'rgba(255,255,255,0.07)',

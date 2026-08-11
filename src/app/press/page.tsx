@@ -10,19 +10,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Press & Media | Zyglo Tech Enterprise',
     description: 'News, press releases, media kits, and coverage about Zyglo Tech Enterprise.',
-    url: 'https://www.zyglo.tech/press',
+    url: 'https://www.zyglotech.com/press',
     type: 'website',
   },
   twitter: { card: 'summary_large_image', title: 'Press & Media | Zyglo Tech', description: 'News, press releases, media kits, and coverage about Zyglo Tech.' },
-  alternates: { canonical: 'https://www.zyglo.tech/press' },
+  alternates: { canonical: 'https://www.zyglotech.com/press' },
 };
 
 const pressMentions = [
   {
     publication: 'The Economic Times',
     date: 'April 2026',
-    title: 'How Chennai-Based Zyglo Tech is Democratizing AI for Indian SMEs',
-    excerpt: 'Founded by Vignesh and Gokul Raaj SS, Zyglo Tech has crossed 500 SME clients by offering accessible, WhatsApp-based AI agents that dramatically cut support costs.',
+    title: 'How Salem-Based Zyglo Tech is Democratizing AI for Indian SMEs',
+    excerpt: 'Zyglo Tech has crossed 500 SME clients by offering accessible, WhatsApp-based AI agents that dramatically cut support costs.',
     link: '#',
     type: 'News Feature'
   },
@@ -134,15 +134,11 @@ export default function PressPage() {
             {/* Media Kit */}
             <div className="rounded-2xl border border-white/[0.07] p-6" style={{ background: '#0B1424' }}>
               <h3 className="text-[18px] font-black text-white mb-2">Media Kit</h3>
-              <p className="text-[13px] text-slate-400 mb-6">Download official Zyglo Tech logos, founder headshots, and brand guidelines for your publication.</p>
-              
+              <p className="text-[13px] text-slate-400 mb-6">Download official Zyglo Tech logos and brand guidelines for your publication.</p>
+
               <div className="space-y-3">
                 <a href="#" className="flex items-center justify-between rounded-xl bg-white/5 p-3 text-[13px] font-medium text-white transition hover:bg-white/10">
                   <span className="flex items-center gap-2"><BrandLogo className="h-4 w-4" /> Brand Assets (ZIP)</span>
-                  <Download className="h-3.5 w-3.5 text-slate-400" />
-                </a>
-                <a href="#" className="flex items-center justify-between rounded-xl bg-white/5 p-3 text-[13px] font-medium text-white transition hover:bg-white/10">
-                  <span className="flex items-center gap-2">Founder Bios (PDF)</span>
                   <Download className="h-3.5 w-3.5 text-slate-400" />
                 </a>
               </div>
@@ -152,7 +148,7 @@ export default function PressPage() {
             <div className="rounded-2xl border border-white/[0.07] p-6" style={{ background: 'rgba(6,204,232,0.03)' }}>
               <h3 className="text-[18px] font-black text-white mb-2">Press Inquiries</h3>
               <p className="text-[13px] text-slate-400 mb-6">For press inquiries, interview requests, or speaking engagements, please contact our PR team.</p>
-              <a href="mailto:pr@zyglo.tech" className="inline-flex items-center justify-center w-full rounded-xl px-5 py-2.5 text-[13px] font-bold text-[#060B17] transition hover:shadow-[0_0_20px_rgba(6,204,232,0.2)]" style={{ background: '#06CCE8' }}>
+              <a href="mailto:pr@zyglotech.com" className="inline-flex items-center justify-center w-full rounded-xl px-5 py-2.5 text-[13px] font-bold text-[#060B17] transition hover:shadow-[0_0_20px_rgba(6,204,232,0.2)]" style={{ background: '#06CCE8' }}>
                 Email PR Team
               </a>
             </div>

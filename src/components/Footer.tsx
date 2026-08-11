@@ -47,12 +47,12 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3">
               <BrandLogo className="h-9 w-auto shrink-0" />
               <div className="leading-tight">
-                <span className="block text-[16px] font-black tracking-[0.14em] text-white">ZYGLO</span>
-                <span className="block text-[9px] font-medium tracking-[0.22em] uppercase" style={{ color: 'rgba(6,204,232,0.7)' }}>Tech Enterprise</span>
+                <span className="block font-display text-[17px] font-bold tracking-[0.06em] text-white">ZYGLO</span>
+                <span className="block font-mono-label text-[8.5px] uppercase" style={{ color: 'rgba(6,204,232,0.7)' }}>Tech Enterprise</span>
               </div>
             </Link>
 
-            <p className="text-[12px] font-bold uppercase tracking-[0.2em]" style={{ color: 'rgba(6,204,232,0.7)' }}>
+            <p className="font-mono-label text-[11px]" style={{ color: 'rgba(6,204,232,0.7)' }}>
               INNOVATE · AUTOMATE · ACCELERATE
             </p>
 
@@ -74,7 +74,7 @@ export function Footer() {
               </a>
               <p className="flex items-center gap-3 text-[13px] text-slate-400">
                 <MapPin className="h-4 w-4 text-cyan-400/60 shrink-0" />
-                Indian Headquarters, Chennai
+                Indian Headquarters, Salem
               </p>
             </div>
 
@@ -104,7 +104,7 @@ export function Footer() {
 
           {/* IT Services */}
           <div>
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">IT Services</p>
+            <p className="mb-2 font-mono-label text-[10px] uppercase text-blue-400">IT Services</p>
             <ul className="mb-6 space-y-2.5">
               {itServices.map((l) => (
                 <li key={l.href}>
@@ -114,7 +114,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400">AI Services</p>
+            <p className="mb-2 font-mono-label text-[10px] uppercase" style={{ color: '#A78BFA' }}>AI Services</p>
             <ul className="space-y-2.5">
               {aiServices.map((l) => (
                 <li key={l.href}>
@@ -128,7 +128,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Company</p>
+            <p className="mb-5 font-mono-label text-[10px] uppercase text-slate-500">Company</p>
             <ul className="space-y-2.5">
               {company.map((l) => (
                 <li key={l.href}>
@@ -142,7 +142,7 @@ export function Footer() {
 
           {/* Legal + CTA */}
           <div>
-            <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Legal</p>
+            <p className="mb-5 font-mono-label text-[10px] uppercase text-slate-500">Legal</p>
             <ul className="space-y-2.5">
               {legal.map((l) => (
                 <li key={l.href}>
@@ -167,13 +167,16 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Signature trace divider */}
+        <div className="trace-divider mt-12" />
+
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 pt-8 sm:flex-row">
           <p className="text-[12px] text-slate-500">
-            © 2026 Zyglo Tech Enterprise Pvt. Ltd. · www.zyglo.tech · All rights reserved.
+            © 2026 Zyglo Tech Enterprise Pvt. Ltd. · www.zyglotech.com · All rights reserved.
           </p>
           <p className="text-[12px] text-slate-500">
-            Indian Headquarters · Made with ❤ in <span style={{ color: '#06CCE8' }}>Chennai, India</span>
+            Indian Headquarters · Made with ❤ in <span style={{ color: '#06CCE8' }}>Salem, India</span>
           </p>
         </div>
       </div>

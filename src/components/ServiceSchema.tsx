@@ -12,7 +12,7 @@ export function ServiceSchema({
   description,
   url,
   category,
-  areaServed = ['India', 'Chennai', 'Bangalore', 'Hyderabad', 'Mumbai', 'Delhi'],
+  areaServed = ['India', 'Salem', 'Chennai', 'Bangalore', 'Hyderabad', 'Mumbai', 'Delhi'],
   priceRange = '₹₹',
 }: ServiceSchemaProps) {
   const schema = {
@@ -20,12 +20,12 @@ export function ServiceSchema({
     '@type': 'Service',
     name,
     description,
-    url: `https://www.zyglo.tech${url}`,
+    url: `https://www.zyglotech.com${url}`,
     provider: {
       '@type': 'Organization',
       name: 'Zyglo Tech Enterprise',
-      url: 'https://www.zyglo.tech',
-      '@id': 'https://www.zyglo.tech/#organization',
+      url: 'https://www.zyglotech.com',
+      '@id': 'https://www.zyglotech.com/#organization',
     },
     areaServed: areaServed.map((area) => ({
       '@type': area === 'India' ? 'Country' : 'City',

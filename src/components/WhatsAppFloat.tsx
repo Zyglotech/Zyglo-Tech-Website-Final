@@ -22,7 +22,7 @@ export function WhatsAppFloat() {
       href="https://wa.me/919943907643?text=Hi%20Zyglo%20Team%2C%20I%20want%20to%20know%20more%20about%20your%20services."
       target="_blank"
       rel="noopener noreferrer"
-      className="group fixed bottom-6 right-6 z-50 flex items-center gap-3"
+      className="no-print group fixed bottom-6 right-6 z-50 flex items-center gap-3"
       style={{ animation: 'fadeInUp 0.4s ease' }}
       aria-label="Chat on WhatsApp"
     >

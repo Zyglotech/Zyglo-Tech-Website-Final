@@ -4,11 +4,11 @@ import { PageShell } from '@/components/PageShell';
 export const metadata: Metadata = {
   title: 'AI Sales & Lead Qualification Agents',
   description: 'AI-powered sales agents that engage, qualify and convert leads 24/7. WhatsApp, web, and CRM integration. Automated lead scoring and follow-ups for Indian businesses.',
-  keywords: ['AI lead qualification India', 'AI sales agent', 'automated lead generation India', 'WhatsApp lead qualification', 'CRM AI integration', 'AI sales automation Chennai'],
+  keywords: ['AI lead qualification India', 'AI sales agent', 'automated lead generation India', 'WhatsApp lead qualification', 'CRM AI integration', 'AI sales automation Salem'],
   openGraph: {
     title: 'AI Sales & Lead Qualification Agents | Zyglo Tech Enterprise',
     description: 'Deploy AI agents that qualify leads, follow up automatically, and push prospects to your CRM — 24/7, zero manual effort.',
-    url: 'https://www.zyglo.tech/services/ai-agents',
+    url: 'https://www.zyglotech.com/services/ai-agents',
     type: 'website',
   },
   twitter: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'AI Sales & Lead Qualification Agents | Zyglo Tech',
     description: 'Deploy AI agents that qualify leads and convert them — 24/7, zero manual effort.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/ai-agents' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/ai-agents' },
 };
 
 export default function AISalesAgentsPage() {

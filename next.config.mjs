@@ -4,11 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.zyglo.tech',
+        hostname: 'www.zyglotech.com',
       },
       {
         protocol: 'https',
-        hostname: 'zyglo.tech',
+        hostname: 'zyglotech.com',
       },
       {
         protocol: 'https',

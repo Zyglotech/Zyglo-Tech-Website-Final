@@ -62,7 +62,7 @@ export default function ContactPage() {
             </span>
           </h1>
           <p className="mt-5 text-[16px] leading-8 text-slate-400">
-            Talk to our Chennai team about AI chatbots, ERP systems, app development, workflow automation, or anything else — we'll respond within 2 business hours.
+            Talk to our Salem team about AI chatbots, ERP systems, app development, workflow automation, or anything else — we'll respond within 2 business hours.
           </p>
 
           <div className="mt-10 space-y-4">
@@ -70,7 +70,7 @@ export default function ContactPage() {
               { icon: Phone, label: 'Call Us', value: '+91 9943 907 643', href: 'tel:+919943907643' },
               { icon: Phone, label: 'WhatsApp', value: '+91 9943 907 643', href: 'https://wa.me/919943907643' },
               { icon: Mail, label: 'Email', value: 'zyglotech@gmail.com', href: 'mailto:zyglotech@gmail.com' },
-              { icon: MapPin, label: 'Office', value: 'Indian Headquarters, Chennai', href: undefined },
+              { icon: MapPin, label: 'Office', value: 'Indian Headquarters, Salem', href: undefined },
             ].map((c) => (
               <div key={c.label} className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10">

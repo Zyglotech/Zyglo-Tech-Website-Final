@@ -1,11 +1,19 @@
 import { NextResponse } from 'next/server';
+import { getToken } from 'next-auth/jwt';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
+  const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
+
+  if (!token) {
+    const signInUrl = new URL('/auth/signin', request.url);
+    signInUrl.searchParams.set('callbackUrl', request.nextUrl.pathname);
+    return NextResponse.redirect(signInUrl);
+  }
+
   return NextResponse.next();
 }
 
-// No auth required - all routes are public
 export const config = {
-  matcher: [],
+  matcher: ['/dashboard/:path*', '/api/admin/:path*'],
 };

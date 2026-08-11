@@ -3,12 +3,12 @@ import { PageShell } from '@/components/PageShell';
 
 export const metadata: Metadata = {
   title: 'AI Chatbot & Appointment Agents',
-  description: 'WhatsApp AI chatbots for customer support, lead capture, and appointment booking. Available 24/7. Built for Indian businesses by Zyglo Tech Enterprise, Chennai.',
-  keywords: ['AI chatbot India', 'WhatsApp chatbot', 'appointment bot', 'customer support bot', 'AI chatbot Chennai', 'WhatsApp automation India'],
+  description: 'WhatsApp AI chatbots for customer support, lead capture, and appointment booking. Available 24/7. Built for Indian businesses by Zyglo Tech Enterprise, Salem.',
+  keywords: ['AI chatbot India', 'WhatsApp chatbot', 'appointment bot', 'customer support bot', 'AI chatbot Salem', 'WhatsApp automation India'],
   openGraph: {
     title: 'AI Chatbot & Appointment Agents | Zyglo Tech Enterprise',
     description: 'WhatsApp AI chatbots for customer support, lead capture, and appointment booking. Available 24/7.',
-    url: 'https://www.zyglo.tech/services/ai-chatbots',
+    url: 'https://www.zyglotech.com/services/ai-chatbots',
     type: 'website',
   },
   twitter: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'AI Chatbot & Appointment Agents | Zyglo Tech',
     description: 'WhatsApp AI chatbots for customer support, lead capture, and appointment booking.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/ai-chatbots' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/ai-chatbots' },
 };
 
 export default function AIChatbotsPage() {

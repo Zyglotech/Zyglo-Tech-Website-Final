@@ -19,6 +19,15 @@ model User {
   id            String      @id @default(cuid())
   name          String?
   email         String?     @unique
+  phone         String?
+  password      String?
+  companyName   String?
+  addressLine1  String?
+  addressLine2  String?
+  city          String?
+  state         String?
+  postalCode    String?
+  country       String?     @default("India")
   emailVerified DateTime?
   image         String?
   role          Role?       @relation(fields: [roleId], references: [id])
@@ -30,8 +39,51 @@ model User {
   supportTickets SupportTicket[]
   certificates  Certificate[]
   analyticsEvents AnalyticsEvent[]
+  creditWallet  CreditWallet?
+  creditTransactions CreditTransaction[]
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
+}
+
+model EmailOtp {
+  id         String    @id @default(cuid())
+  email      String
+  codeHash   String
+  expiresAt  DateTime
+  consumedAt DateTime?
+  attempts   Int       @default(0)
+  createdAt  DateTime  @default(now())
+
+  @@index([email])
+}
+
+model CreditWallet {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @unique
+  balance   Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CreditTransaction {
+  id                String   @id @default(cuid())
+  user              User     @relation(fields: [userId], references: [id])
+  userId            String
+  type              String   // "topup" | "usage"
+  credits           Int
+  amount            Float?   // total INR charged (includes conversion fee), only for topups
+  priceUsd          Float?   // USD subtotal before conversion fee
+  currency           String?  @default("INR")
+  status            String   @default("pending") // pending | paid | failed
+  cashfreeOrderId   String?  @unique
+  cfPaymentId       String?
+  paymentMethodLabel String?
+  invoiceNumber     String?  @unique
+  planLabel         String?
+  paidAt            DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 }
 
 model Course {

@@ -102,7 +102,7 @@ const sections = [
     id: 'governing-law',
     title: '11. Governing Law & Dispute Resolution',
     content: [
-      'These Terms are governed by and construed in accordance with the laws of India, without regard to conflict-of-law principles. The courts of Chennai, Tamil Nadu, India shall have exclusive jurisdiction over any dispute arising out of or in connection with these Terms or our services.',
+      'These Terms are governed by and construed in accordance with the laws of India, without regard to conflict-of-law principles. The courts of Salem, Tamil Nadu, India shall have exclusive jurisdiction over any dispute arising out of or in connection with these Terms or our services.',
       'Before initiating any formal legal proceedings, both parties agree to attempt to resolve disputes amicably through good-faith negotiation. If a dispute cannot be resolved within 30 days of written notice, either party may escalate the matter to formal legal proceedings.',
     ],
   },

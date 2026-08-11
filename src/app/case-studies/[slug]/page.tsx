@@ -19,11 +19,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: `${cs.title} | Zyglo Tech Case Study`,
       description: cs.excerpt,
-      url: `https://www.zyglo.tech/case-studies/${slug}`,
+      url: `https://www.zyglotech.com/case-studies/${slug}`,
       type: 'article',
     },
     twitter: { card: 'summary_large_image', title: cs.title, description: cs.excerpt },
-    alternates: { canonical: `https://www.zyglo.tech/case-studies/${slug}` },
+    alternates: { canonical: `https://www.zyglotech.com/case-studies/${slug}` },
   };
 }
 

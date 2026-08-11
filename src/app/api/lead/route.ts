@@ -101,7 +101,7 @@ export async function POST(request: Request) {
           </tr>
         </table>
 
-        <a href="https://www.zyglo.tech" style="display:inline-block;background:#06CCE8;color:#060B17;font-size:13px;font-weight:700;padding:12px 28px;border-radius:10px;text-decoration:none;">
+        <a href="https://www.zyglotech.com" style="display:inline-block;background:#06CCE8;color:#060B17;font-size:13px;font-weight:700;padding:12px 28px;border-radius:10px;text-decoration:none;">
           Visit Zyglo.tech →
         </a>
       `),

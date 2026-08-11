@@ -11,8 +11,8 @@ const sections = [
     id: 'introduction',
     title: '1. Introduction',
     content: [
-      'Zyglo Tech Enterprise Pvt. Ltd. ("Zyglo," "we," "us," or "our") is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, share, and safeguard information when you visit our website (www.zyglo.tech), use our digital products, engage our services, or interact with us in any way.',
-      'We are headquartered in Chennai, Tamil Nadu, India, and our practices comply with the Digital Personal Data Protection Act, 2023 (DPDPA) of India, and where applicable, internationally recognized data protection standards.',
+      'Zyglo Tech Enterprise Pvt. Ltd. ("Zyglo," "we," "us," or "our") is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, share, and safeguard information when you visit our website (www.zyglotech.com), use our digital products, engage our services, or interact with us in any way.',
+      'We are headquartered in Salem, Tamil Nadu, India, and our practices comply with the Digital Personal Data Protection Act, 2023 (DPDPA) of India, and where applicable, internationally recognized data protection standards.',
       'By using our services or submitting your information, you acknowledge that you have read and understood this Policy. If you do not agree with any part of this Policy, please discontinue use of our services.',
     ],
   },
@@ -178,7 +178,7 @@ const sections = [
       role: 'Data Protection & Grievance Officer',
       email: 'zyglotech@gmail.com',
       phone: '+91 9943 907 643',
-      address: 'Chennai, Tamil Nadu, India',
+      address: '18/10, Rail Nagar, Suramangalam, Salem, Tamil Nadu 636005, India',
     },
   },
 ];

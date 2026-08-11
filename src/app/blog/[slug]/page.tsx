@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: `${article.title} | Zyglo Tech Blog`,
       description: article.excerpt,
-      url: `https://www.zyglo.tech/blog/${slug}`,
+      url: `https://www.zyglotech.com/blog/${slug}`,
       type: 'article',
       publishedTime: article.isoDate,
     },
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: article.title,
       description: article.excerpt,
     },
-    alternates: { canonical: `https://www.zyglo.tech/blog/${slug}` },
+    alternates: { canonical: `https://www.zyglotech.com/blog/${slug}` },
   };
 }
 

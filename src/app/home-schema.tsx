@@ -30,7 +30,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Where is Zyglo Tech Enterprise located?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Zyglo Tech Enterprise is headquartered in Chennai, Tamil Nadu, India. We serve clients across India including Bangalore, Hyderabad, Mumbai and Delhi, as well as international clients.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Zyglo Tech Enterprise is headquartered in Salem, Tamil Nadu, India. We serve clients across India including Bangalore, Hyderabad, Mumbai and Delhi, as well as international clients.' },
     },
     {
       '@type': 'Question',

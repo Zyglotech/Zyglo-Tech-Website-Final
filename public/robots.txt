@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.zyglo.tech/sitemap.xml
+Sitemap: https://www.zyglotech.com/sitemap.xml
 Disallow:

@@ -4,11 +4,11 @@ import { PageShell } from '@/components/PageShell';
 export const metadata: Metadata = {
   title: 'College & Institution Projects — Final Year Projects',
   description: 'Final-year engineering projects, IoT solutions, AI/ML prototypes and academic software for BE, BTech, MCA, MBA students in India. Full documentation & source code provided.',
-  keywords: ['final year project help', 'college project Chennai', 'engineering project development', 'BE BTech project', 'IoT project India', 'AI ML project for students'],
+  keywords: ['final year project help', 'college project Salem', 'engineering project development', 'BE BTech project', 'IoT project India', 'AI ML project for students'],
   openGraph: {
     title: 'College & Institution Projects | Zyglo Tech Enterprise',
     description: 'Academic and final-year project delivery for engineering colleges in India. IoT, AI/ML, web, mobile — with full docs and source code.',
-    url: 'https://www.zyglo.tech/services/college-projects',
+    url: 'https://www.zyglotech.com/services/college-projects',
     type: 'website',
   },
   twitter: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'College & Institution Projects | Zyglo Tech',
     description: 'Academic and final-year project delivery for engineering colleges in India.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/college-projects' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/college-projects' },
 };
 
 export default function CollegeProjectsPage() {

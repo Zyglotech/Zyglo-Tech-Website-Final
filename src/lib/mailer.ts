@@ -33,6 +33,27 @@ export async function sendAutoReply({
   });
 }
 
+/* One-time login code */
+export async function sendOtpEmail({ toEmail, code }: { toEmail: string; code: string }) {
+  await transporter.sendMail({
+    from: FROM,
+    to: toEmail,
+    subject: `${code} is your Zyglo sign-in code`,
+    html: emailWrapper(`
+      <h2 style="margin:0 0 8px;font-size:22px;font-weight:800;color:#ffffff;">Your sign-in code</h2>
+      <p style="margin:0 0 24px;font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;">
+        Enter this code to sign in to your Zyglo account. It expires in 10 minutes.
+      </p>
+      <div style="background:#0F1C32;border-radius:12px;padding:20px 24px;margin:0 0 24px;text-align:center;">
+        <span style="font-size:32px;font-weight:900;letter-spacing:0.3em;color:#06CCE8;">${code}</span>
+      </div>
+      <p style="margin:0;font-size:12.5px;color:rgba(255,255,255,0.4);">
+        If you didn't request this, you can safely ignore this email.
+      </p>
+    `),
+  });
+}
+
 /* Internal notification to the Zyglo team */
 export async function sendInternalNotification({
   subject,
@@ -92,8 +113,8 @@ export function emailWrapper(content: string) {
           <tr>
             <td style="padding:24px 0 0;text-align:center;">
               <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.3);">
-                Zyglo Tech Enterprise Pvt. Ltd. · Chennai, India<br/>
-                <a href="https://www.zyglo.tech" style="color:#06CCE8;text-decoration:none;">www.zyglo.tech</a> ·
+                Zyglo Tech Enterprise Pvt. Ltd. · Salem, India<br/>
+                <a href="https://www.zyglotech.com" style="color:#06CCE8;text-decoration:none;">www.zyglotech.com</a> ·
                 <a href="mailto:zyglotech@gmail.com" style="color:#06CCE8;text-decoration:none;">zyglotech@gmail.com</a>
               </p>
             </td>

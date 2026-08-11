@@ -3,12 +3,12 @@ import { PageShell } from '@/components/PageShell';
 
 export const metadata: Metadata = {
   title: 'Digital Transformation Services',
-  description: 'End-to-end digital transformation for Indian businesses. Audit, roadmap, cloud migration, automation and change management by Zyglo Tech Enterprise, Chennai.',
-  keywords: ['digital transformation India', 'cloud migration Chennai', 'business process automation', 'digital readiness audit', 'IT modernisation India'],
+  description: 'End-to-end digital transformation for Indian businesses. Audit, roadmap, cloud migration, automation and change management by Zyglo Tech Enterprise, Salem.',
+  keywords: ['digital transformation India', 'cloud migration Salem', 'business process automation', 'digital readiness audit', 'IT modernisation India'],
   openGraph: {
     title: 'Digital Transformation Services | Zyglo Tech Enterprise',
     description: 'Modernise your business operations with end-to-end digital transformation — audit, cloud migration, automation, and change management.',
-    url: 'https://www.zyglo.tech/services/digital-transformation',
+    url: 'https://www.zyglotech.com/services/digital-transformation',
     type: 'website',
   },
   twitter: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Digital Transformation Services | Zyglo Tech',
     description: 'Modernise your business operations with end-to-end digital transformation.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/digital-transformation' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/digital-transformation' },
 };
 
 export default function DigitalTransformationPage() {

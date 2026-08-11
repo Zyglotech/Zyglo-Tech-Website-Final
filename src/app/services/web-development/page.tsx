@@ -3,12 +3,12 @@ import { PageShell } from '@/components/PageShell';
 
 export const metadata: Metadata = {
   title: 'Website Development for Indian Businesses',
-  description: 'High-performance, SEO-optimised websites and web applications built for Indian businesses. Mobile-first design, fast loading, and conversion-focused. Chennai web development company.',
-  keywords: ['web development India', 'website development Chennai', 'business website India', 'Next.js development', 'React website India', 'e-commerce website India', 'web app development Chennai'],
+  description: 'High-performance, SEO-optimised websites and web applications built for Indian businesses. Mobile-first design, fast loading, and conversion-focused. Salem web development company.',
+  keywords: ['web development India', 'website development Salem', 'business website India', 'Next.js development', 'React website India', 'e-commerce website India', 'web app development Salem'],
   openGraph: {
     title: 'Website Development for Indian Businesses | Zyglo Tech Enterprise',
     description: 'Modern, fast and conversion-focused websites for Indian businesses. From landing pages to full web applications.',
-    url: 'https://www.zyglo.tech/services/web-development',
+    url: 'https://www.zyglotech.com/services/web-development',
     type: 'website',
   },
   twitter: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Website Development for Indian Businesses | Zyglo Tech',
     description: 'Modern, fast and conversion-focused websites for Indian businesses.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/web-development' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/web-development' },
 };
 
 export default function WebDevelopmentPage() {

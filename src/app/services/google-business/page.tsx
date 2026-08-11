@@ -3,12 +3,12 @@ import { PageShell } from '@/components/PageShell';
 
 export const metadata: Metadata = {
   title: 'Google Business Setup & Local SEO',
-  description: 'Professional Google Business Profile setup, optimisation and local SEO for Indian businesses. Rank on Google Maps, get more walk-ins and enquiries. Chennai local SEO experts.',
-  keywords: ['Google Business setup India', 'local SEO Chennai', 'Google Maps ranking', 'Google Business Profile optimisation', 'local SEO India', 'Google My Business setup'],
+  description: 'Professional Google Business Profile setup, optimisation and local SEO for Indian businesses. Rank on Google Maps, get more walk-ins and enquiries. Salem local SEO experts.',
+  keywords: ['Google Business setup India', 'local SEO Salem', 'Google Maps ranking', 'Google Business Profile optimisation', 'local SEO India', 'Google My Business setup'],
   openGraph: {
     title: 'Google Business Setup & Local SEO | Zyglo Tech Enterprise',
     description: 'Rank on Google Maps, build a credible online presence and drive local walk-ins. Expert Google Business setup for Indian businesses.',
-    url: 'https://www.zyglo.tech/services/google-business',
+    url: 'https://www.zyglotech.com/services/google-business',
     type: 'website',
   },
   twitter: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Google Business Setup & Local SEO | Zyglo Tech',
     description: 'Rank on Google Maps and drive local walk-ins. Expert Google Business setup.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/google-business' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/google-business' },
 };
 
 export default function GoogleBusinessPage() {

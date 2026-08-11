@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Case Studies | Zyglo Tech Enterprise',
     description: 'Real results from AI chatbots, ERP, and automation for Indian businesses.',
-    url: 'https://www.zyglo.tech/case-studies',
+    url: 'https://www.zyglotech.com/case-studies',
     type: 'website',
   },
   twitter: { card: 'summary_large_image', title: 'Case Studies | Zyglo Tech' },
-  alternates: { canonical: 'https://www.zyglo.tech/case-studies' },
+  alternates: { canonical: 'https://www.zyglotech.com/case-studies' },
 };
 
 const colorMap: Record<string, string> = {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'SEO, AEO & GEO Ranking Services | Zyglo Tech Enterprise',
     description: 'Rank on Google, ChatGPT, Gemini & Perplexity with AI-powered SEO, AEO, and GEO strategies.',
-    url: 'https://www.zyglo.tech/services/seo-aeo-geo',
+    url: 'https://www.zyglotech.com/services/seo-aeo-geo',
     type: 'website',
   },
   twitter: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'SEO, AEO & GEO Ranking Services | Zyglo Tech',
     description: 'Rank on Google, ChatGPT, Gemini & Perplexity with AI-powered SEO, AEO, and GEO strategies.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/seo-aeo-geo' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/seo-aeo-geo' },
 };
 
 const stats = [
@@ -199,7 +199,7 @@ const faqs = [
   },
   {
     q: 'Do you work with businesses outside India?',
-    a: 'Yes. While our team is based in Chennai, we manage SEO campaigns for clients in the UAE, UK, USA, and Southeast Asia. Our GEO strategies are particularly valuable for international markets where AI search adoption is highest.',
+    a: 'Yes. While our team is based in Salem, we manage SEO campaigns for clients in the UAE, UK, USA, and Southeast Asia. Our GEO strategies are particularly valuable for international markets where AI search adoption is highest.',
   },
 ];
 

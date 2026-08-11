@@ -4,11 +4,11 @@ import { PageShell } from '@/components/PageShell';
 export const metadata: Metadata = {
   title: 'Personal & Business AI Assistants',
   description: 'Custom AI assistants trained on your business data. Automate email drafting, generate reports, answer knowledge-base queries and streamline daily operations for Indian businesses.',
-  keywords: ['business AI assistant India', 'custom AI chatbot', 'AI for business India', 'ChatGPT for business', 'AI knowledge base', 'AI assistant Chennai', 'generative AI India'],
+  keywords: ['business AI assistant India', 'custom AI chatbot', 'AI for business India', 'ChatGPT for business', 'AI knowledge base', 'AI assistant Salem', 'generative AI India'],
   openGraph: {
     title: 'Personal & Business AI Assistants | Zyglo Tech Enterprise',
     description: 'AI assistants trained on your data — answering questions, drafting emails, generating reports, and managing daily workflows automatically.',
-    url: 'https://www.zyglo.tech/services/ai-assistants',
+    url: 'https://www.zyglotech.com/services/ai-assistants',
     type: 'website',
   },
   twitter: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Personal & Business AI Assistants | Zyglo Tech',
     description: 'AI assistants trained on your data — answering questions, drafting emails, generating reports.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/ai-assistants' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/ai-assistants' },
 };
 
 export default function AIAssistantsPage() {

@@ -4,11 +4,11 @@ import { PageShell } from '@/components/PageShell';
 export const metadata: Metadata = {
   title: 'Workflow Automation for Indian Businesses',
   description: 'Intelligent workflow automation that eliminates repetitive tasks, connects your tools and boosts productivity. Invoice, HR, inventory and approval flow automation for Indian SMEs.',
-  keywords: ['workflow automation India', 'business process automation Chennai', 'RPA India', 'invoice automation', 'HR automation India', 'API integration services'],
+  keywords: ['workflow automation India', 'business process automation Salem', 'RPA India', 'invoice automation', 'HR automation India', 'API integration services'],
   openGraph: {
     title: 'Workflow Automation for Indian Businesses | Zyglo Tech Enterprise',
     description: 'Automate invoices, approvals, HR processes and data pipelines. Free your team from busywork with intelligent automation.',
-    url: 'https://www.zyglo.tech/services/workflow-automation',
+    url: 'https://www.zyglotech.com/services/workflow-automation',
     type: 'website',
   },
   twitter: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Workflow Automation for Indian Businesses | Zyglo Tech',
     description: 'Automate invoices, approvals, HR processes and data pipelines.',
   },
-  alternates: { canonical: 'https://www.zyglo.tech/services/workflow-automation' },
+  alternates: { canonical: 'https://www.zyglotech.com/services/workflow-automation' },
 };
 
 export default function WorkflowAutomationPage() {

@@ -3,14 +3,14 @@ export function AggregateRatingSchema() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Zyglo Tech Enterprise',
-    url: 'https://www.zyglo.tech',
+    url: 'https://www.zyglotech.com',
     telephone: '+91-9943907643',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '4th Floor, Module 5, Tidel Park, No.4, Rajiv Gandhi Salai, Taramani',
-      addressLocality: 'Chennai',
+      streetAddress: '18/10, Rail Nagar, Suramangalam',
+      addressLocality: 'Salem',
       addressRegion: 'Tamil Nadu',
-      postalCode: '600113',
+      postalCode: '636005',
       addressCountry: 'IN',
     },
     aggregateRating: {

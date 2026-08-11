@@ -224,7 +224,7 @@ export default function HomePage() {
               <div style={{ animationDelay: '0ms' }} className="hero-child">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[12px] font-medium text-slate-300">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400" />
-                  India's #1 AI & IT Enterprise — Chennai HQ
+                  India's #1 AI & IT Enterprise — Salem HQ
                 </span>
               </div>
 
@@ -262,7 +262,7 @@ export default function HomePage() {
                   { label: '50+ Businesses', icon: Building2 },
                   { label: 'GST-Ready ERP', icon: Shield },
                   { label: 'WhatsApp AI Bots', icon: Bot },
-                  { label: 'Chennai HQ', icon: MapPin },
+                  { label: 'Salem HQ', icon: MapPin },
                 ].map(({ label, icon: Icon }) => (
                   <span key={label} className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2 text-[12.5px] font-medium text-slate-400">
                     <Icon className="h-3.5 w-3.5 text-cyan-400" />
@@ -428,7 +428,7 @@ export default function HomePage() {
                   {/* URL bar */}
                   <div className="ml-auto mb-2 flex items-center gap-2 rounded-lg px-3 py-1.5 text-[10px] text-slate-500" style={{ background: 'rgba(6,11,23,0.7)' }}>
                     <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400 shrink-0" />
-                    <span className="hidden sm:block">app.zyglo.tech/dashboard</span>
+                    <span className="hidden sm:block">app.zyglotech.com/dashboard</span>
                   </div>
                 </div>
               </div>
@@ -479,7 +479,7 @@ export default function HomePage() {
                         style={{ background: 'linear-gradient(135deg, #06CCE8, #2563EB)' }}>A</div>
                       <div className="min-w-0 flex-1">
                         <p className="text-[9.5px] font-semibold text-slate-300 truncate">Admin</p>
-                        <p className="text-[7.5px] text-slate-700 truncate">zyglo.tech</p>
+                        <p className="text-[7.5px] text-slate-700 truncate">zyglotech.com</p>
                       </div>
                       <div className="h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
                     </div>
@@ -493,7 +493,7 @@ export default function HomePage() {
                   <div className="mb-4 flex items-center justify-between gap-3">
                     <div>
                       <p className="text-[13px] font-bold text-white">Operations Overview</p>
-                      <p className="text-[9.5px] text-slate-500">17 May 2026 · Chennai HQ</p>
+                      <p className="text-[9.5px] text-slate-500">17 May 2026 · Salem HQ</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="hidden sm:block rounded-lg border border-white/[0.06] px-2 py-1 text-[9.5px] text-slate-600">Last 7 days ▾</span>
@@ -662,7 +662,7 @@ export default function HomePage() {
           <p className="text-[22px] sm:text-[28px] font-black text-white tracking-tight">
             <span style={{ color: '#06CCE8' }}>50+</span> businesses run on Zyglo
           </p>
-          <p className="mt-2 text-[13px] text-slate-500">From Chennai startups to pan-India enterprises — across retail, healthcare, logistics, and more.</p>
+          <p className="mt-2 text-[13px] text-slate-500">From Salem startups to pan-India enterprises — across retail, healthcare, logistics, and more.</p>
         </div>
         <ClientLogos />
       </section>
@@ -744,14 +744,14 @@ export default function HomePage() {
           {/* AI Services Division */}
           <div>
             <div className="mb-8 flex items-center gap-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400/15">
-                <Brain className="h-5 w-5 text-cyan-400" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'rgba(167,139,250,0.15)' }}>
+                <Brain className="h-5 w-5" style={{ color: '#A78BFA' }} />
               </div>
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-400">Division 02</p>
-                <h3 className="text-[22px] font-black text-white">AI Services Division</h3>
+                <p className="font-mono-label text-[11px] uppercase" style={{ color: '#A78BFA' }}>Division 02</p>
+                <h3 className="font-display text-[22px] font-bold text-white">AI Services Division</h3>
               </div>
-              <div className="ml-auto hidden h-px flex-1 max-w-xs bg-gradient-to-r from-cyan-400/30 to-transparent lg:block" />
+              <div className="ml-auto hidden h-px flex-1 max-w-xs lg:block" style={{ background: 'linear-gradient(to right, rgba(167,139,250,0.3), transparent)' }} />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -759,14 +759,15 @@ export default function HomePage() {
                 <motion.div key={svc.title}
                   initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                  className="group rounded-2xl border border-white/[0.06] bg-[#0B1424] p-5 transition hover:border-cyan-400/25 hover:bg-[#0D1E38] hover:shadow-[0_8px_32px_rgba(6,204,232,0.07)]">
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400/10">
-                    <svc.icon className="h-[18px] w-[18px] text-cyan-400" />
+                  className="group rounded-2xl border border-white/[0.06] bg-[#0B1424] p-5 transition hover:border-[#A78BFA]/30 hover:bg-[#15122B] hover:shadow-[0_8px_32px_rgba(167,139,250,0.1)]">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'rgba(167,139,250,0.12)' }}>
+                    <svc.icon className="h-[18px] w-[18px]" style={{ color: '#A78BFA' }} />
                   </div>
                   <h4 className="text-[14px] font-bold leading-snug text-white">{svc.title}</h4>
                   <p className="mt-2 text-[12.5px] leading-5 text-slate-500">{svc.desc}</p>
                   <Link href={svc.href}
-                    className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-cyan-400 transition group-hover:gap-2">
+                    className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold transition group-hover:gap-2"
+                    style={{ color: '#A78BFA' }}>
                     Learn more <ArrowRight className="h-3 w-3" />
                   </Link>
                 </motion.div>
@@ -1121,7 +1122,7 @@ export default function HomePage() {
               </a>
             </div>
             <p className="mt-6 text-[12.5px] text-slate-500">
-              zyglotech@gmail.com · www.zyglo.tech · Indian Headquarters, Chennai
+              zyglotech@gmail.com · www.zyglotech.com · Indian Headquarters, Salem
             </p>
           </motion.div>
         </div>

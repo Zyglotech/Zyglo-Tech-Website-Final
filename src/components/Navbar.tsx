@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
-import { Menu, X, ChevronDown, Code2, Brain } from 'lucide-react';
+import { useSession, signOut } from 'next-auth/react';
+import { Menu, X, ChevronDown, Code2, Brain, Wallet, LogOut, User as UserIcon } from 'lucide-react';
 import { BrandLogo } from '@/components/BrandLogo';
 
 const itServices = [
@@ -30,6 +31,7 @@ const navLinks = [
 ];
 
 export function Navbar() {
+  const { data: authSession, status } = useSession();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -52,8 +54,8 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-3 shrink-0" onClick={() => setMobileOpen(false)}>
           <BrandLogo className="h-9 w-auto" />
           <div className="leading-tight">
-            <span className="block text-[16px] font-black tracking-[0.14em] text-white">ZYGLO</span>
-            <span className="block text-[9px] font-medium tracking-[0.22em] uppercase" style={{ color: 'rgba(6,204,232,0.7)' }}>Tech Enterprise</span>
+            <span className="block font-display text-[17px] font-bold tracking-[0.06em] text-white">ZYGLO</span>
+            <span className="block font-mono-label text-[8.5px] uppercase" style={{ color: 'rgba(6,204,232,0.7)' }}>Tech Enterprise</span>
           </div>
         </Link>
 
@@ -70,51 +72,55 @@ export function Navbar() {
             onMouseLeave={() => setDropdownOpen(false)}>
             <button
               className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white"
-              onClick={() => setDropdownOpen(!dropdownOpen)}>
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              aria-haspopup="true"
+              aria-expanded={dropdownOpen}>
               Services
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {dropdownOpen && (
-              <div className="absolute left-0 top-full z-50 mt-2 w-[580px] rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] p-4"
-                style={{ background: '#0B1424' }}>
-                <div className="grid grid-cols-2 gap-2">
-                  {/* IT Division column */}
-                  <div>
-                    <div className="mb-2 flex items-center gap-2 px-2 py-1.5">
-                      <Code2 className="h-3.5 w-3.5 text-blue-400" />
-                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-400">IT Services Division</span>
+              <div className="absolute left-0 top-full z-50 w-[580px] pt-2">
+                <div className="rounded-2xl border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.5)] p-4"
+                  style={{ background: '#0B1424' }}>
+                  <div className="grid grid-cols-2 gap-2">
+                    {/* IT Division column */}
+                    <div>
+                      <div className="mb-2 flex items-center gap-2 px-2 py-1.5">
+                        <Code2 className="h-3.5 w-3.5 text-blue-400" />
+                        <span className="font-mono-label text-[10px] uppercase text-blue-400">IT Services Division</span>
+                      </div>
+                      {itServices.map((s) => (
+                        <Link key={s.href} href={s.href}
+                          onClick={() => setDropdownOpen(false)}
+                          className="block rounded-xl px-3 py-2.5 transition hover:bg-white/5">
+                          <p className="text-[13px] font-semibold text-white">{s.label}</p>
+                          <p className="mt-0.5 text-[11px] text-slate-500">{s.desc}</p>
+                        </Link>
+                      ))}
                     </div>
-                    {itServices.map((s) => (
-                      <Link key={s.href} href={s.href}
-                        onClick={() => setDropdownOpen(false)}
-                        className="block rounded-xl px-3 py-2.5 transition hover:bg-white/5">
-                        <p className="text-[13px] font-semibold text-white">{s.label}</p>
-                        <p className="mt-0.5 text-[11px] text-slate-500">{s.desc}</p>
-                      </Link>
-                    ))}
-                  </div>
-                  {/* AI Division column */}
-                  <div>
-                    <div className="mb-2 flex items-center gap-2 px-2 py-1.5">
-                      <Brain className="h-3.5 w-3.5 text-cyan-400" />
-                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-400">AI Services Division</span>
+                    {/* AI Division column */}
+                    <div>
+                      <div className="mb-2 flex items-center gap-2 px-2 py-1.5">
+                        <Brain className="h-3.5 w-3.5" style={{ color: '#A78BFA' }} />
+                        <span className="font-mono-label text-[10px] uppercase" style={{ color: '#A78BFA' }}>AI Services Division</span>
+                      </div>
+                      {aiServices.map((s) => (
+                        <Link key={s.href} href={s.href}
+                          onClick={() => setDropdownOpen(false)}
+                          className="block rounded-xl px-3 py-2.5 transition hover:bg-white/5">
+                          <p className="text-[13px] font-semibold text-white">{s.label}</p>
+                          <p className="mt-0.5 text-[11px] text-slate-500">{s.desc}</p>
+                        </Link>
+                      ))}
                     </div>
-                    {aiServices.map((s) => (
-                      <Link key={s.href} href={s.href}
-                        onClick={() => setDropdownOpen(false)}
-                        className="block rounded-xl px-3 py-2.5 transition hover:bg-white/5">
-                        <p className="text-[13px] font-semibold text-white">{s.label}</p>
-                        <p className="mt-0.5 text-[11px] text-slate-500">{s.desc}</p>
-                      </Link>
-                    ))}
                   </div>
-                </div>
-                <div className="mt-3 border-t border-white/[0.06] pt-3">
-                  <Link href="/services" onClick={() => setDropdownOpen(false)}
-                    className="flex items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/5 py-2.5 text-[13px] font-semibold text-white transition hover:bg-white/8 hover:text-cyan-300">
-                    View All Services →
-                  </Link>
+                  <div className="mt-3 border-t border-white/[0.06] pt-3">
+                    <Link href="/services" onClick={() => setDropdownOpen(false)}
+                      className="flex items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/5 py-2.5 text-[13px] font-semibold text-white transition hover:bg-white/8 hover:text-cyan-300">
+                      View All Services →
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
@@ -130,6 +136,28 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
+          {status === 'authenticated' ? (
+            <>
+              <Link href="/dashboard/wallet"
+                className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white">
+                <Wallet className="h-3.5 w-3.5" /> Wallet
+              </Link>
+              <Link href="/dashboard/profile"
+                className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white">
+                <UserIcon className="h-3.5 w-3.5" /> Profile
+              </Link>
+              <button
+                onClick={() => signOut({ callbackUrl: '/' })}
+                className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white">
+                <LogOut className="h-3.5 w-3.5" /> Sign Out
+              </button>
+            </>
+          ) : (
+            <Link href="/auth/signin"
+              className="rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white">
+              Sign In
+            </Link>
+          )}
           <Link href="/demo"
             className="rounded-xl px-5 py-2.5 text-[13px] font-bold text-[#060B17] transition hover:shadow-[0_0_24px_rgba(6,204,232,0.3)]"
             style={{ background: '#06CCE8' }}>
@@ -150,14 +178,14 @@ export function Navbar() {
       {mobileOpen && (
         <div className="border-t border-white/[0.06] px-5 py-5 lg:hidden" style={{ background: '#060B17' }}>
           <div className="space-y-1">
-            <p className="mb-2 px-2 text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">IT Services</p>
+            <p className="mb-2 px-2 font-mono-label text-[10px] uppercase text-blue-400">IT Services</p>
             {itServices.map((s) => (
               <Link key={s.href} href={s.href} onClick={() => setMobileOpen(false)}
                 className="block rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
                 {s.label}
               </Link>
             ))}
-            <p className="mb-2 mt-4 px-2 text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400">AI Services</p>
+            <p className="mb-2 mt-4 px-2 font-mono-label text-[10px] uppercase" style={{ color: '#A78BFA' }}>AI Services</p>
             {aiServices.map((s) => (
               <Link key={s.href} href={s.href} onClick={() => setMobileOpen(false)}
                 className="block rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
@@ -175,6 +203,30 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
+            </div>
+            <div className="mt-4 border-t border-white/[0.06] pt-4 space-y-1.5">
+              {status === 'authenticated' ? (
+                <>
+                  <Link href="/dashboard/wallet" onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
+                    <Wallet className="h-4 w-4" /> Wallet
+                  </Link>
+                  <Link href="/dashboard/profile" onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
+                    <UserIcon className="h-4 w-4" /> Profile
+                  </Link>
+                  <button
+                    onClick={() => { setMobileOpen(false); signOut({ callbackUrl: '/' }); }}
+                    className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
+                    <LogOut className="h-4 w-4" /> Sign Out
+                  </button>
+                </>
+              ) : (
+                <Link href="/auth/signin" onClick={() => setMobileOpen(false)}
+                  className="block rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
+                  Sign In
+                </Link>
+              )}
             </div>
             <div className="mt-4 border-t border-white/[0.06] pt-4">
               <Link href="/demo" onClick={() => setMobileOpen(false)}
