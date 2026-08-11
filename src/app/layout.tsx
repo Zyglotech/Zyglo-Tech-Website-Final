@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { HomeSchema } from './home-schema';
 import { AggregateRatingSchema } from '@/components/AggregateRatingSchema';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -180,6 +181,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <SpeedInsights />
       </body>
     </html>
   );
