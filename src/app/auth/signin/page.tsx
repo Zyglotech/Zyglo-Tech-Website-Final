@@ -7,7 +7,21 @@ import { BrandLogo } from '@/components/BrandLogo';
 import { Spinner } from '@/components/Spinner';
 import { safeFetchJson } from '@/lib/clientFetch';
 
-type Step = 'email' | 'code' | 'phone';
+type Step = 'email' | 'code' | 'phone' | 'address';
+
+interface AddressForm {
+  name: string;
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+}
+
+const EMPTY_ADDRESS: AddressForm = {
+  name: '', addressLine1: '', addressLine2: '', city: '', state: '', postalCode: '', country: 'India',
+};
 
 function SignInForm() {
   const router = useRouter();
@@ -18,6 +32,7 @@ function SignInForm() {
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState<AddressForm>(EMPTY_ADDRESS);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -71,7 +86,8 @@ function SignInForm() {
       return;
     }
 
-    const { ok, data: profile } = await safeFetchJson<{ phone: string | null }>('/api/user');
+    type Profile = { phone: string | null; addressLine1: string | null; city: string | null; state: string | null; postalCode: string | null };
+    const { ok, data: profile } = await safeFetchJson<Profile>('/api/user');
     setLoading(false);
 
     if (!ok || !profile) {
@@ -81,6 +97,10 @@ function SignInForm() {
 
     if (!profile.phone) {
       setStep('phone');
+      return;
+    }
+    if (!profile.addressLine1 || !profile.city || !profile.state || !profile.postalCode) {
+      setStep('address');
       return;
     }
     router.push(callbackUrl);
@@ -106,21 +126,49 @@ function SignInForm() {
       setError(err ?? 'Could not save your phone number.');
       return;
     }
+    setStep('address');
+  }
+
+  function updateAddress<K extends keyof AddressForm>(key: K, value: string) {
+    setAddress((a) => ({ ...a, [key]: value }));
+  }
+
+  async function handleSaveAddress(e: React.FormEvent) {
+    e.preventDefault();
+    if (!address.name.trim() || !address.addressLine1.trim() || !address.city.trim() || !address.state.trim() || !address.postalCode.trim()) {
+      setError('Please fill in all required fields.');
+      return;
+    }
+    setLoading(true);
+    setError(null);
+
+    const { ok, error: err } = await safeFetchJson('/api/user', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(address),
+    });
+    setLoading(false);
+
+    if (!ok) {
+      setError(err ?? 'Could not save your address.');
+      return;
+    }
     router.push(callbackUrl);
   }
 
   return (
     <div className="flex min-h-[80vh] items-center justify-center px-5">
-      <div className="w-full max-w-sm">
+      <div className={`w-full ${step === 'address' ? 'max-w-md' : 'max-w-sm'}`}>
         <div className="mb-8 flex flex-col items-center text-center">
           <BrandLogo className="h-12 w-12" />
           <h1 className="mt-5 text-[24px] font-black text-white">
-            {step === 'phone' ? 'One last step' : 'Sign in to Zyglo'}
+            {step === 'phone' || step === 'address' ? 'One last step' : 'Sign in to Zyglo'}
           </h1>
           <p className="mt-2 text-[14px] text-slate-400">
             {step === 'email' && 'Enter your email — we\'ll send you a one-time code, no password needed.'}
             {step === 'code' && `We sent a 6-digit code to ${email}.`}
             {step === 'phone' && 'Add your phone number so we can process payments (only asked once).'}
+            {step === 'address' && 'Add your billing address — it appears on invoices for credit purchases (only asked once).'}
           </p>
         </div>
 
@@ -194,6 +242,95 @@ function SignInForm() {
                   className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-3 text-[14px] text-white outline-none focus:border-cyan-400/40"
                   placeholder="10-digit mobile number"
                 />
+              </div>
+              {error && <p className="text-[13px] text-red-400">{error}</p>}
+              <button
+                type="submit"
+                disabled={loading}
+                className="flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-[14px] font-bold text-[#060B17] transition disabled:opacity-60"
+                style={{ background: '#06CCE8' }}>
+                {loading && <Spinner className="h-4 w-4" />} {loading ? 'Saving...' : 'Continue'}
+              </button>
+            </form>
+          )}
+
+          {step === 'address' && (
+            <form onSubmit={handleSaveAddress} className="space-y-4">
+              <div>
+                <label className="mb-1.5 block text-[12px] font-semibold text-slate-300">Full name</label>
+                <input
+                  type="text"
+                  required
+                  value={address.name}
+                  onChange={(e) => updateAddress('name', e.target.value)}
+                  className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-2.5 text-[14px] text-white outline-none focus:border-cyan-400/40"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label className="mb-1.5 block text-[12px] font-semibold text-slate-300">Address line 1</label>
+                <input
+                  type="text"
+                  required
+                  value={address.addressLine1}
+                  onChange={(e) => updateAddress('addressLine1', e.target.value)}
+                  className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-2.5 text-[14px] text-white outline-none focus:border-cyan-400/40"
+                  placeholder="Street address"
+                />
+              </div>
+              <div>
+                <label className="mb-1.5 block text-[12px] font-semibold text-slate-300">Address line 2</label>
+                <input
+                  type="text"
+                  value={address.addressLine2}
+                  onChange={(e) => updateAddress('addressLine2', e.target.value)}
+                  className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-2.5 text-[14px] text-white outline-none focus:border-cyan-400/40"
+                  placeholder="Apartment, suite, area (optional)"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="mb-1.5 block text-[12px] font-semibold text-slate-300">City</label>
+                  <input
+                    type="text"
+                    required
+                    value={address.city}
+                    onChange={(e) => updateAddress('city', e.target.value)}
+                    className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-2.5 text-[14px] text-white outline-none focus:border-cyan-400/40"
+                  />
+                </div>
+                <div>
+                  <label className="mb-1.5 block text-[12px] font-semibold text-slate-300">State</label>
+                  <input
+                    type="text"
+                    required
+                    value={address.state}
+                    onChange={(e) => updateAddress('state', e.target.value)}
+                    className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-2.5 text-[14px] text-white outline-none focus:border-cyan-400/40"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="mb-1.5 block text-[12px] font-semibold text-slate-300">Postal code</label>
+                  <input
+                    type="text"
+                    required
+                    value={address.postalCode}
+                    onChange={(e) => updateAddress('postalCode', e.target.value)}
+                    className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-2.5 text-[14px] text-white outline-none focus:border-cyan-400/40"
+                  />
+                </div>
+                <div>
+                  <label className="mb-1.5 block text-[12px] font-semibold text-slate-300">Country</label>
+                  <input
+                    type="text"
+                    required
+                    value={address.country}
+                    onChange={(e) => updateAddress('country', e.target.value)}
+                    className="w-full rounded-xl border border-white/10 bg-[#0F1C32] px-4 py-2.5 text-[14px] text-white outline-none focus:border-cyan-400/40"
+                  />
+                </div>
               </div>
               {error && <p className="text-[13px] text-red-400">{error}</p>}
               <button

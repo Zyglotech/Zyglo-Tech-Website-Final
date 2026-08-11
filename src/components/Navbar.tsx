@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
-import { Menu, X, ChevronDown, Code2, Brain, Wallet, LogOut, User as UserIcon } from 'lucide-react';
+import { Menu, X, ChevronDown, Code2, Brain, Wallet, LogOut, User as UserIcon, FileText } from 'lucide-react';
 import { BrandLogo } from '@/components/BrandLogo';
 
 const itServices = [
@@ -142,6 +142,10 @@ export function Navbar() {
                 className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white">
                 <Wallet className="h-3.5 w-3.5" /> Wallet
               </Link>
+              <Link href="/dashboard/invoices"
+                className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white">
+                <FileText className="h-3.5 w-3.5" /> Invoices
+              </Link>
               <Link href="/dashboard/profile"
                 className="flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white">
                 <UserIcon className="h-3.5 w-3.5" /> Profile
@@ -210,6 +214,10 @@ export function Navbar() {
                   <Link href="/dashboard/wallet" onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
                     <Wallet className="h-4 w-4" /> Wallet
+                  </Link>
+                  <Link href="/dashboard/invoices" onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
+                    <FileText className="h-4 w-4" /> Invoices
                   </Link>
                   <Link href="/dashboard/profile" onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">

@@ -30,6 +30,7 @@ model User {
   country       String?     @default("India")
   emailVerified DateTime?
   image         String?
+  isAdmin       Boolean     @default(false)
   role          Role?       @relation(fields: [roleId], references: [id])
   roleId        String?
   enrollments   Enrollment[]
@@ -41,8 +42,44 @@ model User {
   analyticsEvents AnalyticsEvent[]
   creditWallet  CreditWallet?
   creditTransactions CreditTransaction[]
+  sellerLogoDataUrl   String?
+  sellerCompanyName   String?
+  sellerAddressLine1  String?
+  sellerAddressLine2  String?
+  sellerCity          String?
+  sellerState         String?
+  sellerPostalCode    String?
+  sellerCountry       String?
+  sellerEmail         String?
+  dealerInvoices      DealerInvoice[]
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
+}
+
+model DealerInvoice {
+  id                   String   @id @default(cuid())
+  user                 User     @relation(fields: [userId], references: [id])
+  userId               String
+  invoiceNumber        String   @unique
+  currency             String   @default("USD")
+  customerName         String?
+  customerCompany      String?
+  customerEmail        String?
+  customerAddressLine1 String?
+  customerAddressLine2 String?
+  customerCity         String?
+  customerState        String?
+  customerPostalCode   String?
+  customerCountry      String?
+  lineItems            Json
+  subtotal             Float
+  total                Float
+  notes                String?
+  issueDate            DateTime @default(now())
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@index([userId])
 }
 
 model EmailOtp {

@@ -11,6 +11,16 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(signInUrl);
   }
 
+  const isAdminRoute =
+    request.nextUrl.pathname.startsWith('/dashboard/admin') || request.nextUrl.pathname.startsWith('/api/admin');
+
+  if (isAdminRoute && token.isAdmin !== true) {
+    if (request.nextUrl.pathname.startsWith('/api/admin')) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+    return NextResponse.redirect(new URL('/dashboard/wallet', request.url));
+  }
+
   return NextResponse.next();
 }
 

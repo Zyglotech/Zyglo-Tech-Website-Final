@@ -81,7 +81,7 @@ export function getTierById(id: string): CreditTier | undefined {
  * credits are computed by backing the fee out first.
  */
 export const customRecharge = {
-  minAmountInr: usdToInr(5).totalInr,
+  minAmountInr: 1,
   maxAmountInr: usdToInr(1000).totalInr,
 };
 

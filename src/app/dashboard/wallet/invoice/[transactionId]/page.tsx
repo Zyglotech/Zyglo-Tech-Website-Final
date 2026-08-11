@@ -1,17 +1,17 @@
 'use client';
 
-import { useEffect, useState, use } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Printer } from 'lucide-react';
 import { BrandLogo } from '@/components/BrandLogo';
 import { Spinner } from '@/components/Spinner';
 import { safeFetchJson } from '@/lib/clientFetch';
-import { splitChargedInr, INR_PER_USD } from '@/data/credit-plans';
 
 interface InvoiceTransaction {
   id: string;
   credits: number;
   amount: number | null;
+  priceUsd: number | null;
   planLabel: string | null;
   invoiceNumber: string | null;
   cfPaymentId: string | null;
@@ -32,10 +32,10 @@ interface BillTo {
   country: string | null;
 }
 
-const inr = (n: number) => `₹${n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const usd = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-export default function InvoicePage({ params }: { params: Promise<{ transactionId: string }> }) {
-  const { transactionId } = use(params);
+export default function InvoicePage({ params }: { params: { transactionId: string } }) {
+  const { transactionId } = params;
   const [transaction, setTransaction] = useState<InvoiceTransaction | null>(null);
   const [billTo, setBillTo] = useState<BillTo | null>(null);
   const [loading, setLoading] = useState(true);
@@ -73,10 +73,9 @@ export default function InvoicePage({ params }: { params: Promise<{ transactionI
     );
   }
 
-  const total = transaction.amount ?? 0;
-  const { baseInr, feeInr } = splitChargedInr(total);
+  const total = transaction.priceUsd ?? 0;
   const paidDate = new Date(transaction.paidAt ?? transaction.createdAt);
-  const dateLabel = paidDate.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+  const dateLabel = paidDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 
   return (
     <div className="min-h-screen bg-slate-100 py-10 text-slate-900">
@@ -131,10 +130,7 @@ export default function InvoicePage({ params }: { params: Promise<{ transactionI
           </div>
 
           <p className="mt-10 text-[17px] font-black text-slate-900">
-            {inr(total)} paid on {dateLabel}
-          </p>
-          <p className="text-[12px] text-slate-500">
-            ≈ ${(baseInr / INR_PER_USD).toFixed(2)} USD at 1 USD = ₹{INR_PER_USD}
+            {usd(total)} paid on {dateLabel}
           </p>
 
           <table className="mt-6 w-full text-[13px]">
@@ -150,8 +146,8 @@ export default function InvoicePage({ params }: { params: Promise<{ transactionI
               <tr className="border-b border-slate-100">
                 <td className="py-3 text-slate-900">{transaction.planLabel ?? `${transaction.credits} Credits`}</td>
                 <td className="py-3 text-right text-slate-900">1</td>
-                <td className="py-3 text-right text-slate-900">{inr(baseInr)}</td>
-                <td className="py-3 text-right text-slate-900">{inr(baseInr)}</td>
+                <td className="py-3 text-right text-slate-900">{usd(total)}</td>
+                <td className="py-3 text-right text-slate-900">{usd(total)}</td>
               </tr>
             </tbody>
           </table>
@@ -160,19 +156,15 @@ export default function InvoicePage({ params }: { params: Promise<{ transactionI
             <div className="w-56 space-y-1.5 text-[13px]">
               <div className="flex justify-between border-b border-slate-100 py-1.5">
                 <span className="text-slate-600">Subtotal</span>
-                <span className="text-slate-900">{inr(baseInr)}</span>
-              </div>
-              <div className="flex justify-between border-b border-slate-100 py-1.5">
-                <span className="text-slate-600">Currency conversion fee (5%)</span>
-                <span className="text-slate-900">{inr(feeInr)}</span>
+                <span className="text-slate-900">{usd(total)}</span>
               </div>
               <div className="flex justify-between border-b border-slate-100 py-1.5">
                 <span className="text-slate-600">Total</span>
-                <span className="text-slate-900">{inr(total)}</span>
+                <span className="text-slate-900">{usd(total)}</span>
               </div>
               <div className="flex justify-between py-1.5 font-bold">
                 <span className="text-slate-900">Amount paid</span>
-                <span className="text-slate-900">{inr(total)}</span>
+                <span className="text-slate-900">{usd(total)}</span>
               </div>
             </div>
           </div>
@@ -191,7 +183,7 @@ export default function InvoicePage({ params }: { params: Promise<{ transactionI
               <tr>
                 <td className="py-3 text-slate-900">{transaction.paymentMethodLabel ?? 'Cashfree'}</td>
                 <td className="py-3 text-slate-900">{dateLabel}</td>
-                <td className="py-3 text-slate-900">{inr(total)}</td>
+                <td className="py-3 text-slate-900">{usd(total)}</td>
                 <td className="py-3 text-slate-900">{transaction.cfPaymentId ?? transaction.id.slice(-10).toUpperCase()}</td>
               </tr>
             </tbody>

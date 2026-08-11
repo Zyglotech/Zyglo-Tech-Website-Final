@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
-import { User } from 'lucide-react';
+import { useEffect, useState, useCallback, useRef } from 'react';
+import { User, Upload, X } from 'lucide-react';
+import Link from 'next/link';
 import { Spinner } from '@/components/Spinner';
 import { safeFetchJson } from '@/lib/clientFetch';
 
@@ -16,12 +17,25 @@ interface Profile {
   state: string | null;
   postalCode: string | null;
   country: string | null;
+  sellerLogoDataUrl: string | null;
+  sellerCompanyName: string | null;
+  sellerAddressLine1: string | null;
+  sellerAddressLine2: string | null;
+  sellerCity: string | null;
+  sellerState: string | null;
+  sellerPostalCode: string | null;
+  sellerCountry: string | null;
+  sellerEmail: string | null;
 }
 
 const EMPTY: Profile = {
   name: '', email: '', phone: '', companyName: '',
   addressLine1: '', addressLine2: '', city: '', state: '', postalCode: '', country: 'India',
+  sellerLogoDataUrl: null, sellerCompanyName: '', sellerAddressLine1: '', sellerAddressLine2: '',
+  sellerCity: '', sellerState: '', sellerPostalCode: '', sellerCountry: '', sellerEmail: '',
 };
+
+const MAX_LOGO_BYTES = 200 * 1024;
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -30,6 +44,8 @@ export default function ProfilePage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
+  const [logoError, setLogoError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const fetchProfile = useCallback(async () => {
     const { ok, data, error: err } = await safeFetchJson<Profile>('/api/user');
@@ -51,6 +67,23 @@ export default function ProfilePage() {
 
   function isValidPhone(p: string) {
     return !p || /^[6-9]\d{9}$/.test(p.replace(/\D/g, '').slice(-10));
+  }
+
+  function handleLogoFile(file: File) {
+    setLogoError(null);
+    if (!/^image\/(png|jpeg|jpg|webp|svg\+xml)$/.test(file.type)) {
+      setLogoError('Logo must be a PNG, JPEG, WEBP, or SVG image.');
+      return;
+    }
+    if (file.size > MAX_LOGO_BYTES) {
+      setLogoError('Logo must be under 200KB.');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      update('sellerLogoDataUrl', reader.result as string);
+    };
+    reader.readAsDataURL(file);
   }
 
   async function handleSave(e: React.FormEvent) {
@@ -76,6 +109,15 @@ export default function ProfilePage() {
         state: form.state,
         postalCode: form.postalCode,
         country: form.country,
+        sellerLogoDataUrl: form.sellerLogoDataUrl,
+        sellerCompanyName: form.sellerCompanyName,
+        sellerAddressLine1: form.sellerAddressLine1,
+        sellerAddressLine2: form.sellerAddressLine2,
+        sellerCity: form.sellerCity,
+        sellerState: form.sellerState,
+        sellerPostalCode: form.sellerPostalCode,
+        sellerCountry: form.sellerCountry,
+        sellerEmail: form.sellerEmail,
       }),
     });
 
@@ -148,6 +190,66 @@ export default function ProfilePage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 {field('Postal code', 'postalCode')}
                 {field('Country', 'country')}
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/[0.08] bg-[#0B1424] p-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-[12px] font-bold uppercase tracking-widest text-slate-500">My Invoice Branding</p>
+                  <p className="mt-1 text-[12px] text-slate-500">
+                    For reselling/white-label use — your own logo and business address, used as the seller on invoices you create for your own customers via{' '}
+                    <Link href="/dashboard/invoices" className="text-cyan-400 hover:underline">Create Invoice</Link>.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-[#0F1C32]">
+                  {form.sellerLogoDataUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={form.sellerLogoDataUrl} alt="Your logo" className="h-full w-full object-contain" />
+                  ) : (
+                    <Upload className="h-5 w-5 text-slate-600" />
+                  )}
+                </div>
+                <div>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                    className="hidden"
+                    onChange={(e) => { const f = e.target.files?.[0]; if (f) handleLogoFile(f); }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="rounded-lg border border-white/10 px-3 py-1.5 text-[12.5px] font-semibold text-slate-300 hover:border-white/20">
+                    Upload logo
+                  </button>
+                  {form.sellerLogoDataUrl && (
+                    <button
+                      type="button"
+                      onClick={() => update('sellerLogoDataUrl', '')}
+                      className="ml-2 inline-flex items-center gap-1 text-[12.5px] text-slate-500 hover:text-red-400">
+                      <X className="h-3.5 w-3.5" /> Remove
+                    </button>
+                  )}
+                  {logoError && <p className="mt-1 text-[11.5px] text-red-400">{logoError}</p>}
+                </div>
+              </div>
+
+              {field('Business name', 'sellerCompanyName', { placeholder: 'Your company name' })}
+              {field('Contact email', 'sellerEmail', { placeholder: 'billing@yourcompany.com', type: 'email' })}
+              {field('Address line 1', 'sellerAddressLine1', { placeholder: 'Street address' })}
+              {field('Address line 2', 'sellerAddressLine2', { placeholder: 'Optional' })}
+              <div className="grid gap-4 sm:grid-cols-2">
+                {field('City', 'sellerCity')}
+                {field('State', 'sellerState')}
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {field('Postal code', 'sellerPostalCode')}
+                {field('Country', 'sellerCountry')}
               </div>
             </div>
 
