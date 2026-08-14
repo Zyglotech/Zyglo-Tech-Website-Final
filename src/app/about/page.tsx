@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Building2, GraduationCap, Shield, Award, Rocket, Heart, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Zyglo Tech Enterprise | Salem AI & IT Company',
-  description: 'Zyglo Tech builds AI chatbots, ERP systems, and automation for 50+ Indian businesses.',
-  keywords: ['about Zyglo Tech', 'Salem IT company', 'AI company India', 'Zyglo Tech Enterprise'],
+  title: 'About Us — Salem AI & IT Company',
+  description: 'Zyglo Tech Enterprise is an AI and IT solutions company headquartered in Salem, building custom AI chatbots, WhatsApp automation agents, GST-ready ERP systems, and mobile/web apps for Indian SMEs.',
+  keywords: ['Zyglo Tech Enterprise', 'about Zyglo Tech', 'Salem IT company', 'AI company India', 'Zyglo AI solutions'],
   openGraph: {
     title: 'About Zyglo Tech Enterprise | Salem AI & IT Company',
-    description: 'Zyglo Tech builds AI chatbots, ERP systems, and automation for 50+ Indian businesses.',
+    description: 'Zyglo Tech Enterprise builds AI chatbots, WhatsApp automation, GST-ready ERP, and mobile/web apps for 50+ Indian businesses.',
     url: 'https://www.zyglotech.com/about',
     type: 'website',
   },
@@ -55,7 +55,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mt-6 text-[17px] leading-8 text-slate-400">
-              Zyglo Tech Enterprise gives every Indian business — from local shops to large enterprises — access to world-class AI and technology at an accessible price.
+              Zyglo Tech Enterprise is an artificial intelligence and IT solutions company headquartered in Salem, Tamil Nadu. We build custom AI chatbots, WhatsApp automation agents, GST-ready ERP systems, and mobile & web applications for small and medium enterprises — giving every Indian business access to world-class technology at an accessible price.
             </p>
           </div>
         </div>

@@ -8,18 +8,18 @@ import { ServiceSchema } from '@/components/ServiceSchema';
 
 export const metadata: Metadata = {
   title: 'SEO, AEO & GEO Ranking Services',
-  description: 'AI-powered SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO) — rank on Google, ChatGPT, Gemini & Perplexity. Built from India, for the world.',
-  keywords: ['SEO services India', 'AEO optimization', 'GEO optimization', 'AI search optimization', 'ChatGPT ranking', 'Featured Snippets India', 'Perplexity optimization'],
+  description: 'Rank on Google, ChatGPT, Gemini & Perplexity. 3.8x average traffic increase across 40+ businesses ranked. Get your free SEO + AI visibility audit today.',
+  keywords: ['Zyglo SEO services', 'SEO services India', 'geo aeo seo services', 'AEO optimization', 'GEO optimization', 'AI search optimization', 'ChatGPT ranking'],
   openGraph: {
     title: 'SEO, AEO & GEO Ranking Services | Zyglo Tech Enterprise',
-    description: 'Rank on Google, ChatGPT, Gemini & Perplexity with AI-powered SEO, AEO, and GEO strategies.',
+    description: 'Rank on Google, ChatGPT, Gemini & Perplexity. 3.8x average traffic increase across 40+ businesses ranked.',
     url: 'https://www.zyglotech.com/services/seo-aeo-geo',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SEO, AEO & GEO Ranking Services | Zyglo Tech',
-    description: 'Rank on Google, ChatGPT, Gemini & Perplexity with AI-powered SEO, AEO, and GEO strategies.',
+    description: 'Rank on Google, ChatGPT, Gemini & Perplexity. 3.8x average traffic increase across 40+ businesses ranked.',
   },
   alternates: { canonical: 'https://www.zyglotech.com/services/seo-aeo-geo' },
 };

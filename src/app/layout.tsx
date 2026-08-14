@@ -32,7 +32,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Zyglo Tech Enterprise | AI Chatbots, ERP, Automation & Web Development',
+    default: 'Zyglo Tech Enterprise | AI, ERP & Automation for India',
     template: '%s | Zyglo Tech Enterprise',
   },
   description: 'India\'s leading AI & IT enterprise platform. AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and corporate training — built for India\'s fastest-growing businesses. Headquartered in Salem.',

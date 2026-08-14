@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { ServiceSchema } from '@/components/ServiceSchema';
+import { FaqSchema } from '@/components/FaqSchema';
+import { FaqAccordion } from '@/components/FaqAccordion';
 
 interface PageShellProps {
   division?: 'IT' | 'AI';
@@ -14,9 +16,11 @@ interface PageShellProps {
   servicePath?: string;
   /** Service category for schema (e.g. 'AI Chatbot Development') */
   serviceCategory?: string;
+  /** Optional FAQ list — renders an accordion + FAQPage structured data */
+  faqs?: { q: string; a: string }[];
 }
 
-export function PageShell({ division, label, title, description, cta, features, servicePath, serviceCategory }: PageShellProps) {
+export function PageShell({ division, label, title, description, cta, features, servicePath, serviceCategory, faqs }: PageShellProps) {
   const isTech = division === 'IT';
   const accentColor = isTech ? '#3B82F6' : '#A78BFA';
   const accentBg = isTech ? 'rgba(59,130,246,0.08)' : 'rgba(167,139,250,0.08)';
@@ -44,6 +48,9 @@ export function PageShell({ division, label, title, description, cta, features, 
           category={serviceCategory}
         />
       )}
+
+      {/* FAQ structured data */}
+      {faqs && faqs.length > 0 && <FaqSchema faqs={faqs} />}
 
       <div className="relative overflow-hidden rounded-2xl border p-6 sm:p-10" style={{ borderColor: accentBorder, background: '#0B1424' }}>
         {/* Ambient corner glow — division-tinted */}
@@ -109,6 +116,14 @@ export function PageShell({ division, label, title, description, cta, features, 
           </a>
         ))}
       </div>
+
+      {/* FAQ */}
+      {faqs && faqs.length > 0 && (
+        <div className="mt-6 rounded-2xl border border-white/[0.06] bg-[#0B1424] px-6 py-2 sm:px-8">
+          <p className="pt-6 font-mono-label text-[10px] uppercase" style={{ color: '#06CCE8' }}>Frequently Asked Questions</p>
+          <FaqAccordion faqs={faqs} />
+        </div>
+      )}
     </div>
   );
 }

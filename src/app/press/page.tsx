@@ -5,7 +5,7 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { BrandLogo } from '@/components/BrandLogo';
 
 export const metadata: Metadata = {
-  title: 'Press & Media | Zyglo Tech Enterprise',
+  title: 'Press & Media',
   description: 'News, press releases, media kits, and coverage about Zyglo Tech Enterprise. See how we are transforming Indian businesses with AI and automation.',
   openGraph: {
     title: 'Press & Media | Zyglo Tech Enterprise',
