@@ -201,6 +201,14 @@ const faqs = [
     q: 'Do you work with businesses outside India?',
     a: 'Yes. While our team is based in Salem, we manage SEO campaigns for clients in the UAE, UK, USA, and Southeast Asia. Our GEO strategies are particularly valuable for international markets where AI search adoption is highest.',
   },
+  {
+    q: 'Do you offer SEO, AEO and GEO services in other Indian cities like Hyderabad?',
+    a: 'Yes — our SEO, AEO and GEO services are delivered remotely to businesses across India, including Hyderabad, Chennai, Bangalore, and beyond, with the same 90-day blueprint used for Salem-based clients.',
+  },
+  {
+    q: 'Which generative engine optimization tools do you use to track AI citations?',
+    a: 'We monitor brand mentions and citations across ChatGPT, Gemini, and Perplexity directly, combined with entity and knowledge-graph tracking — available from the Growth plan upward.',
+  },
 ];
 
 const tools = [

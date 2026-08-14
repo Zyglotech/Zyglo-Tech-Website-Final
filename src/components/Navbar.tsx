@@ -20,6 +20,7 @@ const aiServices = [
   { label: 'Workflow Automation', href: '/services/workflow-automation', desc: 'Eliminate repetitive tasks at scale' },
   { label: 'Personal & Business AI Assistants', href: '/services/ai-assistants', desc: 'Intelligent assistants for daily operations' },
   { label: 'SEO, AEO & GEO Ranking', href: '/services/seo-aeo-geo', desc: 'AI-powered search visibility strategy' },
+  { label: 'Digital Transformation', href: '/services/digital-transformation', desc: 'Audit, roadmap & phased modernisation' },
 ];
 
 const navLinks = [

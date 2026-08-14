@@ -16,6 +16,7 @@ const aiServices = [
   { label: 'Workflow Automation', href: '/services/workflow-automation' },
   { label: 'Personal & Business AI Assistants', href: '/services/ai-assistants' },
   { label: 'SEO, AEO & GEO Ranking', href: '/services/seo-aeo-geo' },
+  { label: 'Digital Transformation', href: '/services/digital-transformation' },
 ];
 
 const company = [

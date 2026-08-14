@@ -1,0 +1,31 @@
+# Zyglo Tech Enterprise
+
+> Zyglo Tech Enterprise is an AI and IT solutions company headquartered in Salem, Tamil Nadu, India. It builds AI chatbots, WhatsApp automation agents, GST-ready ERP systems, workflow automation, and mobile/web applications for small and medium enterprises across India.
+
+Zyglo Tech Enterprise Pvt. Ltd. was founded in 2021 in Salem, Tamil Nadu. It has delivered products to 50+ Indian businesses and trained 100+ students through Zyglo Academy. The company operates two service divisions: an IT Services division (websites, apps, ERP, local SEO, college/institution projects) and an AI Services division (chatbots, sales agents, workflow automation, AI assistants, SEO/AEO/GEO ranking, digital transformation).
+
+Headquarters: 18/10, Rail Nagar, Suramangalam, Salem, Tamil Nadu 636005, India
+Phone: +91 9943 907 643
+Email: zyglotech@gmail.com
+Website: https://www.zyglotech.com
+
+## Services
+
+- [AI Chatbot & Appointment Agents](https://www.zyglotech.com/services/ai-chatbots): WhatsApp and website AI chatbots for customer support, lead capture, and appointment booking.
+- [AI Sales & Lead Qualification Agents](https://www.zyglotech.com/services/ai-agents): AI agents that engage, score, and follow up with leads automatically.
+- [Workflow Automation](https://www.zyglotech.com/services/workflow-automation): Automating invoicing, approvals, HR, and inventory processes.
+- [Personal & Business AI Assistants](https://www.zyglotech.com/services/ai-assistants): Custom AI assistants trained on a business's own data.
+- [SEO, AEO & GEO Ranking Services](https://www.zyglotech.com/services/seo-aeo-geo): Search, answer-engine, and generative-engine optimization for ranking on Google, ChatGPT, Gemini, and Perplexity.
+- [Digital Transformation](https://www.zyglotech.com/services/digital-transformation): Digital readiness audits and phased technology modernization roadmaps.
+- [GST-Ready ERP Setup & Customization](https://www.zyglotech.com/services/erp-solutions): ERP systems covering finance, inventory, HR, CRM, and GST-compliant billing.
+- [Website Development](https://www.zyglotech.com/services/web-development): Business websites and web applications built with Next.js and React.
+- [App Development](https://www.zyglotech.com/services/app-development): Native and cross-platform Android/iOS app development.
+- [Google Business Setup & Local SEO](https://www.zyglotech.com/services/google-business): Google Business Profile optimization and local search ranking.
+- [College & Final Year Projects](https://www.zyglotech.com/services/college-projects): Final-year engineering, IoT, and AI/ML projects for students.
+
+## Resources
+
+- [Blog](https://www.zyglotech.com/blog): Guides on AI, automation, SEO/AEO/GEO, and business growth.
+- [Case Studies](https://www.zyglotech.com/case-studies): Documented client results across healthcare, retail, food & beverage, and e-commerce.
+- [About](https://www.zyglotech.com/about): Company background and timeline.
+- [Contact](https://www.zyglotech.com/contact): Phone, email, and WhatsApp contact details.

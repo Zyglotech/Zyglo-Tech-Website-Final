@@ -24,6 +24,7 @@ const faqs = [
   { q: 'Do you need to replace our existing software?', a: 'No — Zyglo\'s automations connect to your existing tools via API integrations rather than replacing them.' },
   { q: 'Is this no-code or custom-built?', a: 'Both. We use a zero-code and custom-code hybrid approach, picking whichever is faster and more reliable for each specific workflow.' },
   { q: 'How much time does workflow automation typically save?', a: 'Clients commonly report 15-20 hours per week saved once approval, invoicing, and data-entry workflows are automated end-to-end.' },
+  { q: 'Are there workflow automation companies in India that work remotely?', a: 'Yes — Zyglo is based in Salem and delivers workflow automation for businesses across India and Chennai remotely, with onsite visits available on request.' },
 ];
 
 export default function WorkflowAutomationPage() {

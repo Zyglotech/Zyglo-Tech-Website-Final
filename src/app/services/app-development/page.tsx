@@ -24,6 +24,7 @@ const faqs = [
   { q: 'Will the app work offline?', a: 'Yes, we build offline-first architecture where needed, so the app stays usable in low-connectivity areas and syncs when back online.' },
   { q: 'Do you handle App Store and Play Store submission?', a: 'Yes, we manage the full submission and review process for both stores as part of the delivery.' },
   { q: 'Can the app connect to our existing ERP or backend?', a: 'Yes — API and database integration with your existing systems is a standard part of the build.' },
+  { q: 'Do you have expertise in native iOS and Android development?', a: 'Yes, our team builds native iOS (Swift) and Android (Kotlin) apps in-house, alongside cross-platform work, for clients across Tamil Nadu and pan-India.' },
 ];
 
 export default function AppDevelopmentPage() {

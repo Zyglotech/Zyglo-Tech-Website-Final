@@ -24,6 +24,8 @@ const faqs = [
   { q: 'Does the chatbot understand Hindi and regional languages?', a: 'Yes, our chatbots handle natural conversation in Hindi and English, with regional language support available for enterprise plans.' },
   { q: 'Can it book appointments automatically?', a: 'Yes — the chatbot checks availability, books the slot, and sends confirmation/reminder messages without any manual follow-up.' },
   { q: 'What happens if the chatbot can\'t answer a question?', a: 'It escalates the conversation to a human agent seamlessly, with full context of what the customer already asked.' },
+  { q: 'Is Zyglo a chatbot service or a chatbot agency?', a: 'Both — we\'re a full chatbot agency: strategy, conversation design, build, and ongoing optimisation, not just a self-serve chatbot service.' },
+  { q: 'Do you offer chatbot localisation for regional markets?', a: 'Yes, chatbot localisation is available — conversation flows, tone, and language adapted for specific regions and customer bases across India.' },
 ];
 
 export default function AIChatbotsPage() {

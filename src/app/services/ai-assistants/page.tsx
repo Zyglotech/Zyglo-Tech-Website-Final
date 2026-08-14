@@ -24,6 +24,7 @@ const faqs = [
   { q: 'Can it integrate with Google Workspace or Microsoft 365?', a: 'Yes, Zyglo\'s AI assistants connect to both, so it can draft emails, read documents, and manage calendars directly.' },
   { q: 'Is my business data kept private?', a: 'Yes — your data is used only to train and run your assistant and is never shared across other customers or used to train public models.' },
   { q: 'Can different teams have different assistants?', a: 'Yes, we build role-specific assistants for sales, HR, and finance teams, each scoped to the data and tasks relevant to that team.' },
+  { q: 'What\'s the difference between an AI assistant for business and a chatbot?', a: 'A chatbot handles customer-facing conversations; a business AI assistant works internally — drafting, summarising, and answering questions for your own team.' },
 ];
 
 export default function AIAssistantsPage() {
