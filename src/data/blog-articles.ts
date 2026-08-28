@@ -11,6 +11,26 @@ export interface BlogArticle {
 
 export const blogArticles: BlogArticle[] = [
   {
+    slug: 'whatsapp-chatbot-pricing-india-2026',
+    title: 'WhatsApp AI Chatbot Pricing in India (2026): The Real Cost Breakdown',
+    excerpt: 'Platform fees, Meta conversation charges, and development cost — what a WhatsApp AI chatbot actually costs an Indian business in 2026.',
+    category: 'AI & Automation',
+    date: 'Aug 13, 2026',
+    isoDate: '2026-08-13',
+    readTime: '7 min read',
+    tags: ['WhatsApp Chatbot', 'Pricing', 'AI Chatbot India'],
+  },
+  {
+    slug: 'gst-erp-cost-small-business-india',
+    title: 'GST-Ready ERP Cost for Small Businesses in India (2026)',
+    excerpt: 'What GST-compliant ERP actually costs — subscription pricing, custom implementation, and the hidden costs most vendors leave out.',
+    category: 'ERP & Business',
+    date: 'Aug 12, 2026',
+    isoDate: '2026-08-12',
+    readTime: '6 min read',
+    tags: ['ERP', 'GST', 'Pricing'],
+  },
+  {
     slug: 'ai-chatbots-replacing-customer-support',
     title: 'How AI Chatbots Are Replacing Traditional Customer Support',
     excerpt: 'WhatsApp AI agents now handle 80% of tier-1 support queries. We break down the architecture, cost savings, and deployment timeline.',

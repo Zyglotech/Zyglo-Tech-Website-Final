@@ -1,8 +1,23 @@
 import { type MetadataRoute } from 'next';
+import { blogArticles } from '@/data/blog-articles';
+import { caseStudies } from '@/data/case-studies';
 
 const siteUrl = 'https://www.zyglotech.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const blogUrls: MetadataRoute.Sitemap = blogArticles.map((a) => ({
+    url: `${siteUrl}/blog/${a.slug}`,
+    lastModified: a.isoDate,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
+
+  const caseStudyUrls: MetadataRoute.Sitemap = caseStudies.map((c) => ({
+    url: `${siteUrl}/case-studies/${c.slug}`,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
+
   return [
     { url: siteUrl, lastModified: '2026-05-15', changeFrequency: 'weekly', priority: 1.0 },
     { url: `${siteUrl}/about`, lastModified: '2026-05-10', changeFrequency: 'monthly', priority: 0.8 },
@@ -33,5 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/legal/terms-of-service`, lastModified: '2026-01-01', changeFrequency: 'yearly', priority: 0.3 },
     { url: `${siteUrl}/legal/refund-policy`, lastModified: '2026-01-01', changeFrequency: 'yearly', priority: 0.3 },
     { url: `${siteUrl}/legal/cookie-policy`, lastModified: '2026-01-01', changeFrequency: 'yearly', priority: 0.3 },
+    ...blogUrls,
+    ...caseStudyUrls,
   ];
 }

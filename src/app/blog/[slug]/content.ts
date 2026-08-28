@@ -2,6 +2,79 @@
 // Article HTML content keyed by slug
 export const articleContent: Record<string, string> = {
 
+'whatsapp-chatbot-pricing-india-2026': `
+<h2>What Does a WhatsApp AI Chatbot Actually Cost?</h2>
+<p>Every business we talk to asks the same question first: "what's this actually going to cost me?" Fair question — and the honest answer is that WhatsApp chatbot pricing in India has three separate components that most vendor websites blur together. Once you see them split apart, the number stops feeling mysterious.</p>
+<p>For most small and mid-sized Indian businesses, a working WhatsApp AI chatbot costs <strong>₹3,000–₹25,000 per month</strong> in ongoing fees, plus a one-time build cost that varies far more widely depending on complexity.</p>
+
+<h2>The Three Things You're Actually Paying For</h2>
+<h3>1. The WhatsApp Business API itself (Meta's charges)</h3>
+<p>Meta charges per conversation, not per message — a "conversation" is a 24-hour window of back-and-forth. Rates vary by conversation category (utility, marketing, authentication, service) and typically run <strong>₹0.30–₹0.80 per conversation</strong> in India. A business handling 1,000 conversations a month is looking at roughly ₹300–₹800/month just in Meta's own fees.</p>
+<h3>2. The chatbot platform fee</h3>
+<p>This is the software layer that manages your bot builder, WhatsApp API connection, and dashboard. Rule-based (menu-driven, FAQ) platforms start around <strong>₹1,000–₹3,000/month</strong>. Platforms with genuine AI — natural language understanding, context-aware conversations — run <strong>₹1,500–₹16,500/month</strong> depending on conversation volume and features.</p>
+<h3>3. The actual build — conversation design and integration</h3>
+<p>This is the part most pricing pages skip entirely, and it's usually the biggest line item. A basic FAQ bot might be a one-day setup. A chatbot that qualifies leads, checks appointment availability against your calendar, pushes data into your CRM, and escalates to a human when it's stuck is a real software project — typically <strong>₹35,000–₹8,00,000</strong> depending on scope, with most small-business deployments landing in the ₹40,000–₹1,50,000 range.</p>
+
+<h2>Rule-Based vs AI Chatbots: Why the Price Gap Is So Wide</h2>
+<p>A rule-based chatbot follows a fixed decision tree — press 1 for sales, 2 for support. Cheap to build, cheap to run, and it breaks the moment a customer types something it doesn't recognise.</p>
+<p>An AI chatbot understands natural language, handles follow-up questions, and holds context across a conversation. It costs more upfront and slightly more to run, but it's the difference between "sorry, I didn't understand that" and actually resolving the customer's question. For any business where the chatbot is customer-facing, the AI tier is worth the gap.</p>
+
+<h2>What Drives the Price Within Each Tier</h2>
+<ul>
+<li><strong>Conversation volume</strong> — more conversations, higher Meta charges and platform tier</li>
+<li><strong>Language support</strong> — Hindi/regional language handling adds development time</li>
+<li><strong>Integrations</strong> — CRM push, calendar sync, payment collection each add scope</li>
+<li><strong>Human handoff logic</strong> — smooth escalation to a live agent is non-trivial to build well</li>
+<li><strong>Ongoing tuning</strong> — a chatbot that improves from real conversations needs monthly review, not a one-time setup</li>
+</ul>
+
+<h2>A Realistic Monthly Budget by Business Size</h2>
+<p><strong>Small business (under 500 conversations/month):</strong> ₹3,000–₹8,000/month all-in, after a one-time build cost of ₹35,000–₹75,000.</p>
+<p><strong>Growing business (500–3,000 conversations/month):</strong> ₹8,000–₹18,000/month, with a build cost of ₹75,000–₹2,00,000 for a fuller-featured bot with CRM integration.</p>
+<p><strong>Established business (3,000+ conversations/month, multiple use cases):</strong> ₹18,000–₹25,000+/month, with builds ranging ₹2,00,000–₹8,00,000 depending on how many workflows the bot handles.</p>
+
+<h2>The Bottom Line</h2>
+<p>Don't evaluate WhatsApp chatbot quotes on the monthly platform fee alone — that's the smallest and most comparable number across vendors. The build cost and what it actually gets you (real AI understanding vs. a decision tree, real integrations vs. a standalone widget) is where the value actually lives. Ask any vendor to break their quote into these three pieces before you compare prices.</p>
+`,
+
+'gst-erp-cost-small-business-india': `
+<h2>What GST-Ready ERP Actually Costs</h2>
+<p>ERP pricing pages in India are notoriously vague — "starting from ₹999/month" tells you almost nothing about what you'll actually pay once GST filing, multi-user access, and your specific workflows are factored in. Here's the honest breakdown.</p>
+<p>For a small Indian business, GST-ready ERP typically costs <strong>₹500–₹3,000 per user per month</strong> for subscription software, or <strong>₹50,000–₹5,00,000+</strong> as a one-time cost for a custom-built or heavily customised system.</p>
+
+<h2>Two Very Different Pricing Models</h2>
+<h3>Subscription ERP (Zoho Books, Tally on Cloud, Odoo, generic SaaS platforms)</h3>
+<p>You pay per user, per month, for a pre-built platform. Entry-level plans (invoicing, basic GST filing) start around <strong>₹500–₹1,200/user/month</strong>. Fuller plans covering inventory, HR, and CRM run <strong>₹1,500–₹3,000/user/month</strong>. This is the fastest way to get GST-compliant, but you're working within the platform's existing structure — customisation is limited or costs extra.</p>
+<h3>Custom-built or heavily customised ERP</h3>
+<p>You pay once (or in phases) for a system built around how your business actually operates — your specific approval chains, your inventory categories, your reporting formats. This runs <strong>₹50,000 for a simple single-module system</strong> up to <strong>₹5,00,000+</strong> for a full finance + inventory + HR + CRM platform with multi-location support. Ongoing hosting and support typically adds ₹5,000–₹25,000/month after launch.</p>
+
+<h2>What's Actually Included in "GST-Ready"</h2>
+<p>Genuinely GST-compliant ERP should handle, without manual workarounds:</p>
+<ul>
+<li>GSTR-1, GSTR-3B, and GSTR-9 filing preparation</li>
+<li>TDS/TCS calculation and reporting</li>
+<li>HSN/SAC code management on every invoice</li>
+<li>E-invoicing and e-way bill generation where applicable</li>
+<li>Input tax credit reconciliation</li>
+</ul>
+<p>If a vendor quotes a low base price and GST filing is a paid add-on, factor that into the real comparison — it's not optional for any registered Indian business.</p>
+
+<h2>The Hidden Costs Most Quotes Leave Out</h2>
+<ul>
+<li><strong>Data migration</strong> — moving your existing records into the new system, often quoted separately and easy to underestimate</li>
+<li><strong>Training</strong> — your team's time learning the new system has a real cost even if the vendor doesn't charge for it</li>
+<li><strong>Per-user scaling</strong> — subscription pricing that looks cheap at 3 users can double at 15</li>
+<li><strong>Support after go-live</strong> — check whether post-launch support is included for a fixed period or billed hourly</li>
+</ul>
+
+<h2>Subscription vs Custom: How to Decide</h2>
+<p>Choose subscription ERP if your workflows are fairly standard — invoicing, basic inventory, straightforward GST filing — and you want to be live within days, not weeks.</p>
+<p>Choose custom or heavily customised ERP if you have specific approval workflows, multiple warehouses, industry-specific reporting needs, or you're already fighting your current software instead of the other way around. The higher upfront cost usually pays back in fewer manual workarounds over the following year.</p>
+
+<h2>The Bottom Line</h2>
+<p>The real cost of GST ERP isn't the headline subscription price — it's subscription price × number of users × months, plus migration, plus training, plus whatever's still manual because the platform didn't quite fit. Get a quote that itemises all of it before comparing vendors on price alone.</p>
+`,
+
 'ai-chatbots-replacing-customer-support': `
 <h2>The Shift from Human-First to AI-First Support</h2>
 <p>Customer support is undergoing its biggest transformation since the invention of the call centre. AI chatbots — powered by large language models and deployed on platforms like WhatsApp, Instagram, and websites — now handle the majority of tier-1 support queries for forward-thinking businesses across India.</p>
