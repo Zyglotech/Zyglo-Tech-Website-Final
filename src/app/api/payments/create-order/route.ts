@@ -100,6 +100,11 @@ export async function POST(request: Request) {
       orderId: cashfreeOrderId,
     });
   } catch (err) {
+    console.error('[create-order] Cashfree order creation failed', {
+      cashfreeOrderId,
+      userId: user.id,
+      message: err instanceof Error ? err.message : String(err),
+    });
     await prismadb.creditTransaction.update({
       where: { cashfreeOrderId },
       data: { status: 'failed' },
