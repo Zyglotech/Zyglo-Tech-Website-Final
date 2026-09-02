@@ -5,7 +5,10 @@ import { useSession } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Zap, Clock, CheckCircle2, XCircle, Wallet } from 'lucide-react';
-import { customRecharge, creditsForAmount, formatUsd, getTierById, DEFAULT_TIER_ID } from '@/data/credit-plans';
+import { customRecharge, creditsForAmount, formatUsd, getTierById, DEFAULT_TIER_ID, INR_PER_USD, USD_PER_CREDIT } from '@/data/credit-plans';
+
+const formatInr = (n: number) => `₹${n.toLocaleString('en-IN')}`;
+const inrPerCredit = USD_PER_CREDIT * INR_PER_USD;
 import { CreditTierPicker } from '@/components/CreditTierPicker';
 import { Spinner } from '@/components/Spinner';
 import { safeFetchJson } from '@/lib/clientFetch';
@@ -237,7 +240,7 @@ function WalletContent() {
           <Wallet className="h-5 w-5 text-cyan-400" /> Recharge Any Amount
         </h2>
         <p className="mt-1.5 text-[13px] text-slate-500">
-          $0.25 per credit. Min {formatUsd(customRecharge.minAmountInr, true)}, max {formatUsd(customRecharge.maxAmountInr, true)}.
+          ₹{inrPerCredit.toFixed(2)} per credit. Min {formatInr(customRecharge.minAmountInr)}, max {formatInr(customRecharge.maxAmountInr)}.
         </p>
         <div className="mt-5 flex flex-wrap items-end gap-4 rounded-2xl border border-white/[0.08] bg-[#0B1424] p-6">
           <div>
@@ -279,13 +282,13 @@ function WalletContent() {
 
         {/* Fixed credit tier */}
         <h2 className="mt-12 text-[20px] font-black text-white">Or Buy a Credit Pack</h2>
-        <p className="mt-1.5 text-[13px] text-slate-500">$0.25 per credit at every tier — no volume discounts.</p>
+        <p className="mt-1.5 text-[13px] text-slate-500">₹{inrPerCredit.toFixed(2)} per credit at every tier — no volume discounts.</p>
         <div className="mt-5 max-w-md rounded-2xl border border-cyan-400/30 bg-[#0B1424] p-6">
           <p className="text-[32px] font-black text-white">
-            {formatUsd(selectedTier.priceUsd)}
+            {formatInr(selectedTier.priceInr)}
             <span className="ml-1 text-[13px] font-medium text-slate-500">one-time</span>
           </p>
-          <p className="mt-1 text-[11.5px] text-slate-500">≈ ₹{selectedTier.priceInr.toLocaleString('en-IN')}, charged via Cashfree</p>
+          <p className="mt-1 text-[11.5px] text-slate-500">≈ {formatUsd(selectedTier.priceUsd)} USD, charged via Cashfree</p>
           <div className="mt-4">
             <CreditTierPicker selectedId={tierId} onChange={setTierId} />
           </div>
@@ -299,7 +302,7 @@ function WalletContent() {
           </button>
         </div>
         <p className="mt-3 text-[11px] text-slate-600">
-          Prices shown in USD for reference. All payments are charged in INR via Cashfree.
+          All prices are in INR. USD shown for reference only.
         </p>
 
         <h2 className="mt-12 text-[20px] font-black text-white">Transaction History</h2>
@@ -333,7 +336,7 @@ function WalletContent() {
                         {t.type === 'topup' ? '+' : '−'}{t.credits.toLocaleString('en-IN')} credits
                       </p>
                       {t.amount != null && (
-                        <p className="text-[11.5px] text-slate-500">{formatUsd(t.amount, true)} (₹{t.amount.toLocaleString('en-IN')})</p>
+                        <p className="text-[11.5px] text-slate-500">{formatInr(t.amount)} (≈ {formatUsd(t.amount, true)} USD)</p>
                       )}
                       {t.status === 'paid' && (
                         <Link href={`/dashboard/wallet/invoice/${t.id}`} className="text-[11px] font-semibold text-cyan-400 hover:underline">

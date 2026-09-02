@@ -5,7 +5,10 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { CreditTierPicker } from '@/components/CreditTierPicker';
-import { getTierById, DEFAULT_TIER_ID, formatUsd } from '@/data/credit-plans';
+import { getTierById, DEFAULT_TIER_ID, formatUsd, INR_PER_USD, USD_PER_CREDIT } from '@/data/credit-plans';
+
+const formatInr = (n: number) => `₹${n.toLocaleString('en-IN')}`;
+const inrPerCredit = USD_PER_CREDIT * INR_PER_USD;
 
 export default function PricingPage() {
   const [tierId, setTierId] = useState(DEFAULT_TIER_ID);
@@ -20,7 +23,7 @@ export default function PricingPage() {
           Simple, transparent AI credit pricing.
         </h1>
         <p className="mt-4 text-[16px] leading-8 text-slate-400">
-          $0.25 per credit, every time — no volume discounts, no hidden fees. Credits power your AI chatbots, sales agents, and automation workflows.
+          ₹{inrPerCredit.toFixed(2)} per credit, every time — no volume discounts, no hidden fees. Credits power your AI chatbots, sales agents, and automation workflows.
         </p>
       </div>
 
@@ -29,10 +32,10 @@ export default function PricingPage() {
         <p className="mt-1 text-[13px] text-slate-500">Buy credits once, use them at your own pace.</p>
 
         <p className="mt-6 text-[44px] font-black text-white">
-          {formatUsd(tier.priceUsd)}
+          {formatInr(tier.priceInr)}
           <span className="ml-1 text-[14px] font-medium text-slate-500">one-time</span>
         </p>
-        <p className="mt-1 text-[12px] text-slate-500">≈ ₹{tier.priceInr.toLocaleString('en-IN')}, charged via Cashfree</p>
+        <p className="mt-1 text-[12px] text-slate-500">≈ {formatUsd(tier.priceUsd)} USD, charged via Cashfree</p>
 
         <div className="mt-6 max-w-xs">
           <CreditTierPicker selectedId={tierId} onChange={setTierId} />

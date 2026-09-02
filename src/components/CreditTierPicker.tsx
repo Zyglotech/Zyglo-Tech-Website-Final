@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Check } from 'lucide-react';
-import { creditTiers, formatUsd, type CreditTier } from '@/data/credit-plans';
+import { creditTiers, type CreditTier } from '@/data/credit-plans';
+
+const formatInr = (n: number) => `₹${n.toLocaleString('en-IN')}`;
 
 interface CreditTierPickerProps {
   selectedId: string;
@@ -55,7 +57,7 @@ export function CreditTierPicker({ selectedId, onChange }: CreditTierPickerProps
                   </span>
                 )}
               </span>
-              <span className="text-slate-400">{formatUsd(tier.priceUsd)}</span>
+              <span className="text-slate-400">{formatInr(tier.priceInr)}</span>
             </button>
           ))}
         </div>
