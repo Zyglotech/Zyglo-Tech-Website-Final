@@ -21,7 +21,39 @@ interface Transaction {
   status: string;
   planLabel: string | null;
   cashfreeOrderId: string | null;
+  payuTxnId: string | null;
   createdAt: string;
+}
+
+interface PayuFormFields {
+  action: string;
+  key: string;
+  txnid: string;
+  amount: string;
+  productinfo: string;
+  firstname: string;
+  email: string;
+  phone: string;
+  surl: string;
+  furl: string;
+  hash: string;
+}
+
+function submitPayuForm(form: PayuFormFields) {
+  const el = document.createElement('form');
+  el.method = 'POST';
+  el.action = form.action;
+  (Object.keys(form) as (keyof PayuFormFields)[])
+    .filter((key) => key !== 'action')
+    .forEach((key) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = form[key];
+      el.appendChild(input);
+    });
+  document.body.appendChild(el);
+  el.submit();
 }
 
 const STATUS_STYLES: Record<string, { icon: typeof CheckCircle2; color: string }> = {
@@ -71,7 +103,9 @@ function WalletContent() {
   useEffect(() => { fetchProfile(); }, [fetchProfile]);
 
   // If we just came back from checkout and the webhook hasn't landed yet, poll briefly.
-  const returnTransaction = returnOrderId ? transactions.find((t) => t.cashfreeOrderId === returnOrderId) : undefined;
+  const returnTransaction = returnOrderId
+    ? transactions.find((t) => t.cashfreeOrderId === returnOrderId || t.payuTxnId === returnOrderId)
+    : undefined;
   useEffect(() => {
     if (!returnOrderId) return;
     if (returnTransaction && returnTransaction.status !== 'pending') return;
@@ -89,7 +123,9 @@ function WalletContent() {
     setBuying(key);
     setError(null);
 
-    const { ok, data, error: err } = await safeFetchJson<{ paymentSessionId: string }>('/api/payments/create-order', {
+    const { ok, data, error: err } = await safeFetchJson<
+      { gateway: 'payu'; form: PayuFormFields } | { gateway: 'cashfree'; paymentSessionId: string }
+    >('/api/payments/create-order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
@@ -98,6 +134,11 @@ function WalletContent() {
     if (!ok || !data) {
       setError(err ?? 'Could not start checkout. Please try again.');
       setBuying(null);
+      return;
+    }
+
+    if (data.gateway === 'payu') {
+      submitPayuForm(data.form);
       return;
     }
 
@@ -288,7 +329,7 @@ function WalletContent() {
             {formatInr(selectedTier.priceInr)}
             <span className="ml-1 text-[13px] font-medium text-slate-500">one-time</span>
           </p>
-          <p className="mt-1 text-[11.5px] text-slate-500">≈ {formatUsd(selectedTier.priceUsd)} USD, charged via Cashfree</p>
+          <p className="mt-1 text-[11.5px] text-slate-500">≈ {formatUsd(selectedTier.priceUsd)} USD</p>
           <div className="mt-4">
             <CreditTierPicker selectedId={tierId} onChange={setTierId} />
           </div>

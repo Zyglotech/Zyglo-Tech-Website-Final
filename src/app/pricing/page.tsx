@@ -35,7 +35,7 @@ export default function PricingPage() {
           {formatInr(tier.priceInr)}
           <span className="ml-1 text-[14px] font-medium text-slate-500">one-time</span>
         </p>
-        <p className="mt-1 text-[12px] text-slate-500">≈ {formatUsd(tier.priceUsd)} USD, charged via Cashfree</p>
+        <p className="mt-1 text-[12px] text-slate-500">≈ {formatUsd(tier.priceUsd)} USD</p>
 
         <div className="mt-6 max-w-xs">
           <CreditTierPicker selectedId={tierId} onChange={setTierId} />

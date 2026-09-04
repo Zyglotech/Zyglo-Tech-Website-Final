@@ -4,6 +4,7 @@ import { randomUUID } from 'crypto';
 import { authOptions } from '@/lib/auth';
 import { prismadb } from '@/lib/prismadb';
 import { createCashfreeOrder } from '@/lib/cashfree';
+import { buildPayuForm, payuConfigured } from '@/lib/payu';
 import { getTierById, creditsForAmount, customRecharge, splitChargedInr, INR_PER_USD } from '@/data/credit-plans';
 
 export const dynamic = 'force-dynamic';
@@ -65,6 +66,42 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Add a phone number to your profile before making a payment' }, { status: 422 });
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zyglotech.com';
+
+  // PayU is the primary gateway; Cashfree is kept as a fallback for when PayU isn't configured.
+  if (payuConfigured()) {
+    const payuTxnId = randomUUID().replace(/-/g, '').slice(0, 25);
+
+    await prismadb.creditTransaction.create({
+      data: {
+        userId: user.id,
+        type: 'topup',
+        credits,
+        amount: orderAmount,
+        priceUsd,
+        currency: 'INR',
+        status: 'pending',
+        gateway: 'payu',
+        payuTxnId,
+        invoiceNumber: generateInvoiceNumber(),
+        planLabel,
+      },
+    });
+
+    const form = buildPayuForm({
+      txnid: payuTxnId,
+      amount: orderAmount,
+      productinfo: planLabel,
+      firstname: user.name || 'Customer',
+      email: user.email,
+      phone: user.phone,
+      surl: `${siteUrl}/api/payments/payu-return`,
+      furl: `${siteUrl}/api/payments/payu-return`,
+    });
+
+    return NextResponse.json({ gateway: 'payu', form });
+  }
+
   const cashfreeOrderId = `zyglo_${orderIdPrefix}_${randomUUID()}`;
 
   await prismadb.creditTransaction.create({
@@ -76,13 +113,12 @@ export async function POST(request: Request) {
       priceUsd,
       currency: 'INR',
       status: 'pending',
+      gateway: 'cashfree',
       cashfreeOrderId,
       invoiceNumber: generateInvoiceNumber(),
       planLabel,
     },
   });
-
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zyglotech.com';
 
   try {
     const order = await createCashfreeOrder({
@@ -96,6 +132,7 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({
+      gateway: 'cashfree',
       paymentSessionId: order.payment_session_id,
       orderId: cashfreeOrderId,
     });

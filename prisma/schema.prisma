@@ -113,7 +113,9 @@ model CreditTransaction {
   priceUsd          Float?   // USD subtotal before conversion fee
   currency           String?  @default("INR")
   status            String   @default("pending") // pending | paid | failed
+  gateway           String   @default("cashfree") // "cashfree" | "payu"
   cashfreeOrderId   String?  @unique
+  payuTxnId         String?  @unique
   cfPaymentId       String?
   paymentMethodLabel String?
   invoiceNumber     String?  @unique
