@@ -50,6 +50,9 @@ export async function createCashfreeOrder(input: CreateCashfreeOrderInput): Prom
       },
       order_meta: {
         return_url: input.returnUrl,
+        // Card processing isn't activated on this account yet — only offer methods
+        // that actually work, so customers don't hit a dead-end "Something went wrong".
+        payment_methods: 'upi,nb',
       },
     }),
   });
