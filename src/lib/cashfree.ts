@@ -17,6 +17,10 @@ function cashfreeHeaders() {
   };
 }
 
+export function cashfreeConfigured(): boolean {
+  return Boolean(process.env.CASHFREE_CLIENT_ID && process.env.CASHFREE_CLIENT_SECRET);
+}
+
 export interface CreateCashfreeOrderInput {
   orderId: string;
   orderAmount: number;

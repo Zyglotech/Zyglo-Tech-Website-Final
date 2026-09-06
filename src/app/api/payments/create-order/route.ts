@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 import { randomUUID } from 'crypto';
 import { authOptions } from '@/lib/auth';
 import { prismadb } from '@/lib/prismadb';
-import { createCashfreeOrder } from '@/lib/cashfree';
+import { createCashfreeOrder, cashfreeConfigured } from '@/lib/cashfree';
 import { buildPayuForm, payuConfigured } from '@/lib/payu';
 import { getTierById, creditsForAmount, customRecharge, splitChargedInr, INR_PER_USD } from '@/data/credit-plans';
 
@@ -68,13 +68,63 @@ export async function POST(request: Request) {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zyglotech.com';
 
-  // PayU is the primary gateway; Cashfree is kept as a fallback for when PayU isn't configured.
-  if (payuConfigured()) {
-    const payuTxnId = randomUUID().replace(/-/g, '').slice(0, 25);
+  async function tryCashfree() {
+    if (!cashfreeConfigured()) return null;
 
+    const cashfreeOrderId = `zyglo_${orderIdPrefix}_${randomUUID()}`;
     await prismadb.creditTransaction.create({
       data: {
-        userId: user.id,
+        userId: user!.id,
+        type: 'topup',
+        credits,
+        amount: orderAmount,
+        priceUsd,
+        currency: 'INR',
+        status: 'pending',
+        gateway: 'cashfree',
+        cashfreeOrderId,
+        invoiceNumber: generateInvoiceNumber(),
+        planLabel,
+      },
+    });
+
+    try {
+      const order = await createCashfreeOrder({
+        orderId: cashfreeOrderId,
+        orderAmount,
+        customerId: user!.id,
+        customerEmail: user!.email!,
+        customerPhone: user!.phone!,
+        customerName: user!.name ?? undefined,
+        returnUrl: `${siteUrl}/dashboard/wallet?order_id=${cashfreeOrderId}`,
+      });
+
+      return NextResponse.json({
+        gateway: 'cashfree',
+        paymentSessionId: order.payment_session_id,
+        orderId: cashfreeOrderId,
+      });
+    } catch (err) {
+      console.error('[create-order] Cashfree order creation failed, will try PayU fallback', {
+        cashfreeOrderId,
+        userId: user!.id,
+        message: err instanceof Error ? err.message : String(err),
+      });
+      await prismadb.creditTransaction.update({
+        where: { cashfreeOrderId },
+        data: { status: 'failed' },
+      });
+      return null;
+    }
+  }
+
+  async function tryPayu() {
+    if (!payuConfigured()) return null;
+
+    const payuTxnId = randomUUID().replace(/-/g, '').slice(0, 25);
+    await prismadb.creditTransaction.create({
+      data: {
+        userId: user!.id,
         type: 'topup',
         credits,
         amount: orderAmount,
@@ -92,9 +142,9 @@ export async function POST(request: Request) {
       txnid: payuTxnId,
       amount: orderAmount,
       productinfo: planLabel,
-      firstname: user.name || 'Customer',
-      email: user.email,
-      phone: user.phone,
+      firstname: user!.name || 'Customer',
+      email: user!.email!,
+      phone: user!.phone!,
       surl: `${siteUrl}/api/payments/payu-return`,
       furl: `${siteUrl}/api/payments/payu-return`,
     });
@@ -102,50 +152,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ gateway: 'payu', form });
   }
 
-  const cashfreeOrderId = `zyglo_${orderIdPrefix}_${randomUUID()}`;
+  // Cashfree first, PayU as automatic fallback if it fails or isn't configured.
+  const cashfreeResult = await tryCashfree();
+  if (cashfreeResult) return cashfreeResult;
 
-  await prismadb.creditTransaction.create({
-    data: {
-      userId: user.id,
-      type: 'topup',
-      credits,
-      amount: orderAmount,
-      priceUsd,
-      currency: 'INR',
-      status: 'pending',
-      gateway: 'cashfree',
-      cashfreeOrderId,
-      invoiceNumber: generateInvoiceNumber(),
-      planLabel,
-    },
-  });
+  const payuResult = await tryPayu();
+  if (payuResult) return payuResult;
 
-  try {
-    const order = await createCashfreeOrder({
-      orderId: cashfreeOrderId,
-      orderAmount,
-      customerId: user.id,
-      customerEmail: user.email,
-      customerPhone: user.phone,
-      customerName: user.name ?? undefined,
-      returnUrl: `${siteUrl}/dashboard/wallet?order_id=${cashfreeOrderId}`,
-    });
-
-    return NextResponse.json({
-      gateway: 'cashfree',
-      paymentSessionId: order.payment_session_id,
-      orderId: cashfreeOrderId,
-    });
-  } catch (err) {
-    console.error('[create-order] Cashfree order creation failed', {
-      cashfreeOrderId,
-      userId: user.id,
-      message: err instanceof Error ? err.message : String(err),
-    });
-    await prismadb.creditTransaction.update({
-      where: { cashfreeOrderId },
-      data: { status: 'failed' },
-    });
-    return NextResponse.json({ error: 'Could not start payment. Please try again.' }, { status: 502 });
-  }
+  return NextResponse.json({ error: 'Could not start payment. Please try again.' }, { status: 502 });
 }
