@@ -39,6 +39,16 @@ interface PayuFormFields {
   hash: string;
 }
 
+let cashfreeLoadPromise: Promise<any> | null = null;
+function loadCashfreeOnce() {
+  if (!cashfreeLoadPromise) {
+    cashfreeLoadPromise = import('@cashfreepayments/cashfree-js').then(({ load }) =>
+      load({ mode: process.env.NEXT_PUBLIC_CASHFREE_ENV === 'production' ? 'production' : 'sandbox' })
+    );
+  }
+  return cashfreeLoadPromise;
+}
+
 function submitPayuForm(form: PayuFormFields) {
   const el = document.createElement('form');
   el.method = 'POST';
@@ -143,12 +153,17 @@ function WalletContent() {
     }
 
     try {
-      const { load } = await import('@cashfreepayments/cashfree-js');
-      const cashfree = await load({ mode: process.env.NEXT_PUBLIC_CASHFREE_ENV === 'production' ? 'production' : 'sandbox' });
-      await cashfree.checkout({
+      const cashfree = await loadCashfreeOnce();
+      const result = await cashfree.checkout({
         paymentSessionId: data.paymentSessionId,
         redirectTarget: '_self',
       });
+      // With redirectTarget '_self', a completed/redirected payment navigates the browser away —
+      // this branch only runs if the user closed the modal or the checkout errored out in place.
+      if (result?.error) {
+        setError('Payment was not completed. No credits were added — you were not charged.');
+        setBuying(null);
+      }
     } catch {
       setError('Could not open the payment page. Please try again.');
       setBuying(null);

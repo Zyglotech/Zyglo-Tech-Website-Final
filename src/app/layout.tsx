@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Zyglo Tech Enterprise', url: 'https://www.zyglotech.com' }],
   creator: 'Zyglo Tech Enterprise',
-  publisher: 'Zyglo Tech Enterprise Pvt. Ltd.',
+  publisher: 'Zyglo Tech Enterprise',
   robots: {
     index: true,
     follow: true,
@@ -91,7 +91,7 @@ const organizationSchema = {
       '@type': ['Organization', 'LocalBusiness', 'ProfessionalService'],
       '@id': 'https://www.zyglotech.com/#organization',
       name: 'Zyglo Tech Enterprise',
-      legalName: 'Zyglo Tech Enterprise Pvt. Ltd.',
+      legalName: 'Zyglo Tech Enterprise',
       url: 'https://www.zyglotech.com',
       logo: {
         '@type': 'ImageObject',

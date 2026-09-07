@@ -110,10 +110,11 @@ export default function InvoicePage({ params }: { params: { transactionId: strin
 
           <div className="mt-6 grid grid-cols-2 gap-8 text-[13px] leading-6">
             <div>
-              <p className="font-bold text-slate-900">Zyglo Tech Enterprise Pvt. Ltd.</p>
+              <p className="font-bold text-slate-900">Zyglo Tech Enterprise</p>
               <p className="text-slate-600">18/10, Rail Nagar, Suramangalam</p>
               <p className="text-slate-600">Salem, Tamil Nadu 636005</p>
               <p className="text-slate-600">India</p>
+              <p className="text-slate-600">GSTIN: 33VCIPS8302C1ZA</p>
               <p className="text-slate-600">zyglotech@gmail.com</p>
             </div>
             <div>

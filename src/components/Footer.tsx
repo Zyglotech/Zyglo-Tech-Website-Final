@@ -175,7 +175,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 pt-8 sm:flex-row">
           <p className="text-[12px] text-slate-500">
-            © 2026 Zyglo Tech Enterprise Pvt. Ltd. · www.zyglotech.com · All rights reserved.
+            © 2026 Zyglo Tech Enterprise · www.zyglotech.com · All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <p className="text-[12px] text-slate-500">
