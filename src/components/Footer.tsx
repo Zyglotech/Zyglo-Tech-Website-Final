@@ -33,6 +33,7 @@ const company = [
 const legal = [
   { label: 'Privacy Policy', href: '/legal/privacy-policy' },
   { label: 'Terms of Service', href: '/legal/terms-of-service' },
+  { label: 'Refund & Cancellation Policy', href: '/legal/refund-policy' },
 ];
 
 export function Footer() {
