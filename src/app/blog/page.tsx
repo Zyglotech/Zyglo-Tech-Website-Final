@@ -183,7 +183,7 @@ export default function BlogPage() {
             )}
             <div className="mt-6 border-t border-white/[0.06] pt-5">
               <p className="mb-3 text-[12px] text-slate-500">Want to talk to our team directly?</p>
-              <a href="mailto:zyglotech@gmail.com"
+              <a href="mailto:founder@zyglotech.com"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-[12.5px] font-semibold text-white transition hover:border-cyan-400/20 hover:text-cyan-300">
                 Email Us
               </a>

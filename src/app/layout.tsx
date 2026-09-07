@@ -100,7 +100,7 @@ const organizationSchema = {
       },
       image: 'https://www.zyglotech.com/og-image.png',
       description: 'India\'s leading AI & IT enterprise platform offering AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and workflow automation for Indian businesses.',
-      email: 'zyglotech@gmail.com',
+      email: 'founder@zyglotech.com',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '18/10, Rail Nagar, Suramangalam',

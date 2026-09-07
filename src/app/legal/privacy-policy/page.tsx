@@ -120,7 +120,7 @@ const sections = [
       'Right to grievance redressal — raise a complaint with our designated Data Protection Officer.',
       'Right to nominate — nominate another individual to exercise your rights on your behalf in the event of incapacity or death, as provided under the DPDPA.',
     ],
-    footer: 'To exercise any of these rights, contact us at zyglotech@gmail.com with the subject line "Data Privacy Request." We will respond within 30 days.',
+    footer: 'To exercise any of these rights, contact us at founder@zyglotech.com with the subject line "Data Privacy Request." We will respond within 30 days.',
   },
   {
     id: 'security',
@@ -149,7 +149,7 @@ const sections = [
     title: '10. Children\'s Privacy',
     content: [
       'Our services are not directed at children under the age of 18. We do not knowingly collect personal data from minors. If we learn that we have inadvertently collected personal data from a child under 18, we will delete it promptly.',
-      'If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at zyglotech@gmail.com.',
+      'If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at founder@zyglotech.com.',
     ],
   },
   {
@@ -177,7 +177,7 @@ const sections = [
     contactBlock: {
       name: 'Zyglo Tech Enterprise',
       role: 'Data Protection & Grievance Officer',
-      email: 'zyglotech@gmail.com',
+      email: 'founder@zyglotech.com',
       address: '18/10, Rail Nagar, Suramangalam, Salem, Tamil Nadu 636005, India',
     },
   },
@@ -288,11 +288,11 @@ export default function PrivacyPolicyPage() {
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="mailto:zyglotech@gmail.com"
+              href="mailto:founder@zyglotech.com"
               className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[13px] font-bold text-[#060B17] transition"
               style={{ background: '#06CCE8' }}
             >
-              zyglotech@gmail.com
+              founder@zyglotech.com
             </a>
           </div>
         </div>

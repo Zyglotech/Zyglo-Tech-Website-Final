@@ -100,7 +100,7 @@ export function PageShell({ division, label, title, description, cta, features, 
       {/* Contact strip */}
       <div className="mt-6 grid gap-4 sm:grid-cols-1">
         {[
-          { label: 'Email Us', value: 'zyglotech@gmail.com', href: 'mailto:zyglotech@gmail.com' },
+          { label: 'Email Us', value: 'founder@zyglotech.com', href: 'mailto:founder@zyglotech.com' },
         ].map((c) => (
           <a key={c.label} href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined}
             rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}

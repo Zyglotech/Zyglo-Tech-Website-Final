@@ -1110,7 +1110,7 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="mt-6 text-[12.5px] text-slate-500">
-              zyglotech@gmail.com · www.zyglotech.com · Indian Headquarters, Salem
+              founder@zyglotech.com · www.zyglotech.com · Indian Headquarters, Salem
             </p>
           </motion.div>
         </div>

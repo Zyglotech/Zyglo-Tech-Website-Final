@@ -67,7 +67,7 @@ export default function ContactPage() {
 
           <div className="mt-10 space-y-4">
             {[
-              { icon: Mail, label: 'Email', value: 'zyglotech@gmail.com', href: 'mailto:zyglotech@gmail.com' },
+              { icon: Mail, label: 'Email', value: 'founder@zyglotech.com', href: 'mailto:founder@zyglotech.com' },
               { icon: MapPin, label: 'Office', value: 'Indian Headquarters, Salem', href: undefined },
             ].map((c) => (
               <div key={c.label} className="flex items-center gap-4">

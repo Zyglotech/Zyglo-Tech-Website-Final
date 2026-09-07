@@ -47,7 +47,7 @@ export default function Error({
           </Link>
         </div>
 
-        <a href="mailto:zyglotech@gmail.com"
+        <a href="mailto:founder@zyglotech.com"
           className="mt-6 inline-flex items-center gap-2 text-[13px] text-slate-500 transition hover:text-cyan-400">
           <MessageCircle className="h-4 w-4" />
           Need help? Email us

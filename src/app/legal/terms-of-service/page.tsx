@@ -30,7 +30,7 @@ const sections = [
     title: '3. User Accounts & Registration',
     content: [
       'Some services require you to create an account. You must provide accurate, complete, and current information and keep it updated. You are responsible for safeguarding your account credentials and for all activities that occur under your account.',
-      'You must immediately notify us at zyglotech@gmail.com of any unauthorized use of your account or any other breach of security. We cannot and will not be liable for any loss or damage arising from your failure to comply with this obligation.',
+      'You must immediately notify us at founder@zyglotech.com of any unauthorized use of your account or any other breach of security. We cannot and will not be liable for any loss or damage arising from your failure to comply with this obligation.',
       'We reserve the right to suspend or terminate accounts that violate these Terms, contain false information, or that have been inactive for an extended period, at our sole discretion.',
     ],
   },
@@ -191,11 +191,11 @@ export default function TermsOfServicePage() {
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="mailto:zyglotech@gmail.com"
+              href="mailto:founder@zyglotech.com"
               className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[13px] font-bold text-[#060B17] transition"
               style={{ background: '#06CCE8' }}
             >
-              zyglotech@gmail.com
+              founder@zyglotech.com
             </a>
           </div>
         </div>

@@ -47,7 +47,7 @@ const sections = [
     id: 'process',
     title: '5. How to Request a Refund',
     content: [
-      'To request a refund or raise a billing dispute, email zyglotech@gmail.com with your order/transaction ID, the date of payment, and the reason for the request.',
+      'To request a refund or raise a billing dispute, email founder@zyglotech.com with your order/transaction ID, the date of payment, and the reason for the request.',
       'We aim to acknowledge refund requests within 2 business days and resolve them within 7 business days of approval.',
     ],
   },
@@ -142,11 +142,11 @@ export default function RefundPolicyPage() {
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="mailto:zyglotech@gmail.com"
+              href="mailto:founder@zyglotech.com"
               className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[13px] font-bold text-[#060B17] transition"
               style={{ background: '#06CCE8' }}
             >
-              zyglotech@gmail.com
+              founder@zyglotech.com
             </a>
           </div>
         </div>

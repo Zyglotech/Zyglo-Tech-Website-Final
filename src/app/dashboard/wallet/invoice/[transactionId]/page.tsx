@@ -115,7 +115,7 @@ export default function InvoicePage({ params }: { params: { transactionId: strin
               <p className="text-slate-600">Salem, Tamil Nadu 636005</p>
               <p className="text-slate-600">India</p>
               <p className="text-slate-600">GSTIN: 33VCIPS8302C1ZA</p>
-              <p className="text-slate-600">zyglotech@gmail.com</p>
+              <p className="text-slate-600">founder@zyglotech.com</p>
             </div>
             <div>
               <p className="font-bold text-slate-900">Bill to</p>
