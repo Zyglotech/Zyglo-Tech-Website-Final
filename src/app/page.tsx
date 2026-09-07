@@ -206,9 +206,7 @@ export default function HomePage() {
       {/* ═══════════════ HERO ════════════════════════════════ */}
       <section className="relative overflow-hidden pt-14 pb-0 sm:pt-20 lg:pt-24" style={{ background: '#060B17' }}>
         {/* Layered backgrounds */}
-        <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 55% at 50% 0%, rgba(6,204,232,0.11) 0%, rgba(37,99,235,0.06) 45%, transparent 70%)' }} />
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-1/2" style={{ background: 'radial-gradient(ellipse 55% 65% at 0% 30%, rgba(37,99,235,0.09), transparent)' }} />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2" style={{ background: 'radial-gradient(ellipse 55% 65% at 100% 30%, rgba(6,204,232,0.07), transparent)' }} />
+        <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 55% at 50% 0%, rgba(6,204,232,0.09) 0%, transparent 65%)' }} />
         {/* Subtle noise / depth layer */}
         <div className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(6,11,23,0) 0%, rgba(6,11,23,0.5) 100%)' }} />
 
@@ -229,10 +227,9 @@ export default function HomePage() {
               </div>
 
               <div style={{ animationDelay: '80ms' }} className="hero-child">
-                <h1 className="mt-7 text-[34px] font-black leading-[1.05] tracking-[-0.025em] text-white sm:text-[50px] lg:text-[62px]">
-                  <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">Automate.</span>{' '}
-                  <span className="text-white">Scale.</span>{' '}
-                  <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Dominate.</span>
+                <h1 className="mt-7 text-[34px] font-black leading-[1.05] tracking-[-0.025em] text-white text-balance sm:text-[50px] lg:text-[62px]">
+                  <span className="text-cyan-400">Automate.</span>{' '}
+                  <span className="text-white">Scale. Dominate.</span>
                 </h1>
               </div>
 
@@ -270,7 +267,7 @@ export default function HomePage() {
 
               {/* Ambient glow */}
               <div className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[90px]"
-                style={{ background: 'radial-gradient(circle, rgba(6,204,232,0.18) 0%, rgba(37,99,235,0.1) 55%, transparent 72%)' }} />
+                style={{ background: 'radial-gradient(circle, rgba(6,204,232,0.14) 0%, transparent 72%)' }} />
 
               {/* Orbital container */}
               <div className="relative mx-auto w-full max-w-[460px] aspect-square">
@@ -280,35 +277,31 @@ export default function HomePage() {
                   {/* Rings */}
                   <circle cx="230" cy="230" r="212" stroke="rgba(6,204,232,0.06)" strokeWidth="1" />
                   <circle cx="230" cy="230" r="168" stroke="rgba(6,204,232,0.05)" strokeWidth="1" strokeDasharray="3 9" />
-                  <circle cx="230" cy="230" r="118" stroke="rgba(37,99,235,0.08)" strokeWidth="1" />
+                  <circle cx="230" cy="230" r="118" stroke="rgba(6,204,232,0.06)" strokeWidth="1" />
 
                   {/* Connection lines — center to anchors */}
                   <line x1="230" y1="230" x2="350" y2="68"  stroke="rgba(6,204,232,0.13)" strokeWidth="1" />
-                  <line x1="230" y1="230" x2="52"  y2="198" stroke="rgba(37,99,235,0.11)" strokeWidth="1" />
+                  <line x1="230" y1="230" x2="52"  y2="198" stroke="rgba(6,204,232,0.1)" strokeWidth="1" />
                   <line x1="230" y1="230" x2="230" y2="402" stroke="rgba(6,204,232,0.11)" strokeWidth="1" />
-                  <line x1="230" y1="230" x2="406" y2="318" stroke="rgba(37,99,235,0.1)"  strokeWidth="1" />
+                  <line x1="230" y1="230" x2="406" y2="318" stroke="rgba(6,204,232,0.09)"  strokeWidth="1" />
                   {/* Cross links */}
-                  <line x1="350" y1="68"  x2="406" y2="318" stroke="rgba(37,99,235,0.06)" strokeWidth="0.8" />
-                  <line x1="52"  y1="198" x2="230" y2="402" stroke="rgba(6,204,232,0.06)"  strokeWidth="0.8" />
+                  <line x1="350" y1="68"  x2="406" y2="318" stroke="rgba(6,204,232,0.05)" strokeWidth="0.8" />
+                  <line x1="52"  y1="198" x2="230" y2="402" stroke="rgba(6,204,232,0.05)"  strokeWidth="0.8" />
 
                   {/* Anchor nodes */}
                   <circle cx="350" cy="68"  r="5"  fill="rgba(6,204,232,0.9)" />
                   <circle cx="350" cy="68"  r="11" fill="rgba(6,204,232,0.11)" />
-                  <circle cx="52"  cy="198" r="4.5" fill="rgba(37,99,235,0.9)" />
-                  <circle cx="52"  cy="198" r="9"  fill="rgba(37,99,235,0.13)" />
+                  <circle cx="52"  cy="198" r="4.5" fill="rgba(6,204,232,0.75)" />
+                  <circle cx="52"  cy="198" r="9"  fill="rgba(6,204,232,0.1)" />
                   <circle cx="230" cy="402" r="4.5" fill="rgba(6,204,232,0.85)" />
                   <circle cx="230" cy="402" r="9"  fill="rgba(6,204,232,0.1)" />
-                  <circle cx="406" cy="318" r="4"  fill="rgba(37,99,235,0.85)" />
-                  <circle cx="406" cy="318" r="8"  fill="rgba(37,99,235,0.12)" />
+                  <circle cx="406" cy="318" r="4"  fill="rgba(6,204,232,0.7)" />
+                  <circle cx="406" cy="318" r="8"  fill="rgba(6,204,232,0.1)" />
 
-                  {/* Pulse rings */}
+                  {/* Pulse ring */}
                   <circle cx="230" cy="230" r="72" fill="none" stroke="rgba(6,204,232,0.13)" strokeWidth="1">
                     <animate attributeName="r"       values="68;92;68"   dur="3.6s" repeatCount="indefinite" />
                     <animate attributeName="opacity" values="0.5;0;0.5"  dur="3.6s" repeatCount="indefinite" />
-                  </circle>
-                  <circle cx="230" cy="230" r="88" fill="none" stroke="rgba(37,99,235,0.1)" strokeWidth="1">
-                    <animate attributeName="r"       values="88;114;88"  dur="3.6s" begin="1.2s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.35;0;0.35" dur="3.6s" begin="1.2s" repeatCount="indefinite" />
                   </circle>
                 </svg>
 
@@ -341,20 +334,20 @@ export default function HomePage() {
                 </div>
 
                 {/* ── Metric Card 2 · left · Leads Qualified ── */}
-                <div className="absolute top-[38%] left-[0%] w-[140px] rounded-2xl border border-blue-500/[0.18] p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
+                <div className="absolute top-[38%] left-[0%] w-[140px] rounded-2xl border border-cyan-400/[0.18] p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
                   style={{ background: 'rgba(9,19,34,0.93)', backdropFilter: 'blur(14px)' }}>
                   <div className="flex items-center gap-1.5 mb-2">
-                    <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(37,99,235,0.14)' }}>
-                      <Users className="h-3 w-3 text-blue-400" />
+                    <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(6,204,232,0.12)' }}>
+                      <Users className="h-3 w-3 text-cyan-400" />
                     </div>
                     <span className="text-[8.5px] font-medium text-slate-400">Leads Qualified</span>
                   </div>
                   <div className="flex items-end justify-between">
                     <span className="text-[22px] font-black leading-none text-white">318</span>
-                    <span className="rounded-md px-1.5 py-0.5 text-[9px] font-bold text-blue-400" style={{ background: 'rgba(37,99,235,0.12)' }}>↑ 8%</span>
+                    <span className="rounded-md px-1.5 py-0.5 text-[9px] font-bold text-cyan-400" style={{ background: 'rgba(6,204,232,0.1)' }}>↑ 8%</span>
                   </div>
                   <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,0.05)' }}>
-                    <div className="h-full w-[55%] rounded-full" style={{ background: 'linear-gradient(to right, #3B82F6, rgba(59,130,246,0.2))' }} />
+                    <div className="h-full w-[55%] rounded-full" style={{ background: 'linear-gradient(to right, #06CCE8, rgba(6,204,232,0.2))' }} />
                   </div>
                 </div>
 
@@ -377,11 +370,11 @@ export default function HomePage() {
                 </div>
 
                 {/* ── Metric Card 4 · bottom-right · Uptime ── */}
-                <div className="absolute bottom-[23%] right-[1%] w-[126px] rounded-2xl border border-blue-500/[0.18] p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
+                <div className="absolute bottom-[23%] right-[1%] w-[126px] rounded-2xl border border-cyan-400/[0.18] p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
                   style={{ background: 'rgba(9,19,34,0.93)', backdropFilter: 'blur(14px)' }}>
                   <div className="flex items-center gap-1.5 mb-2">
-                    <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(37,99,235,0.14)' }}>
-                      <Activity className="h-3 w-3 text-blue-400" />
+                    <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(6,204,232,0.12)' }}>
+                      <Activity className="h-3 w-3 text-cyan-400" />
                     </div>
                     <span className="text-[8.5px] font-medium text-slate-400">Uptime</span>
                   </div>
@@ -411,7 +404,7 @@ export default function HomePage() {
                   </div>
                   {/* Active tab */}
                   <div className="flex items-center gap-2 rounded-t-lg border border-b-0 border-white/[0.07] px-4 py-2 text-[11px] font-medium text-slate-300" style={{ background: '#07101E' }}>
-                    <span className="h-2 w-2 rounded-full" style={{ background: 'linear-gradient(135deg,#06CCE8,#2563EB)' }} />
+                    <span className="h-2 w-2 rounded-full" style={{ background: '#06CCE8' }} />
                     Dashboard — Zyglo
                   </div>
                   <div className="flex items-center gap-2 px-3 py-2 text-[11px] text-slate-700">
@@ -433,7 +426,7 @@ export default function HomePage() {
                 <div className="hidden border-r border-white/[0.05] lg:flex lg:flex-col" style={{ background: '#060D1A' }}>
                   {/* Logo mark */}
                   <div className="flex items-center gap-2 border-b border-white/[0.05] px-3.5 py-3.5">
-                    <div className="h-6 w-6 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'linear-gradient(135deg,rgba(6,204,232,0.25),rgba(37,99,235,0.25))' }}>
+                    <div className="h-6 w-6 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(6,204,232,0.22)' }}>
                       <span className="text-[8px] font-black text-cyan-400">Z</span>
                     </div>
                     <span className="text-[11px] font-black tracking-wider text-white">ZYGLO</span>
@@ -444,9 +437,9 @@ export default function HomePage() {
                     {([
                       { label: 'Dashboard',   Icon: Layers,     active: true,  badge: null, color: '#06CCE8' },
                       { label: 'AI Chatbots', Icon: Bot,        active: false, badge: '3',  color: '#06CCE8' },
-                      { label: 'Lead Agents', Icon: Target,     active: false, badge: null, color: '#3B82F6' },
-                      { label: 'ERP Module',  Icon: Cpu,        active: false, badge: null, color: '#3B82F6' },
-                      { label: 'Analytics',   Icon: TrendingUp, active: false, badge: null, color: '#8B5CF6' },
+                      { label: 'Lead Agents', Icon: Target,     active: false, badge: null, color: '#06CCE8' },
+                      { label: 'ERP Module',  Icon: Cpu,        active: false, badge: null, color: '#06CCE8' },
+                      { label: 'Analytics',   Icon: TrendingUp, active: false, badge: null, color: '#06CCE8' },
                       { label: 'SEO / AEO',   Icon: Search,     active: false, badge: null, color: '#06CCE8' },
                     ] as { label: string; Icon: React.ElementType; active: boolean; badge: string | null; color: string }[]).map(({ label, Icon, active, badge, color }) => (
                       <div key={label}
@@ -468,8 +461,8 @@ export default function HomePage() {
                   {/* Bottom user */}
                   <div className="border-t border-white/[0.05] p-3">
                     <div className="flex items-center gap-2 rounded-xl p-2" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                      <div className="h-[24px] w-[24px] rounded-full flex items-center justify-center text-[8px] font-black text-white shrink-0"
-                        style={{ background: 'linear-gradient(135deg, #06CCE8, #2563EB)' }}>A</div>
+                      <div className="h-[24px] w-[24px] rounded-full flex items-center justify-center text-[8px] font-black text-[#060B17] shrink-0"
+                        style={{ background: '#06CCE8' }}>A</div>
                       <div className="min-w-0 flex-1">
                         <p className="text-[9.5px] font-semibold text-slate-300 truncate">Admin</p>
                         <p className="text-[7.5px] text-slate-700 truncate">zyglotech.com</p>
@@ -512,7 +505,7 @@ export default function HomePage() {
                         area:  'M0,19 L10,12.6 L20,15.6 L30,9.6 L40,11.3 L50,4 L60,1 L60,20 L0,20 Z',
                       },
                       {
-                        label: 'Leads Qualified', value: '318', change: '+8%', Icon: Users, color: '#3B82F6',
+                        label: 'Leads Qualified', value: '318', change: '+8%', Icon: Users, color: '#06CCE8',
                         spark: 'M0,19 L10,14.8 L20,16.4 L30,8.4 L40,11.1 L50,4.2 L60,1',
                         area:  'M0,19 L10,14.8 L20,16.4 L30,8.4 L40,11.1 L50,4.2 L60,1 L60,20 L0,20 Z',
                       },
@@ -522,7 +515,7 @@ export default function HomePage() {
                         area:  'M0,19 L10,16.1 L20,10.3 L30,13.2 L40,7.4 L50,4.5 L60,1 L60,20 L0,20 Z',
                       },
                       {
-                        label: 'SEO Rank Avg.', value: '#4.2', change: '↑1.8', Icon: Search, color: '#8B5CF6',
+                        label: 'SEO Rank Avg.', value: '#4.2', change: '↑1.8', Icon: Search, color: '#06CCE8',
                         spark: 'M0,19 L10,14.7 L20,10.4 L30,12.1 L40,6.1 L50,3.6 L60,1',
                         area:  'M0,19 L10,14.7 L20,10.4 L30,12.1 L40,6.1 L50,3.6 L60,1 L60,20 L0,20 Z',
                       },
@@ -564,7 +557,7 @@ export default function HomePage() {
                             <span className="text-[8px] text-slate-600">Revenue</span>
                           </div>
                           <div className="flex items-center gap-1">
-                            <div className="h-1 w-4 rounded-full" style={{ background: '#3B82F6' }} />
+                            <div className="h-1 w-4 rounded-full" style={{ background: '#94A3B8' }} />
                             <span className="text-[8px] text-slate-600">AI Activity</span>
                           </div>
                         </div>
@@ -576,8 +569,8 @@ export default function HomePage() {
                             <stop offset="100%" stopColor="#06CCE8" stopOpacity="0" />
                           </linearGradient>
                           <linearGradient id="ai-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.18" />
-                            <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
+                            <stop offset="0%" stopColor="#94A3B8" stopOpacity="0.16" />
+                            <stop offset="100%" stopColor="#94A3B8" stopOpacity="0" />
                           </linearGradient>
                         </defs>
                         {/* Grid lines */}
@@ -591,10 +584,10 @@ export default function HomePage() {
                         {/* Revenue line */}
                         <polyline points="0,61 93,42 187,51 280,22 373,30 467,2 560,17" fill="none" stroke="#06CCE8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                         {/* AI line */}
-                        <polyline points="0,70 93,54 187,37 280,45 373,14 467,27 560,5" fill="none" stroke="#3B82F6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        <polyline points="0,70 93,54 187,37 280,45 373,14 467,27 560,5" fill="none" stroke="#94A3B8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                         {/* Highlight dots on last point */}
                         <circle cx="560" cy="17" r="3" fill="#06CCE8" />
-                        <circle cx="560" cy="5"  r="3" fill="#3B82F6" />
+                        <circle cx="560" cy="5"  r="3" fill="#94A3B8" />
                       </svg>
                       <div className="mt-1.5 flex justify-between text-[8px] text-slate-700">
                         {['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d => <span key={d}>{d}</span>)}
@@ -612,7 +605,7 @@ export default function HomePage() {
                           { name: 'WhatsApp Bot',   sub: 'Real Estate', status: 'live',  stat: '127 chats', color: '#06CCE8' },
                           { name: 'Lead Qualifier', sub: 'Healthcare',  status: 'live',  stat: '43 leads',  color: '#06CCE8' },
                           { name: 'ERP Workflow',   sub: 'Retail',      status: 'busy',  stat: '12 tasks',  color: '#FBBF24' },
-                          { name: 'SEO Monitor',    sub: 'Auto',        status: 'live',  stat: '↑4 ranks',  color: '#8B5CF6' },
+                          { name: 'SEO Monitor',    sub: 'Auto',        status: 'live',  stat: '↑4 ranks',  color: '#06CCE8' },
                         ]).map(a => (
                           <div key={a.name} className="flex items-center gap-2 rounded-lg px-2 py-1.5 border border-white/[0.04]" style={{ background: 'rgba(255,255,255,0.02)' }}>
                             <span className="h-1.5 w-1.5 rounded-full shrink-0 animate-pulse" style={{ background: a.status === 'busy' ? '#FBBF24' : '#34D399' }} />
@@ -671,13 +664,12 @@ export default function HomePage() {
                 className="relative flex flex-col items-center overflow-hidden rounded-2xl border border-white/[0.07] px-6 py-8 text-center"
                 style={{ background: '#0B1424' }}>
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
-                  style={{ background: `linear-gradient(90deg, transparent, ${i % 2 === 0 ? 'rgba(6,204,232,0.5)' : 'rgba(59,130,246,0.5)'}, transparent)` }} />
+                  style={{ background: 'linear-gradient(90deg, transparent, rgba(6,204,232,0.5), transparent)' }} />
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl"
-                  style={{ background: i % 2 === 0 ? 'rgba(6,204,232,0.1)' : 'rgba(59,130,246,0.1)' }}>
-                  <s.icon className={`h-5 w-5 ${i % 2 === 0 ? 'text-cyan-400' : 'text-blue-400'}`} />
+                  style={{ background: 'rgba(6,204,232,0.1)' }}>
+                  <s.icon className="h-5 w-5 text-cyan-400" />
                 </div>
-                <p className="text-[44px] font-black leading-none tracking-tight"
-                  style={{ color: i % 2 === 0 ? '#06CCE8' : '#60A5FA' }}>{s.value}</p>
+                <p className="text-[44px] font-black leading-none tracking-tight text-cyan-400">{s.value}</p>
                 <p className="mt-3 text-[13px] font-medium text-slate-400">{s.label}</p>
               </motion.div>
             ))}
@@ -1012,14 +1004,14 @@ export default function HomePage() {
                 company: 'Wellness First Clinics',
                 metric: '85%', label: 'Improvement in patient follow-ups',
                 detail: 'ERP integration reduced billing errors to near zero and closed monthly books in 2 days vs. 2 weeks.',
-                color: '#3B82F6',
+                color: '#14B8A6',
               },
               {
                 industry: 'Retail',
                 company: 'SunMart Retail Chain',
                 metric: '40%', label: 'Reduction in operational costs',
                 detail: 'Workflow automation eliminated manual purchase orders, reorder alerts, and daily reporting.',
-                color: '#8B5CF6',
+                color: '#F43F5E',
               },
               {
                 industry: 'Logistics',

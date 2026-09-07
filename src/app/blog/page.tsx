@@ -48,7 +48,7 @@ export default function BlogPage() {
           </div>
           <h1 className="mt-5 text-[32px] font-black leading-tight text-white sm:text-[46px] lg:text-[56px]">
             Insights on AI, Automation<br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"> & Business Growth</span>
+            <span className="text-cyan-400"> & Business Growth</span>
           </h1>
           <p className="mt-5 max-w-2xl text-[15px] leading-7 text-slate-400">
             Practical guides, case studies, and industry analysis from the team building India's most advanced AI and IT solutions.

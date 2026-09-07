@@ -124,7 +124,7 @@ const plans = [
     price: '₹12,999',
     period: '/month',
     desc: 'Perfect for local businesses and startups wanting to build their first digital presence.',
-    color: '#2563EB',
+    color: '#94A3B8',
     features: [
       'Technical SEO audit',
       'On-page optimization (10 pages)',
@@ -160,7 +160,7 @@ const plans = [
     price: 'Custom',
     period: '',
     desc: 'Full SEO + AEO + GEO for brands that want to dominate Google AND all AI platforms.',
-    color: '#A78BFA',
+    color: '#94A3B8',
     features: [
       'Everything in Growth',
       'Generative Engine Optimization (GEO)',
@@ -231,7 +231,7 @@ export default function SeoAeoGeoPage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/[0.06] px-5 py-20 lg:px-8 lg:py-28">
         <div className="pointer-events-none absolute -top-40 left-1/2 h-[600px] w-[800px] -translate-x-1/2 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #06CCE8 0%, #2563EB 50%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, #06CCE8 0%, transparent 70%)' }} />
 
         <div className="relative mx-auto max-w-7xl">
           <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'SEO, AEO & GEO' }]} />

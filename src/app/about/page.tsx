@@ -50,7 +50,7 @@ export default function AboutPage() {
             </span>
             <h1 className="mt-6 text-[40px] font-black tracking-tight text-white sm:text-[54px]">
               Built in Salem.<br />
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="text-cyan-400">
                 Built for India.
               </span>
             </h1>

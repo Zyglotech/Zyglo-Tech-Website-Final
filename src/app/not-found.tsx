@@ -11,21 +11,14 @@ export default function NotFound() {
       <div className="relative">
         {/* 404 large */}
         <div className="relative mb-6">
-          <span className="block text-[120px] font-black leading-none tracking-[-0.05em]"
-            style={{ background: 'linear-gradient(135deg, rgba(6,204,232,0.15), rgba(37,99,235,0.1))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <span className="block text-[120px] font-black leading-none tracking-[-0.05em] text-cyan-400/15">
             404
           </span>
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <svg viewBox="0 0 120 60" className="w-40" fill="none">
               <circle cx="60" cy="30" r="28" stroke="rgba(6,204,232,0.2)" strokeWidth="1" strokeDasharray="4 6" />
-              <circle cx="60" cy="30" r="18" stroke="rgba(37,99,235,0.15)" strokeWidth="1" />
-              <text x="60" y="38" textAnchor="middle" fontSize="20" fontWeight="900" fill="url(#nfGrad)" fontFamily="system-ui">Z</text>
-              <defs>
-                <linearGradient id="nfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#06CCE8" />
-                  <stop offset="100%" stopColor="#2563EB" />
-                </linearGradient>
-              </defs>
+              <circle cx="60" cy="30" r="18" stroke="rgba(6,204,232,0.12)" strokeWidth="1" />
+              <text x="60" y="38" textAnchor="middle" fontSize="20" fontWeight="900" fill="#06CCE8" fontFamily="system-ui">Z</text>
             </svg>
           </div>
         </div>

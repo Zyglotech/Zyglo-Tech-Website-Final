@@ -57,7 +57,7 @@ export default function ContactPage() {
           </span>
           <h1 className="mt-6 text-[36px] font-black tracking-tight text-white sm:text-[48px]">
             Let's build something<br />
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="text-cyan-400">
               great together.
             </span>
           </h1>
