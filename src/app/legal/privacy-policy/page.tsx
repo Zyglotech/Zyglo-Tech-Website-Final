@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Zyglo Tech Enterprise',
+  title: 'Privacy Policy',
   description: 'Read how Zyglo Tech Enterprise collects, uses, stores, and protects your personal data across our websites and services.',
+  alternates: { canonical: 'https://www.zyglotech.com/legal/privacy-policy' },
 };
 
 const sections = [
@@ -11,7 +12,7 @@ const sections = [
     id: 'introduction',
     title: '1. Introduction',
     content: [
-      'Zyglo Tech Enterprise Pvt. Ltd. ("Zyglo," "we," "us," or "our") is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, share, and safeguard information when you visit our website (www.zyglotech.com), use our digital products, engage our services, or interact with us in any way.',
+      'Zyglo Tech Enterprise ("Zyglo," "we," "us," or "our") is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, share, and safeguard information when you visit our website (www.zyglotech.com), use our digital products, engage our services, or interact with us in any way.',
       'We are headquartered in Salem, Tamil Nadu, India, and our practices comply with the Digital Personal Data Protection Act, 2023 (DPDPA) of India, and where applicable, internationally recognized data protection standards.',
       'By using our services or submitting your information, you acknowledge that you have read and understood this Policy. If you do not agree with any part of this Policy, please discontinue use of our services.',
     ],
@@ -174,7 +175,7 @@ const sections = [
       'If you have any questions, concerns, or complaints regarding this Privacy Policy or the handling of your personal data, please contact our Data Protection / Grievance Officer:',
     ],
     contactBlock: {
-      name: 'Zyglo Tech Enterprise Pvt. Ltd.',
+      name: 'Zyglo Tech Enterprise',
       role: 'Data Protection & Grievance Officer',
       email: 'zyglotech@gmail.com',
       phone: '+91 9943 907 643',

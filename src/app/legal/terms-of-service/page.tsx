@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Zyglo Tech Enterprise',
+  title: 'Terms of Service',
   description: 'Review the terms, usage guidelines, and service commitments for Zyglo Tech Enterprise digital products and services.',
+  alternates: { canonical: 'https://www.zyglotech.com/legal/terms-of-service' },
 };
 
 const sections = [
@@ -11,7 +12,7 @@ const sections = [
     id: 'acceptance',
     title: '1. Acceptance of Terms',
     content: [
-      'By accessing or using any website, application, platform, or service operated by Zyglo Tech Enterprise Pvt. Ltd. ("Zyglo," "we," "us," or "our"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to all of these Terms, you must not use our services.',
+      'By accessing or using any website, application, platform, or service operated by Zyglo Tech Enterprise ("Zyglo," "we," "us," or "our"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to all of these Terms, you must not use our services.',
       'These Terms apply to all visitors, registered users, clients, and others who access or use our services. We may update these Terms at any time. Continued use of our services after any changes constitutes your acceptance of the revised Terms. We will indicate the date of the most recent revision at the bottom of this page.',
     ],
   },
@@ -56,7 +57,7 @@ const sections = [
     id: 'ip',
     title: '6. Intellectual Property',
     content: [
-      'All content, branding, designs, code, methodologies, frameworks, and proprietary tools created or owned by Zyglo remain the exclusive intellectual property of Zyglo Tech Enterprise Pvt. Ltd. unless a written agreement explicitly transfers specific rights to the client.',
+      'All content, branding, designs, code, methodologies, frameworks, and proprietary tools created or owned by Zyglo remain the exclusive intellectual property of Zyglo Tech Enterprise unless a written agreement explicitly transfers specific rights to the client.',
       'Upon full payment of all applicable fees, Zyglo grants the client a non-exclusive, non-transferable license to use the deliverables created specifically for that client\'s project for the client\'s own business purposes.',
       'Zyglo retains the right to use generalized knowledge, skills, and non-proprietary methodologies gained during an engagement in future projects. Zyglo may also display completed work in its portfolio unless the client has specifically requested confidentiality in writing.',
       'Any third-party components (open-source libraries, stock assets, licensed fonts, etc.) incorporated into deliverables remain subject to their respective licenses. Clients are responsible for compliance with such licenses in their continued use.',
@@ -84,7 +85,7 @@ const sections = [
     id: 'liability',
     title: '9. Limitation of Liability',
     content: [
-      'To the fullest extent permitted by law, Zyglo Tech Enterprise Pvt. Ltd., its directors, employees, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, or goodwill — arising from or related to your use of our services, even if advised of the possibility of such damages.',
+      'To the fullest extent permitted by law, Zyglo Tech Enterprise, its directors, employees, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, or goodwill — arising from or related to your use of our services, even if advised of the possibility of such damages.',
       'Our total aggregate liability to you for any claim arising out of or relating to these Terms or our services, regardless of the form of action, shall not exceed the total amount paid by you to Zyglo in the three (3) months immediately preceding the event giving rise to the claim.',
       'Some jurisdictions do not allow limitation of liability for certain types of damages. In such jurisdictions, our liability is limited to the minimum extent permitted by law.',
     ],

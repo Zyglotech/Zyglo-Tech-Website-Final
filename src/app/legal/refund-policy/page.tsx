@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Refund & Cancellation Policy | Zyglo Tech Enterprise',
+  title: 'Refund & Cancellation Policy',
   description: 'Refund, cancellation, and dispute terms for AI credits, subscriptions, and project-based services at Zyglo Tech Enterprise.',
+  alternates: { canonical: 'https://www.zyglotech.com/legal/refund-policy' },
 };
 
 const sections = [
@@ -11,7 +12,7 @@ const sections = [
     id: 'overview',
     title: '1. Overview',
     content: [
-      'This Refund & Cancellation Policy applies to all purchases made through Zyglo Tech Enterprise Pvt. Ltd. ("Zyglo," "we," "us," or "our") websites and platforms, including AI credit top-ups, subscription/retainer services, and project-based engagements (website and application development, ERP setup, AI chatbots, and related consulting).',
+      'This Refund & Cancellation Policy applies to all purchases made through Zyglo Tech Enterprise ("Zyglo," "we," "us," or "our") websites and platforms, including AI credit top-ups, subscription/retainer services, and project-based engagements (website and application development, ERP setup, AI chatbots, and related consulting).',
       'By making a purchase or engaging our services, you agree to the terms below. This policy should be read together with our Terms of Service.',
     ],
   },
