@@ -319,10 +319,6 @@ function WalletContent() {
             <p className="font-semibold">Checkout is temporarily unavailable</p>
             <p className="mt-1 text-amber-200/80">We&apos;re working on it — reach out and we&apos;ll help you complete your purchase directly.</p>
             <div className="mt-3 flex flex-wrap gap-3">
-              <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
-                className="rounded-lg border border-amber-400/30 px-3 py-1.5 text-[12.5px] font-semibold text-amber-200 hover:bg-amber-400/10">
-                💬 WhatsApp Us
-              </a>
               <a href="mailto:zyglotech@gmail.com"
                 className="rounded-lg border border-amber-400/30 px-3 py-1.5 text-[12.5px] font-semibold text-amber-200 hover:bg-amber-400/10">
                 zyglotech@gmail.com

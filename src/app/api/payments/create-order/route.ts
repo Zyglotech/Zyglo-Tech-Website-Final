@@ -160,7 +160,7 @@ export async function POST(request: Request) {
   if (payuResult) return payuResult;
 
   return NextResponse.json(
-    { error: 'Checkout is temporarily unavailable. Please contact us on WhatsApp or email and we\'ll help you complete your purchase.', unavailable: true },
+    { error: 'Checkout is temporarily unavailable. Please email us and we\'ll help you complete your purchase.', unavailable: true },
     { status: 502 }
   );
 }

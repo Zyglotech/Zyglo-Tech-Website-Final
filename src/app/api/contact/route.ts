@@ -75,22 +75,6 @@ export async function POST(request: Request) {
           <p style="margin:0;font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.7;">${trimmedMessage}</p>
         </div>
 
-        <p style="margin:0 0 6px;font-size:13px;color:rgba(255,255,255,0.5);">In the meantime, you can also reach us directly:</p>
-        <table cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
-          <tr>
-            <td style="padding:4px 0;">
-              <span style="font-size:13px;color:rgba(255,255,255,0.5);">📞 </span>
-              <a href="tel:+919943907643" style="font-size:13px;color:#06CCE8;text-decoration:none;">+91 9943 907 643</a>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:4px 0;">
-              <span style="font-size:13px;color:rgba(255,255,255,0.5);">💬 </span>
-              <a href="https://wa.me/919943907643" style="font-size:13px;color:#06CCE8;text-decoration:none;">WhatsApp Us</a>
-            </td>
-          </tr>
-        </table>
-
         <a href="https://www.zyglotech.com/demo" style="display:inline-block;background:#06CCE8;color:#060B17;font-size:13px;font-weight:700;padding:12px 28px;border-radius:10px;text-decoration:none;">
           Book a Free Consultation →
         </a>

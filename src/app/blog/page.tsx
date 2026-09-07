@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { ArrowRight, Clock, MessageCircle } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 import { blogArticles } from '@/data/blog-articles';
 
 const categories = ['All', 'AI & Automation', 'Web Development', 'ERP & Business', 'SEO & Growth', 'Case Studies'];
@@ -183,10 +183,9 @@ export default function BlogPage() {
             )}
             <div className="mt-6 border-t border-white/[0.06] pt-5">
               <p className="mb-3 text-[12px] text-slate-500">Want to talk to our team directly?</p>
-              <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
+              <a href="mailto:zyglotech@gmail.com"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-[12.5px] font-semibold text-white transition hover:border-cyan-400/20 hover:text-cyan-300">
-                <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
-                Chat on WhatsApp
+                Email Us
               </a>
             </div>
           </div>

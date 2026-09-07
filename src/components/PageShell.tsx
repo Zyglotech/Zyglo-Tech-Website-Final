@@ -93,20 +93,14 @@ export function PageShell({ division, label, title, description, cta, features, 
               {cta.label}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-            <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white transition hover:border-white/20">
-              💬 WhatsApp: +91 9943 907 643
-            </a>
           </div>
         )}
       </div>
 
       {/* Contact strip */}
-      <div className="mt-6 grid gap-4 sm:grid-cols-3">
+      <div className="mt-6 grid gap-4 sm:grid-cols-1">
         {[
-          { label: 'Call Us', value: '+91 9943 907 643', href: 'tel:+919943907643' },
           { label: 'Email Us', value: 'zyglotech@gmail.com', href: 'mailto:zyglotech@gmail.com' },
-          { label: 'WhatsApp', value: '+91 9943 907 643', href: 'https://wa.me/919943907643' },
         ].map((c) => (
           <a key={c.label} href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined}
             rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}

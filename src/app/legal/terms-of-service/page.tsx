@@ -197,14 +197,6 @@ export default function TermsOfServicePage() {
             >
               zyglotech@gmail.com
             </a>
-            <a
-              href="https://wa.me/919943907643"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-[13px] font-medium text-white transition hover:border-white/20"
-            >
-              💬 WhatsApp: +91 9943 907 643
-            </a>
           </div>
         </div>
 

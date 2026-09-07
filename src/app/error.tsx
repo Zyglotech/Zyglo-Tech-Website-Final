@@ -47,10 +47,10 @@ export default function Error({
           </Link>
         </div>
 
-        <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
+        <a href="mailto:zyglotech@gmail.com"
           className="mt-6 inline-flex items-center gap-2 text-[13px] text-slate-500 transition hover:text-cyan-400">
           <MessageCircle className="h-4 w-4" />
-          Need help? Chat with us on WhatsApp
+          Need help? Email us
         </a>
       </div>
     </div>

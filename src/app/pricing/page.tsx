@@ -65,7 +65,7 @@ export default function PricingPage() {
       </div>
 
       <p className="mt-8 text-center text-[13px] text-slate-500">
-        Need a custom volume plan? <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">Talk to us on WhatsApp</a>.
+        Need a custom volume plan? <a href="mailto:zyglotech@gmail.com" className="text-cyan-400 hover:underline">Email us</a>.
       </p>
     </div>
   );

@@ -178,7 +178,6 @@ const sections = [
       name: 'Zyglo Tech Enterprise',
       role: 'Data Protection & Grievance Officer',
       email: 'zyglotech@gmail.com',
-      phone: '+91 9943 907 643',
       address: '18/10, Rail Nagar, Suramangalam, Salem, Tamil Nadu 636005, India',
     },
   },
@@ -274,7 +273,6 @@ export default function PrivacyPolicyPage() {
                   <p className="font-semibold text-white">{s.contactBlock.name}</p>
                   <p>{s.contactBlock.role}</p>
                   <p>Email: <a href={`mailto:${s.contactBlock.email}`} className="text-cyan-400 hover:underline">{s.contactBlock.email}</a></p>
-                  <p>Phone: <a href="tel:+919943907643" className="text-cyan-400 hover:underline">{s.contactBlock.phone}</a></p>
                   <p>Address: {s.contactBlock.address}</p>
                 </div>
               )}
@@ -295,14 +293,6 @@ export default function PrivacyPolicyPage() {
               style={{ background: '#06CCE8' }}
             >
               zyglotech@gmail.com
-            </a>
-            <a
-              href="https://wa.me/919943907643"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-[13px] font-medium text-white transition hover:border-white/20"
-            >
-              💬 WhatsApp: +91 9943 907 643
             </a>
           </div>
         </div>

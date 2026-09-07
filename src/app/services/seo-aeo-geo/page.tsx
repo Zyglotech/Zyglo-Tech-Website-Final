@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { CheckCircle2, Search, Bot, Globe, TrendingUp, Zap, Shield, BarChart3, MessageCircle } from 'lucide-react';
+import { CheckCircle2, Search, Bot, Globe, TrendingUp, Zap, Shield, BarChart3 } from 'lucide-react';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { FaqSchema } from '@/components/FaqSchema';
 import { Breadcrumb } from '@/components/Breadcrumb';
@@ -253,11 +253,6 @@ export default function SeoAeoGeoPage() {
             <Link href="/demo" className="btn-primary">
               Get Free SEO Audit
             </Link>
-            <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
-              className="btn-secondary">
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp Us
-            </a>
           </div>
 
           <div className="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-4 lg:gap-8">
@@ -471,11 +466,6 @@ export default function SeoAeoGeoPage() {
               <Link href="/demo" className="btn-primary w-full sm:w-auto">
                 Get Free Audit →
               </Link>
-              <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
-                className="btn-secondary w-full sm:w-auto">
-                <MessageCircle className="h-4 w-4" />
-                Chat on WhatsApp
-              </a>
             </div>
           </div>
         </div>

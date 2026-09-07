@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Mail, MapPin } from 'lucide-react';
 import { Toast } from '@/components/Toast';
 
 export default function ContactPage() {
@@ -34,7 +34,7 @@ export default function ContactPage() {
     } catch {
       setErrorMsg('Network error. Please try again.');
       setStatus('error');
-      setToast({ type: 'error', message: 'Network error. Please try again or WhatsApp us.' });
+      setToast({ type: 'error', message: 'Network error. Please try again.' });
     }
   }
 
@@ -67,8 +67,6 @@ export default function ContactPage() {
 
           <div className="mt-10 space-y-4">
             {[
-              { icon: Phone, label: 'Call Us', value: '+91 9943 907 643', href: 'tel:+919943907643' },
-              { icon: Phone, label: 'WhatsApp', value: '+91 9943 907 643', href: 'https://wa.me/919943907643' },
               { icon: Mail, label: 'Email', value: 'zyglotech@gmail.com', href: 'mailto:zyglotech@gmail.com' },
               { icon: MapPin, label: 'Office', value: 'Indian Headquarters, Salem', href: undefined },
             ].map((c) => (
@@ -92,16 +90,6 @@ export default function ContactPage() {
             ))}
           </div>
 
-          <div className="mt-10 rounded-2xl border border-white/[0.08] bg-[#0B1424] p-6">
-            <p className="text-[13px] font-bold text-white">Prefer WhatsApp?</p>
-            <p className="mt-1.5 text-[13px] text-slate-400">Chat with our team directly on WhatsApp for the fastest response.</p>
-            <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[13px] font-bold text-[#060B17] transition"
-              style={{ background: '#06CCE8' }}>
-              <MessageCircle className="h-4 w-4" />
-              Chat on WhatsApp
-            </a>
-          </div>
         </div>
 
         {/* Right — form */}
@@ -113,14 +101,8 @@ export default function ContactPage() {
               </div>
               <h2 className="text-[22px] font-black text-white">Message received!</h2>
               <p className="mt-3 max-w-sm text-[14px] text-slate-400">
-                We'll respond within 2 business hours. You can also reach us on WhatsApp for immediate assistance.
+                We'll respond within 2 business hours.
               </p>
-              <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[13px] font-bold text-[#060B17]"
-                style={{ background: '#06CCE8' }}>
-                <MessageCircle className="h-4 w-4" />
-                Continue on WhatsApp
-              </a>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">

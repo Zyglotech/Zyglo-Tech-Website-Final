@@ -47,7 +47,7 @@ const sections = [
     id: 'process',
     title: '5. How to Request a Refund',
     content: [
-      'To request a refund or raise a billing dispute, email zyglotech@gmail.com with your order/transaction ID, the date of payment, and the reason for the request. You may also reach us on WhatsApp at +91 9943 907 643.',
+      'To request a refund or raise a billing dispute, email zyglotech@gmail.com with your order/transaction ID, the date of payment, and the reason for the request.',
       'We aim to acknowledge refund requests within 2 business days and resolve them within 7 business days of approval.',
     ],
   },
@@ -147,14 +147,6 @@ export default function RefundPolicyPage() {
               style={{ background: '#06CCE8' }}
             >
               zyglotech@gmail.com
-            </a>
-            <a
-              href="https://wa.me/919943907643"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-[13px] font-medium text-white transition hover:border-white/20"
-            >
-              💬 WhatsApp: +91 9943 907 643
             </a>
           </div>
         </div>

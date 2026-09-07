@@ -243,10 +243,6 @@ export function Navbar() {
                 style={{ background: '#06CCE8' }}>
                 Book Free Consultation
               </Link>
-              <a href="tel:+919943907643"
-                className="mt-2 block rounded-xl border border-white/10 bg-white/5 py-3.5 text-center text-[13.5px] font-medium text-slate-200">
-                📞 +91 9943 907 643
-              </a>
             </div>
           </div>
         </div>

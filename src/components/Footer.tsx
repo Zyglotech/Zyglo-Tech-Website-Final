@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Linkedin, Instagram, Mail, MapPin, Phone, MessageCircle, ShieldCheck } from 'lucide-react';
+import { Linkedin, Instagram, Mail, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
 import { BrandLogo } from '@/components/BrandLogo';
 
 const itServices = [
@@ -64,11 +64,6 @@ export function Footer() {
 
             {/* Contact */}
             <div className="space-y-2.5">
-              <a href="tel:+919943907643"
-                className="flex items-center gap-3 text-[13px] text-slate-400 transition hover:text-cyan-400">
-                <Phone className="h-4 w-4 text-cyan-400/60 shrink-0" />
-                +91 9943 907 643
-              </a>
               <a href="mailto:zyglotech@gmail.com"
                 className="flex items-center gap-3 text-[13px] text-slate-400 transition hover:text-cyan-400">
                 <Mail className="h-4 w-4 text-cyan-400/60 shrink-0" />
@@ -95,11 +90,6 @@ export function Footer() {
               <a href="https://linkedin.com/company/zyglotech" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 transition hover:border-cyan-400/30 hover:text-cyan-400">
                 <Linkedin className="h-4 w-4" />
-              </a>
-              <a href="https://wa.me/919943907643" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-[12px] font-medium text-slate-400 transition hover:border-cyan-400/30 hover:text-cyan-400">
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp Us
               </a>
             </div>
           </div>
@@ -159,11 +149,11 @@ export function Footer() {
             <div className="mt-8 rounded-2xl border border-white/[0.08] p-5" style={{ background: '#0F1C32' }}>
               <p className="text-[12.5px] font-bold text-white">Partner With Zyglo</p>
               <p className="mt-1.5 text-[11.5px] text-slate-400">Let's build intelligent solutions that drive your business into the future.</p>
-              <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
+              <a href="mailto:zyglotech@gmail.com"
                 className="mt-4 inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-[12px] font-bold text-[#060B17] transition"
                 style={{ background: '#06CCE8' }}>
                 <MessageCircle className="h-3.5 w-3.5" />
-                Chat on WhatsApp
+                Email Us
               </a>
             </div>
           </div>

@@ -3,7 +3,6 @@ import { Inter, Space_Grotesk, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { Providers } from '@/components/Providers';
 import { HomeSchema } from './home-schema';
 import { AggregateRatingSchema } from '@/components/AggregateRatingSchema';
@@ -101,7 +100,6 @@ const organizationSchema = {
       },
       image: 'https://www.zyglotech.com/og-image.png',
       description: 'India\'s leading AI & IT enterprise platform offering AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and workflow automation for Indian businesses.',
-      telephone: '+919943907643',
       email: 'zyglotech@gmail.com',
       address: {
         '@type': 'PostalAddress',
@@ -149,7 +147,6 @@ const organizationSchema = {
       sameAs: [
         'https://twitter.com/zyglotech',
         'https://linkedin.com/company/zyglotech',
-        'https://wa.me/919943907643',
         'https://instagram.com/zyglotech',
         'https://www.youtube.com/@zyglotech',
         'https://github.com/zyglotech',
@@ -197,7 +194,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main>{children}</main>
           <Footer />
-          <WhatsAppFloat />
         </Providers>
         <SpeedInsights />
       </body>

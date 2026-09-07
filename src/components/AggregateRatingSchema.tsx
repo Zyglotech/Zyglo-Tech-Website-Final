@@ -4,7 +4,6 @@ export function AggregateRatingSchema() {
     '@type': 'LocalBusiness',
     name: 'Zyglo Tech Enterprise',
     url: 'https://www.zyglotech.com',
-    telephone: '+91-9943907643',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '18/10, Rail Nagar, Suramangalam',

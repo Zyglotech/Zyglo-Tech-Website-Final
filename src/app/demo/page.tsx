@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import { Toast } from '@/components/Toast';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, MessageCircle, Bot, Zap, Cpu, Globe, BarChart3 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Bot, Zap, Cpu, Globe, BarChart3 } from 'lucide-react';
 
 const services = [
   { value: 'ai-chatbot', label: 'AI Chatbot & Appointment Agent' },
@@ -56,7 +56,7 @@ export default function DemoPage() {
     } catch {
       setErrorMsg('Network error. Please try again.');
       setStatus('error');
-      setToast({ type: 'error', message: 'Network error. Please WhatsApp us directly.' });
+      setToast({ type: 'error', message: 'Network error. Please try again.' });
     }
   }
 
@@ -130,14 +130,8 @@ export default function DemoPage() {
               </div>
               <h2 className="text-[22px] font-black text-white">You're booked in!</h2>
               <p className="mt-3 max-w-sm text-[14px] text-slate-400">
-                Our team will reach out within 2 hours to confirm your demo slot. Prefer faster? Chat with us on WhatsApp now.
+                Our team will reach out within 2 hours to confirm your demo slot.
               </p>
-              <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-xl px-6 py-3 text-[13px] font-bold text-[#060B17]"
-                style={{ background: '#06CCE8' }}>
-                <MessageCircle className="h-4 w-4" />
-                Chat on WhatsApp
-              </a>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
