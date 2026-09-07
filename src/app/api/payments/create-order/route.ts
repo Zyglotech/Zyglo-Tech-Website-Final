@@ -159,5 +159,8 @@ export async function POST(request: Request) {
   const payuResult = await tryPayu();
   if (payuResult) return payuResult;
 
-  return NextResponse.json({ error: 'Could not start payment. Please try again.' }, { status: 502 });
+  return NextResponse.json(
+    { error: 'Checkout is temporarily unavailable. Please contact us on WhatsApp or email and we\'ll help you complete your purchase.', unavailable: true },
+    { status: 502 }
+  );
 }

@@ -13,6 +13,7 @@ function payuCreds() {
 }
 
 export function payuConfigured(): boolean {
+  if (process.env.PAYU_DISABLED === 'true') return false;
   return Boolean(process.env.PAYU_KEY && process.env.PAYU_SALT);
 }
 

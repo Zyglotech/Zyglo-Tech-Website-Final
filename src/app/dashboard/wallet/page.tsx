@@ -90,6 +90,7 @@ function WalletContent() {
   const [loadingWallet, setLoadingWallet] = useState(true);
   const [buying, setBuying] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [checkoutUnavailable, setCheckoutUnavailable] = useState(false);
   const [phone, setPhone] = useState<string | null>(null);
   const [rechargeAmount, setRechargeAmount] = useState('');
   const [tierId, setTierId] = useState(DEFAULT_TIER_ID);
@@ -136,6 +137,7 @@ function WalletContent() {
     const key = body.tierId ?? `recharge-${body.amountInr}`;
     setBuying(key);
     setError(null);
+    setCheckoutUnavailable(false);
 
     const { ok, data, error: err } = await safeFetchJson<
       { gateway: 'payu'; form: PayuFormFields } | { gateway: 'cashfree'; paymentSessionId: string; orderId: string }
@@ -147,6 +149,7 @@ function WalletContent() {
 
     if (!ok || !data) {
       setError(err ?? 'Could not start checkout. Please try again.');
+      setCheckoutUnavailable(Boolean((data as any)?.unavailable));
       setBuying(null);
       return;
     }
@@ -311,7 +314,23 @@ function WalletContent() {
           )}
         </div>
 
-        {error && (
+        {error && checkoutUnavailable && (
+          <div className="mt-4 rounded-xl border border-amber-400/20 bg-amber-400/5 px-5 py-4 text-[13px] text-amber-200">
+            <p className="font-semibold">Checkout is temporarily unavailable</p>
+            <p className="mt-1 text-amber-200/80">We&apos;re working on it — reach out and we&apos;ll help you complete your purchase directly.</p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              <a href="https://wa.me/919943907643" target="_blank" rel="noopener noreferrer"
+                className="rounded-lg border border-amber-400/30 px-3 py-1.5 text-[12.5px] font-semibold text-amber-200 hover:bg-amber-400/10">
+                💬 WhatsApp Us
+              </a>
+              <a href="mailto:zyglotech@gmail.com"
+                className="rounded-lg border border-amber-400/30 px-3 py-1.5 text-[12.5px] font-semibold text-amber-200 hover:bg-amber-400/10">
+                zyglotech@gmail.com
+              </a>
+            </div>
+          </div>
+        )}
+        {error && !checkoutUnavailable && (
           <p className="mt-4 rounded-xl border border-red-400/20 bg-red-400/5 px-4 py-3 text-[13px] text-red-400">
             {error}
           </p>
