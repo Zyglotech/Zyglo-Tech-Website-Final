@@ -150,12 +150,9 @@ img, svg {
     background-color: rgba(15, 28, 50, 0.8);
   }
 
-  /* Text gradient */
+  /* Accent text — kept as a class for backward compatibility, now solid (not gradient) */
   .text-gradient {
-    background: linear-gradient(90deg, #06CCE8, #60A5FA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #06CCE8;
   }
 
   /* Section label badge */
