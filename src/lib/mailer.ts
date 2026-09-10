@@ -113,7 +113,7 @@ export function emailWrapper(content: string) {
           <tr>
             <td style="padding:24px 0 0;text-align:center;">
               <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.3);">
-                Zyglo Tech Enterprise · Salem, India<br/>
+                Zyglo Tech Enterprise · Chennai, India<br/>
                 <a href="https://www.zyglotech.com" style="color:#06CCE8;text-decoration:none;">www.zyglotech.com</a> ·
                 <a href="mailto:founder@zyglotech.com" style="color:#06CCE8;text-decoration:none;">founder@zyglotech.com</a>
               </p>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, Suspense } from 'react';
 import { useSession } from 'next-auth/react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Zap, Clock, CheckCircle2, XCircle, Wallet } from 'lucide-react';
 import { customRecharge, creditsForAmount, formatUsd, getTierById, DEFAULT_TIER_ID, INR_PER_USD, USD_PER_CREDIT } from '@/data/credit-plans';
@@ -11,7 +11,6 @@ const formatInr = (n: number) => `₹${n.toLocaleString('en-IN')}`;
 const inrPerCredit = USD_PER_CREDIT * INR_PER_USD;
 import { CreditTierPicker } from '@/components/CreditTierPicker';
 import { Spinner } from '@/components/Spinner';
-import { CardCheckoutModal } from '@/components/CardCheckoutModal';
 import { safeFetchJson } from '@/lib/clientFetch';
 
 interface Transaction {
@@ -82,7 +81,6 @@ const RETURN_BANNER: Record<string, { text: string; color: string }> = {
 function WalletContent() {
   const { data: authSession } = useSession();
   const searchParams = useSearchParams();
-  const router = useRouter();
   const returnOrderId = searchParams.get('order_id');
 
   const [balance, setBalance] = useState<number | null>(null);
@@ -94,8 +92,6 @@ function WalletContent() {
   const [phone, setPhone] = useState<string | null>(null);
   const [rechargeAmount, setRechargeAmount] = useState('');
   const [tierId, setTierId] = useState(DEFAULT_TIER_ID);
-  const [cashfreeChoice, setCashfreeChoice] = useState<{ paymentSessionId: string; orderId: string } | null>(null);
-  const [showCardForm, setShowCardForm] = useState(false);
 
   const fetchWallet = useCallback(async () => {
     const { ok, data, error: err } = await safeFetchJson<{ balance: number; transactions: Transaction[] }>('/api/wallet');
@@ -159,14 +155,12 @@ function WalletContent() {
       return;
     }
 
-    // Let the customer choose card vs UPI/netbanking instead of jumping straight into Drop-in.
-    setCashfreeChoice({ paymentSessionId: data.paymentSessionId, orderId: data.orderId });
+    // Hand off entirely to Cashfree's own Drop-in UI — it already covers card, UPI, and
+    // netbanking in one hosted flow, so there's no need for our own payment-method picker.
+    await payWithDropIn(data.paymentSessionId);
   }
 
-  async function payWithDropIn() {
-    if (!cashfreeChoice) return;
-    const { paymentSessionId } = cashfreeChoice;
-    setCashfreeChoice(null);
+  async function payWithDropIn(paymentSessionId: string) {
     try {
       const cashfree = await loadCashfreeOnce();
       const result = await cashfree.checkout({
@@ -183,20 +177,6 @@ function WalletContent() {
       setError('Could not open the payment page. Please try again.');
       setBuying(null);
     }
-  }
-
-  function onCardPaymentAttempted() {
-    const orderId = cashfreeChoice?.orderId;
-    setShowCardForm(false);
-    setCashfreeChoice(null);
-    if (orderId) router.replace(`/dashboard/wallet?order_id=${orderId}`);
-    setBuying(null);
-  }
-
-  function closeCashfreeFlow() {
-    setCashfreeChoice(null);
-    setShowCardForm(false);
-    setBuying(null);
   }
 
   const [editingPhone, setEditingPhone] = useState(false);
@@ -448,41 +428,6 @@ function WalletContent() {
           )}
         </div>
       </div>
-
-      {cashfreeChoice && !showCardForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
-          <div className="w-full max-w-sm rounded-2xl border border-white/[0.08] bg-[#0B1424] p-6">
-            <h3 className="text-[16px] font-bold text-white">Choose a payment method</h3>
-            <div className="mt-5 space-y-3">
-              <button
-                onClick={() => setShowCardForm(true)}
-                className="w-full rounded-xl px-5 py-3 text-[13.5px] font-bold text-[#060B17] transition"
-                style={{ background: '#06CCE8' }}>
-                Pay with Card
-              </button>
-              <button
-                onClick={payWithDropIn}
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-[13.5px] font-semibold text-white transition hover:border-white/20">
-                Pay with UPI / Netbanking
-              </button>
-            </div>
-            <button onClick={closeCashfreeFlow} className="mt-4 w-full text-center text-[12px] text-slate-500 hover:text-slate-300">
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
-
-      {cashfreeChoice && showCardForm && (
-        <CardCheckoutModal
-          paymentSessionId={cashfreeChoice.paymentSessionId}
-          loadCashfree={loadCashfreeOnce}
-          onClose={closeCashfreeFlow}
-          onOtherMethods={payWithDropIn}
-          onPaymentAttempted={onCardPaymentAttempted}
-          onError={(message) => { setError(message); closeCashfreeFlow(); }}
-        />
-      )}
     </div>
   );
 }

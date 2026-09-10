@@ -13,6 +13,7 @@ interface Stats {
   totalRevenueInr: number;
   totalRevenueUsd: number;
   dealerInvoiceCount: number;
+  pendingApprovalCount: number;
 }
 
 export default function AdminDashboardPage() {
@@ -78,10 +79,24 @@ export default function AdminDashboardPage() {
               className="mt-8 flex items-center justify-between rounded-2xl border border-cyan-400/20 bg-[#0B1424] p-6 transition hover:border-cyan-400/40">
               <div>
                 <p className="text-[16px] font-bold text-white">Manage Users</p>
-                <p className="mt-1 text-[13px] text-slate-400">View every user, their wallet balance, and adjust credits.</p>
+                <p className="mt-1 text-[13px] text-slate-400">View every user, approve accounts, and adjust credits.</p>
               </div>
               <ArrowRight className="h-5 w-5 text-cyan-400" />
             </Link>
+
+            {stats && stats.pendingApprovalCount > 0 && (
+              <Link
+                href="/dashboard/admin/users?status=pending"
+                className="mt-4 flex items-center justify-between rounded-2xl border border-amber-400/20 bg-amber-400/5 p-6 transition hover:border-amber-400/40">
+                <div>
+                  <p className="text-[16px] font-bold text-amber-300">
+                    {stats.pendingApprovalCount} account{stats.pendingApprovalCount === 1 ? '' : 's'} awaiting approval
+                  </p>
+                  <p className="mt-1 text-[13px] text-amber-200/70">New sign-ups can&apos;t access the dashboard until approved.</p>
+                </div>
+                <ArrowRight className="h-5 w-5 text-amber-400" />
+              </Link>
+            )}
           </>
         )}
       </div>

@@ -21,9 +21,33 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/dashboard/wallet', request.url));
   }
 
+  // Admins always pass — approval/active gating only applies to regular accounts.
+  const isBlocked = token.isAdmin !== true && (token.isApproved === false || token.isActive === false);
+  if (isBlocked) {
+    const reason = token.isActive === false ? 'inactive' : 'pending';
+    if (request.nextUrl.pathname.startsWith('/api/')) {
+      return NextResponse.json(
+        {
+          error:
+            reason === 'inactive'
+              ? 'Your account has been deactivated.'
+              : 'Your account is pending admin approval.',
+        },
+        { status: 403 }
+      );
+    }
+    return NextResponse.redirect(new URL(`/auth/pending?reason=${reason}`, request.url));
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/api/admin/:path*'],
+  matcher: [
+    '/dashboard/:path*',
+    '/api/admin/:path*',
+    '/api/payments/:path*',
+    '/api/wallet/:path*',
+    '/api/user/:path*',
+  ],
 };

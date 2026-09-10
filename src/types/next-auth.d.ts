@@ -9,10 +9,14 @@ declare module 'next-auth' {
       email?: string | null;
       image?: string | null;
       isAdmin?: boolean;
+      isApproved?: boolean;
+      isActive?: boolean;
     };
   }
   interface User {
     isAdmin?: boolean;
+    isApproved?: boolean;
+    isActive?: boolean;
   }
 }
 
@@ -20,5 +24,7 @@ declare module 'next-auth/jwt' {
   interface JWT {
     id?: string;
     isAdmin?: boolean;
+    isApproved?: boolean;
+    isActive?: boolean;
   }
 }

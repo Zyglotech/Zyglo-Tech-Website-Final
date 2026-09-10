@@ -25,7 +25,6 @@ const aiServices = [
 
 const navLinks = [
   { label: 'Academy', href: '/academy' },
-  { label: 'Case Studies', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
   { label: 'Press', href: '/press' },
   { label: 'Contact', href: '/contact' },
@@ -48,8 +47,14 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06]" style={{ background: 'rgba(6,11,23,0.96)', backdropFilter: 'blur(20px)' }}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+    <header className="sticky top-0 z-50 w-full px-3 pt-3 sm:px-5 sm:pt-4">
+      <div
+        className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/[0.08] px-5 py-3.5 lg:px-7 lg:py-4"
+        style={{
+          background: 'rgba(11,20,36,0.82)',
+          backdropFilter: 'blur(24px)',
+          boxShadow: '0 8px 40px rgba(0,0,0,0.45)',
+        }}>
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0" onClick={() => setMobileOpen(false)}>
@@ -157,12 +162,7 @@ export function Navbar() {
                 <LogOut className="h-3.5 w-3.5" /> Sign Out
               </button>
             </>
-          ) : (
-            <Link href="/auth/signin"
-              className="rounded-lg px-3.5 py-2 text-[13.5px] font-medium text-slate-300 transition hover:text-white">
-              Sign In
-            </Link>
-          )}
+          ) : null}
           <Link href="/demo"
             className="rounded-xl px-5 py-2.5 text-[13px] font-bold text-[#060B17] transition hover:shadow-[0_0_24px_rgba(6,204,232,0.3)]"
             style={{ background: '#06CCE8' }}>
@@ -181,7 +181,9 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-white/[0.06] px-5 py-5 lg:hidden" style={{ background: '#060B17' }}>
+        <div
+          className="mx-auto mt-2 max-w-7xl rounded-2xl border border-white/[0.08] px-5 py-5 lg:hidden"
+          style={{ background: 'rgba(11,20,36,0.95)', backdropFilter: 'blur(24px)', boxShadow: '0 8px 40px rgba(0,0,0,0.45)' }}>
           <div className="space-y-1">
             <p className="mb-2 px-2 font-mono-label text-[10px] uppercase text-blue-400">IT Services</p>
             {itServices.map((s) => (
@@ -230,12 +232,7 @@ export function Navbar() {
                     <LogOut className="h-4 w-4" /> Sign Out
                   </button>
                 </>
-              ) : (
-                <Link href="/auth/signin" onClick={() => setMobileOpen(false)}
-                  className="block rounded-xl px-3 py-2.5 text-[13.5px] font-medium text-slate-200 transition hover:bg-white/5 hover:text-white">
-                  Sign In
-                </Link>
-              )}
+              ) : null}
             </div>
             <div className="mt-4 border-t border-white/[0.06] pt-4">
               <Link href="/demo" onClick={() => setMobileOpen(false)}

@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Building2, GraduationCap, Shield, Award, Rocket, Heart, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Us — Salem AI & IT Company',
-  description: 'Zyglo Tech Enterprise is an AI and IT solutions company headquartered in Salem, building custom AI chatbots, WhatsApp automation agents, GST-ready ERP systems, and mobile/web apps for Indian SMEs.',
-  keywords: ['Zyglo Tech Enterprise', 'about Zyglo Tech', 'Salem IT company', 'AI company India', 'Zyglo AI solutions'],
+  title: 'About Us — Chennai AI & IT Company',
+  description: 'Zyglo Tech Enterprise is an AI and IT solutions company based in Chennai, building custom AI chatbots, WhatsApp automation agents, GST-ready ERP systems, and mobile/web apps for Indian SMEs.',
+  keywords: ['Zyglo Tech Enterprise', 'about Zyglo Tech', 'Chennai IT company', 'AI company India', 'Zyglo AI solutions'],
   openGraph: {
-    title: 'About Zyglo Tech Enterprise | Salem AI & IT Company',
+    title: 'About Zyglo Tech Enterprise | Chennai AI & IT Company',
     description: 'Zyglo Tech Enterprise builds AI chatbots, WhatsApp automation, GST-ready ERP, and mobile/web apps for 50+ Indian businesses.',
     url: 'https://www.zyglotech.com/about',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 const timeline = [
-  { year: '2021', title: 'Founded in Salem', desc: 'Zyglo Tech was founded with a mission to make enterprise AI accessible to every Indian business.' },
+  { year: '2021', title: 'Founded in Chennai', desc: 'Zyglo Tech was founded with a mission to make enterprise AI accessible to every Indian business.' },
   { year: '2022', title: 'First 50 Clients', desc: 'Delivered web platforms, GST-ready ERP and automation solutions to 50+ businesses across Tamil Nadu.' },
   { year: '2023', title: 'AI Division Launch', desc: 'Launched the AI Services Division — bringing WhatsApp chatbots, lead agents, and workflow automation to market.' },
   { year: '2024', title: '50+ Businesses', desc: 'Crossed 50 businesses served. Launched Zyglo Academy for corporate and student upskilling.' },
@@ -49,13 +49,13 @@ export default function AboutPage() {
               Our Story
             </span>
             <h1 className="mt-6 text-[40px] font-black tracking-tight text-white sm:text-[54px]">
-              Built in Salem.<br />
+              Built in Chennai.<br />
               <span className="text-cyan-400">
                 Built for India.
               </span>
             </h1>
             <p className="mt-6 text-[17px] leading-8 text-slate-400">
-              Zyglo Tech Enterprise is an artificial intelligence and IT solutions company headquartered in Salem, Tamil Nadu. We build custom AI chatbots, WhatsApp automation agents, GST-ready ERP systems, and mobile & web applications for small and medium enterprises — giving every Indian business access to world-class technology at an accessible price.
+              Zyglo Tech Enterprise is an artificial intelligence and IT solutions company based in Chennai, Tamil Nadu. We build custom AI chatbots, WhatsApp automation agents, GST-ready ERP systems, and mobile & web applications for small and medium enterprises — giving every Indian business access to world-class technology at an accessible price.
             </p>
           </div>
         </div>

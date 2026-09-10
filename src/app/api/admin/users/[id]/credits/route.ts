@@ -10,12 +10,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
     return NextResponse.json({ error: guard.error }, { status: guard.status });
   }
 
-  const body = (await request.json().catch(() => ({}))) as { delta?: number; reason?: string };
-  const delta = Math.round(Number(body.delta));
-
-  if (!Number.isFinite(delta) || delta === 0) {
-    return NextResponse.json({ error: 'Provide a non-zero whole-number credit delta' }, { status: 422 });
-  }
+  const body = (await request.json().catch(() => ({}))) as { delta?: number; reason?: string; reset?: boolean };
 
   const targetUser = await prismadb.user.findUnique({ where: { id: params.id }, select: { id: true } });
   if (!targetUser) {
@@ -24,11 +19,22 @@ export async function POST(request: Request, { params }: { params: { id: string 
 
   const wallet = await prismadb.creditWallet.findUnique({ where: { userId: params.id } });
   const currentBalance = wallet?.balance ?? 0;
+
+  const delta = body.reset ? -currentBalance : Math.round(Number(body.delta));
+
+  if (!Number.isFinite(delta) || delta === 0) {
+    if (body.reset) {
+      return NextResponse.json({ balance: 0 });
+    }
+    return NextResponse.json({ error: 'Provide a non-zero whole-number credit delta' }, { status: 422 });
+  }
+
   if (delta < 0 && currentBalance + delta < 0) {
     return NextResponse.json({ error: `Cannot deduct more than the current balance (${currentBalance} credits)` }, { status: 422 });
   }
 
   const reason = body.reason?.trim() || null;
+  const planLabel = body.reset ? 'Admin reset to 0' : reason ? `Admin adjustment: ${reason}` : 'Admin adjustment';
 
   const [, updatedWallet] = await prismadb.$transaction([
     prismadb.creditTransaction.create({
@@ -38,7 +44,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
         credits: Math.abs(delta),
         status: 'paid',
         paidAt: new Date(),
-        planLabel: reason ? `Admin adjustment: ${reason}` : 'Admin adjustment',
+        planLabel,
       },
     }),
     prismadb.creditWallet.upsert({

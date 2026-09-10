@@ -12,18 +12,22 @@ export async function GET(request: Request) {
 
   const { searchParams } = new URL(request.url);
   const q = searchParams.get('q')?.trim();
+  const status = searchParams.get('status'); // 'pending' | 'inactive' | null
+
+  const where: Record<string, unknown> = {};
+  if (q) {
+    where.OR = [
+      { name: { contains: q, mode: 'insensitive' } },
+      { email: { contains: q, mode: 'insensitive' } },
+      { phone: { contains: q } },
+      { companyName: { contains: q, mode: 'insensitive' } },
+    ];
+  }
+  if (status === 'pending') where.isApproved = false;
+  if (status === 'inactive') where.isActive = false;
 
   const users = await prismadb.user.findMany({
-    where: q
-      ? {
-          OR: [
-            { name: { contains: q, mode: 'insensitive' } },
-            { email: { contains: q, mode: 'insensitive' } },
-            { phone: { contains: q } },
-            { companyName: { contains: q, mode: 'insensitive' } },
-          ],
-        }
-      : undefined,
+    where,
     select: {
       id: true,
       name: true,
@@ -31,6 +35,8 @@ export async function GET(request: Request) {
       phone: true,
       companyName: true,
       isAdmin: true,
+      isApproved: true,
+      isActive: true,
       createdAt: true,
       creditWallet: { select: { balance: true } },
     },

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Linkedin, Instagram, Mail, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
+import { Linkedin, Instagram, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { BrandLogo } from '@/components/BrandLogo';
 
 const itServices = [
@@ -71,7 +71,7 @@ export function Footer() {
               </a>
               <p className="flex items-center gap-3 text-[13px] text-slate-400">
                 <MapPin className="h-4 w-4 text-cyan-400/60 shrink-0" />
-                Indian Headquarters, Salem
+                Chennai, India
               </p>
             </div>
 
@@ -172,15 +172,9 @@ export function Footer() {
           <p className="text-[12px] text-slate-500">
             © 2026 Zyglo Tech Enterprise · www.zyglotech.com · All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <p className="text-[12px] text-slate-500">
-              Indian Headquarters · Made with ❤ in <span style={{ color: '#06CCE8' }}>Salem, India</span>
-            </p>
-            <Link href="/auth/admin-signin" aria-label="Admin sign in"
-              className="flex h-7 w-7 items-center justify-center rounded-lg text-slate-700 transition hover:text-slate-500">
-              <ShieldCheck className="h-3.5 w-3.5" />
-            </Link>
-          </div>
+          <p className="text-[12px] text-slate-500">
+            Made with ❤ in <span style={{ color: '#06CCE8' }}>Chennai, India</span>
+          </p>
         </div>
       </div>
     </footer>

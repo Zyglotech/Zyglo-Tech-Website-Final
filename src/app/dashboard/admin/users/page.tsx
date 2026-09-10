@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, Suspense } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Search, ShieldCheck } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import { ArrowLeft, Search, ShieldCheck, Clock, Ban } from 'lucide-react';
 import { Spinner } from '@/components/Spinner';
 import { safeFetchJson } from '@/lib/clientFetch';
 
@@ -13,21 +14,38 @@ interface AdminUser {
   phone: string | null;
   companyName: string | null;
   isAdmin: boolean;
+  isApproved: boolean;
+  isActive: boolean;
   createdAt: string;
   creditWallet: { balance: number } | null;
 }
 
-export default function AdminUsersPage() {
+type StatusFilter = 'all' | 'pending' | 'inactive';
+
+const STATUS_TABS: { value: StatusFilter; label: string }[] = [
+  { value: 'all', label: 'All' },
+  { value: 'pending', label: 'Pending approval' },
+  { value: 'inactive', label: 'Inactive' },
+];
+
+function AdminUsersContent() {
+  const searchParams = useSearchParams();
+  const initialStatus = searchParams.get('status');
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [query, setQuery] = useState('');
+  const [status, setStatus] = useState<StatusFilter>(
+    initialStatus === 'pending' || initialStatus === 'inactive' ? initialStatus : 'all'
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchUsers = useCallback(async (q: string) => {
+  const fetchUsers = useCallback(async (q: string, s: StatusFilter) => {
     setLoading(true);
-    const { ok, data, error: err } = await safeFetchJson<{ users: AdminUser[] }>(
-      `/api/admin/users${q ? `?q=${encodeURIComponent(q)}` : ''}`
-    );
+    const params = new URLSearchParams();
+    if (q) params.set('q', q);
+    if (s !== 'all') params.set('status', s);
+    const qs = params.toString();
+    const { ok, data, error: err } = await safeFetchJson<{ users: AdminUser[] }>(`/api/admin/users${qs ? `?${qs}` : ''}`);
     setLoading(false);
     if (!ok || !data) {
       setError(err ?? 'Could not load users.');
@@ -36,11 +54,11 @@ export default function AdminUsersPage() {
     setUsers(data.users);
   }, []);
 
-  useEffect(() => { fetchUsers(''); }, [fetchUsers]);
+  useEffect(() => { fetchUsers(query, status); }, [status]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
-    fetchUsers(query);
+    fetchUsers(query, status);
   }
 
   return (
@@ -70,7 +88,22 @@ export default function AdminUsersPage() {
           </button>
         </form>
 
-        <div className="mt-6 rounded-2xl border border-white/[0.08] overflow-hidden" style={{ background: '#0B1424' }}>
+        <div className="mt-4 flex gap-2">
+          {STATUS_TABS.map((tab) => (
+            <button
+              key={tab.value}
+              onClick={() => setStatus(tab.value)}
+              className={`rounded-lg px-3.5 py-1.5 text-[12.5px] font-semibold transition ${
+                status === tab.value
+                  ? 'bg-cyan-400/15 text-cyan-400'
+                  : 'text-slate-400 hover:text-white'
+              }`}>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-4 rounded-2xl border border-white/[0.08] overflow-hidden" style={{ background: '#0B1424' }}>
           {loading ? (
             <div className="flex items-center gap-2 p-6 text-[13px] text-slate-500">
               <Spinner className="h-4 w-4" /> Loading...
@@ -90,6 +123,16 @@ export default function AdminUsersPage() {
                     <p className="flex items-center gap-1.5 text-[13.5px] font-semibold text-white">
                       {u.name || u.companyName || 'Unnamed user'}
                       {u.isAdmin && <ShieldCheck className="h-3.5 w-3.5 text-cyan-400" />}
+                      {!u.isApproved && (
+                        <span className="flex items-center gap-1 rounded-md bg-amber-400/10 px-1.5 py-0.5 text-[10px] font-bold text-amber-400">
+                          <Clock className="h-2.5 w-2.5" /> PENDING
+                        </span>
+                      )}
+                      {!u.isActive && (
+                        <span className="flex items-center gap-1 rounded-md bg-red-400/10 px-1.5 py-0.5 text-[10px] font-bold text-red-400">
+                          <Ban className="h-2.5 w-2.5" /> INACTIVE
+                        </span>
+                      )}
                     </p>
                     <p className="text-[11.5px] text-slate-500">
                       {u.email} {u.phone ? `· +91 ${u.phone}` : ''}
@@ -105,5 +148,17 @@ export default function AdminUsersPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AdminUsersPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center" style={{ background: '#060B17' }}>
+        <Spinner className="h-8 w-8 text-cyan-400" />
+      </div>
+    }>
+      <AdminUsersContent />
+    </Suspense>
   );
 }

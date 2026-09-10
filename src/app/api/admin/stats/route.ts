@@ -10,7 +10,7 @@ export async function GET() {
     return NextResponse.json({ error: guard.error }, { status: guard.status });
   }
 
-  const [userCount, walletAgg, paidTopups, dealerInvoiceCount] = await Promise.all([
+  const [userCount, walletAgg, paidTopups, dealerInvoiceCount, pendingApprovalCount] = await Promise.all([
     prismadb.user.count(),
     prismadb.creditWallet.aggregate({ _sum: { balance: true } }),
     prismadb.creditTransaction.aggregate({
@@ -19,6 +19,7 @@ export async function GET() {
       _count: true,
     }),
     prismadb.dealerInvoice.count(),
+    prismadb.user.count({ where: { isApproved: false } }),
   ]);
 
   return NextResponse.json({
@@ -28,5 +29,6 @@ export async function GET() {
     totalRevenueInr: paidTopups._sum.amount ?? 0,
     totalRevenueUsd: paidTopups._sum.priceUsd ?? 0,
     dealerInvoiceCount,
+    pendingApprovalCount,
   });
 }

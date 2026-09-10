@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight, Bot, Zap, GraduationCap,
-  CheckCircle2, MessageCircle,
+  CheckCircle2,
   Shield, Globe, Users, Clock, Award,
   Building2, Cpu, Code2, Smartphone, Search,
   MapPin, Brain, Target, ChevronDown,
@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 import { TestimonialCarousel } from '@/components/TestimonialCarousel';
 import { ClientLogos } from '@/components/ClientLogos';
+import { ChatbotDemo } from '@/components/ChatbotDemo';
+import { DashboardMockupPanel } from '@/components/DashboardMockupPanel';
 
 /* ─────────────────────── DATA ─────────────────────────────── */
 
@@ -222,7 +224,7 @@ export default function HomePage() {
               <div style={{ animationDelay: '0ms' }} className="hero-child">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[12px] font-medium text-slate-300">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400" />
-                  India's #1 AI & IT Enterprise — Salem HQ
+                  India's #1 AI & IT Enterprise — Chennai
                 </span>
               </div>
 
@@ -252,7 +254,7 @@ export default function HomePage() {
                   { label: '50+ Businesses', icon: Building2 },
                   { label: 'GST-Ready ERP', icon: Shield },
                   { label: 'WhatsApp AI Bots', icon: Bot },
-                  { label: 'Salem HQ', icon: MapPin },
+                  { label: 'Chennai', icon: MapPin },
                 ].map(({ label, icon: Icon }) => (
                   <span key={label} className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2 text-[12.5px] font-medium text-slate-400">
                     <Icon className="h-3.5 w-3.5 text-cyan-400" />
@@ -473,164 +475,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Main panel */}
-                <div className="p-4 sm:p-5">
-
-                  {/* Top bar */}
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <div>
-                      <p className="text-[13px] font-bold text-white">Operations Overview</p>
-                      <p className="text-[9.5px] text-slate-500">17 May 2026 · Salem HQ</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="hidden sm:block rounded-lg border border-white/[0.06] px-2 py-1 text-[9.5px] text-slate-600">Last 7 days ▾</span>
-                      {/* Notification dot */}
-                      <div className="relative h-7 w-7 rounded-lg border border-white/[0.06] flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.03)' }}>
-                        <Activity className="h-3 w-3 text-slate-500" />
-                        <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full border border-[#07101E]" style={{ background: '#06CCE8' }} />
-                      </div>
-                      <span className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[10px] font-semibold text-cyan-400"
-                        style={{ background: 'rgba(6,204,232,0.09)', border: '1px solid rgba(6,204,232,0.16)' }}>
-                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400" />
-                        Live
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* KPI cards with sparklines */}
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 mb-3">
-                    {([
-                      {
-                        label: 'Bot Chats', value: '4,832', change: '+12%', Icon: Bot, color: '#06CCE8',
-                        spark: 'M0,19 L10,12.6 L20,15.6 L30,9.6 L40,11.3 L50,4 L60,1',
-                        area:  'M0,19 L10,12.6 L20,15.6 L30,9.6 L40,11.3 L50,4 L60,1 L60,20 L0,20 Z',
-                      },
-                      {
-                        label: 'Leads Qualified', value: '318', change: '+8%', Icon: Users, color: '#06CCE8',
-                        spark: 'M0,19 L10,14.8 L20,16.4 L30,8.4 L40,11.1 L50,4.2 L60,1',
-                        area:  'M0,19 L10,14.8 L20,16.4 L30,8.4 L40,11.1 L50,4.2 L60,1 L60,20 L0,20 Z',
-                      },
-                      {
-                        label: 'ERP Revenue', value: '₹18.4L', change: '+24%', Icon: TrendingUp, color: '#06CCE8',
-                        spark: 'M0,19 L10,16.1 L20,10.3 L30,13.2 L40,7.4 L50,4.5 L60,1',
-                        area:  'M0,19 L10,16.1 L20,10.3 L30,13.2 L40,7.4 L50,4.5 L60,1 L60,20 L0,20 Z',
-                      },
-                      {
-                        label: 'SEO Rank Avg.', value: '#4.2', change: '↑1.8', Icon: Search, color: '#06CCE8',
-                        spark: 'M0,19 L10,14.7 L20,10.4 L30,12.1 L40,6.1 L50,3.6 L60,1',
-                        area:  'M0,19 L10,14.7 L20,10.4 L30,12.1 L40,6.1 L50,3.6 L60,1 L60,20 L0,20 Z',
-                      },
-                    ] as { label: string; value: string; change: string; Icon: React.ElementType; color: string; spark: string; area: string }[]).map(({ label, value, change, Icon, color, spark, area }) => (
-                      <div key={label} className="rounded-xl p-3 border border-white/[0.05]" style={{ background: '#0C1828' }}>
-                        <div className="flex items-center justify-between mb-2.5">
-                          <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center shrink-0" style={{ background: `${color}1A` }}>
-                            <Icon className="h-[10px] w-[10px]" style={{ color }} />
-                          </div>
-                          <span className="text-[8.5px] font-bold rounded-md px-1.5 py-0.5" style={{ color, background: `${color}15` }}>{change}</span>
-                        </div>
-                        <p className="text-[19px] font-black text-white leading-none">{value}</p>
-                        <p className="mt-0.5 text-[8.5px] text-slate-600 leading-tight">{label}</p>
-                        {/* Sparkline */}
-                        <svg viewBox="0 0 60 20" className="mt-2 w-full" style={{ height: '20px' }} preserveAspectRatio="none">
-                          <defs>
-                            <linearGradient id={`sg-${label.replace(/\s/g,'-')}`} x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor={color} stopOpacity="0.25" />
-                              <stop offset="100%" stopColor={color} stopOpacity="0" />
-                            </linearGradient>
-                          </defs>
-                          <path d={area} fill={`url(#sg-${label.replace(/\s/g,'-')})`} />
-                          <path d={spark} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Bottom row: Area chart + Agents panel */}
-                  <div className="grid gap-2.5 lg:grid-cols-[1fr_156px]">
-
-                    {/* SVG Area Chart */}
-                    <div className="rounded-xl border border-white/[0.05] p-3.5" style={{ background: '#0B1626' }}>
-                      <div className="mb-3 flex items-center justify-between">
-                        <p className="text-[11px] font-semibold text-slate-300">Revenue & AI Activity</p>
-                        <div className="flex items-center gap-3">
-                          <div className="flex items-center gap-1">
-                            <div className="h-1 w-4 rounded-full" style={{ background: '#06CCE8' }} />
-                            <span className="text-[8px] text-slate-600">Revenue</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <div className="h-1 w-4 rounded-full" style={{ background: '#94A3B8' }} />
-                            <span className="text-[8px] text-slate-600">AI Activity</span>
-                          </div>
-                        </div>
-                      </div>
-                      <svg viewBox="0 0 560 72" className="w-full" style={{ height: '72px' }} preserveAspectRatio="none">
-                        <defs>
-                          <linearGradient id="rev-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#06CCE8" stopOpacity="0.22" />
-                            <stop offset="100%" stopColor="#06CCE8" stopOpacity="0" />
-                          </linearGradient>
-                          <linearGradient id="ai-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#94A3B8" stopOpacity="0.16" />
-                            <stop offset="100%" stopColor="#94A3B8" stopOpacity="0" />
-                          </linearGradient>
-                        </defs>
-                        {/* Grid lines */}
-                        {[18,36,54].map(y => (
-                          <line key={y} x1="0" y1={y} x2="560" y2={y} stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-                        ))}
-                        {/* Revenue area */}
-                        <path d="M0,61 L93,42 L187,51 L280,22 L373,30 L467,2 L560,17 L560,72 L0,72 Z" fill="url(#rev-grad)" />
-                        {/* AI area */}
-                        <path d="M0,70 L93,54 L187,37 L280,45 L373,14 L467,27 L560,5 L560,72 L0,72 Z" fill="url(#ai-grad)" />
-                        {/* Revenue line */}
-                        <polyline points="0,61 93,42 187,51 280,22 373,30 467,2 560,17" fill="none" stroke="#06CCE8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                        {/* AI line */}
-                        <polyline points="0,70 93,54 187,37 280,45 373,14 467,27 560,5" fill="none" stroke="#94A3B8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                        {/* Highlight dots on last point */}
-                        <circle cx="560" cy="17" r="3" fill="#06CCE8" />
-                        <circle cx="560" cy="5"  r="3" fill="#94A3B8" />
-                      </svg>
-                      <div className="mt-1.5 flex justify-between text-[8px] text-slate-700">
-                        {['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d => <span key={d}>{d}</span>)}
-                      </div>
-                    </div>
-
-                    {/* AI Agents Live */}
-                    <div className="rounded-xl border border-white/[0.05] p-3" style={{ background: '#0C1828' }}>
-                      <div className="flex items-center justify-between mb-3">
-                        <p className="text-[10.5px] font-semibold text-slate-300">AI Agents</p>
-                        <span className="text-[8px] font-bold text-emerald-400">4 Live</span>
-                      </div>
-                      <div className="space-y-2">
-                        {([
-                          { name: 'WhatsApp Bot',   sub: 'Real Estate', status: 'live',  stat: '127 chats', color: '#06CCE8' },
-                          { name: 'Lead Qualifier', sub: 'Healthcare',  status: 'live',  stat: '43 leads',  color: '#06CCE8' },
-                          { name: 'ERP Workflow',   sub: 'Retail',      status: 'busy',  stat: '12 tasks',  color: '#FBBF24' },
-                          { name: 'SEO Monitor',    sub: 'Auto',        status: 'live',  stat: '↑4 ranks',  color: '#06CCE8' },
-                        ]).map(a => (
-                          <div key={a.name} className="flex items-center gap-2 rounded-lg px-2 py-1.5 border border-white/[0.04]" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                            <span className="h-1.5 w-1.5 rounded-full shrink-0 animate-pulse" style={{ background: a.status === 'busy' ? '#FBBF24' : '#34D399' }} />
-                            <div className="flex-1 min-w-0">
-                              <p className="text-[9px] font-semibold text-slate-300 truncate">{a.name}</p>
-                              <p className="text-[7.5px] text-slate-700 truncate">{a.sub}</p>
-                            </div>
-                            <span className="text-[8px] font-bold shrink-0" style={{ color: a.color }}>{a.stat}</span>
-                          </div>
-                        ))}
-                      </div>
-                      {/* Uptime strip */}
-                      <div className="mt-3 rounded-lg border border-white/[0.04] px-2.5 py-2" style={{ background: 'rgba(52,211,153,0.05)' }}>
-                        <div className="flex items-center justify-between">
-                          <span className="text-[8px] text-slate-600">Platform Uptime</span>
-                          <span className="text-[9px] font-black text-emerald-400">99.9%</span>
-                        </div>
-                        <div className="mt-1.5 h-[2px] w-full rounded-full" style={{ background: 'rgba(255,255,255,0.05)' }}>
-                          <div className="h-full w-[99.9%] rounded-full" style={{ background: 'linear-gradient(90deg,#34D399,#059669)' }} />
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
+                <DashboardMockupPanel />
               </div>
             </div>
           </div>
@@ -648,7 +493,7 @@ export default function HomePage() {
           <p className="text-[22px] sm:text-[28px] font-black text-white tracking-tight">
             <span style={{ color: '#06CCE8' }}>50+</span> businesses run on Zyglo
           </p>
-          <p className="mt-2 text-[13px] text-slate-500">From Salem startups to pan-India enterprises — across retail, healthcare, logistics, and more.</p>
+          <p className="mt-2 text-[13px] text-slate-500">From Chennai startups to pan-India enterprises — across retail, healthcare, logistics, and more.</p>
         </div>
         <ClientLogos />
       </section>
@@ -916,45 +761,7 @@ export default function HomePage() {
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.12 }}>
-              <div className="rounded-2xl border border-white/10 bg-[#0B1424] overflow-hidden shadow-[0_16px_60px_rgba(0,0,0,0.4)]">
-                <div className="flex items-center gap-3 border-b border-white/[0.06] bg-[#0F1C32]/80 px-5 py-4">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan-400/20">
-                    <Bot className="h-4 w-4 text-cyan-400" />
-                  </div>
-                  <div>
-                    <p className="text-[13px] font-bold text-white">Zyglo AI Bot</p>
-                    <p className="text-[11px] text-green-400">● Online — Responding instantly</p>
-                  </div>
-                  <span className="ml-auto rounded-lg bg-[#25D366]/10 px-3 py-1 text-[10px] font-bold text-[#25D366]">
-                    WhatsApp
-                  </span>
-                </div>
-                <div className="space-y-4 p-5">
-                  {[
-                    { from: 'bot', text: 'Hello! 👋 I\'m your Zyglo AI assistant. I can help you schedule a demo, answer questions, or connect you with our team. How can I help?' },
-                    { from: 'user', text: 'I need an automated lead system for my real estate business.' },
-                    { from: 'bot', text: 'Great choice! 🏡 I\'ll set up a WhatsApp bot that auto-captures buyer enquiries, sends property previews and books site visits — no manual work needed. Want a live demo?' },
-                    { from: 'user', text: 'Yes, show me how it works.' },
-                    { from: 'bot', text: 'Perfect! ✅ I\'ve sent a demo link to your WhatsApp and scheduled a 30-min walkthrough with our team. What time works best for you today?' },
-                  ].map((msg, i) => (
-                    <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[82%] rounded-2xl px-4 py-3 text-[13px] leading-6 ${msg.from === 'bot'
-                        ? 'rounded-tl-sm bg-[#0F1C32] text-slate-200'
-                        : 'rounded-tr-sm text-white'
-                        }`}
-                        style={msg.from === 'user' ? { background: 'rgba(6,204,232,0.12)' } : {}}>
-                        {msg.text}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="border-t border-white/[0.06] px-4 py-3">
-                  <div className="flex items-center gap-3 rounded-xl bg-[#0F1C32]/80 px-4 py-2.5">
-                    <span className="flex-1 text-[12px] text-slate-500">Type a message...</span>
-                    <MessageCircle className="h-4 w-4 text-cyan-400" />
-                  </div>
-                </div>
-              </div>
+              <ChatbotDemo />
             </motion.div>
           </div>
         </div>
@@ -1102,7 +909,7 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="mt-6 text-[12.5px] text-slate-500">
-              founder@zyglotech.com · www.zyglotech.com · Indian Headquarters, Salem
+              founder@zyglotech.com · www.zyglotech.com · Chennai, India
             </p>
           </motion.div>
         </div>

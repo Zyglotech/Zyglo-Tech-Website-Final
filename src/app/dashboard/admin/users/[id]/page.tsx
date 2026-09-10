@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ShieldCheck, Plus, Minus } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Plus, Minus, RotateCcw, Clock, Ban, CheckCircle2 } from 'lucide-react';
 import { Spinner } from '@/components/Spinner';
 import { safeFetchJson } from '@/lib/clientFetch';
 
@@ -36,6 +36,8 @@ interface AdminUserDetail {
   postalCode: string | null;
   country: string | null;
   isAdmin: boolean;
+  isApproved: boolean;
+  isActive: boolean;
   createdAt: string;
   creditWallet: { balance: number } | null;
   creditTransactions: CreditTransaction[];
@@ -50,8 +52,10 @@ export default function AdminUserDetailPage({ params }: { params: { id: string }
 
   const [delta, setDelta] = useState('');
   const [reason, setReason] = useState('');
-  const [adjusting, setAdjusting] = useState<'add' | 'deduct' | null>(null);
+  const [adjusting, setAdjusting] = useState<'add' | 'deduct' | 'reset' | null>(null);
   const [adjustError, setAdjustError] = useState<string | null>(null);
+  const [statusUpdating, setStatusUpdating] = useState<'isApproved' | 'isActive' | null>(null);
+  const [statusError, setStatusError] = useState<string | null>(null);
 
   const fetchUser = useCallback(async () => {
     const { ok, data, error: err } = await safeFetchJson<{ user: AdminUserDetail }>(`/api/admin/users/${id}`);
@@ -90,6 +94,44 @@ export default function AdminUserDetailPage({ params }: { params: { id: string }
     fetchUser();
   }
 
+  async function resetCredits() {
+    if (!user || !window.confirm(`Reset ${user.name || user.email}'s balance to 0 credits? This cannot be undone.`)) return;
+    setAdjusting('reset');
+    setAdjustError(null);
+
+    const { ok, error: err } = await safeFetchJson<{ balance: number }>(`/api/admin/users/${id}/credits`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reset: true }),
+    });
+
+    setAdjusting(null);
+    if (!ok) {
+      setAdjustError(err ?? 'Could not reset credits.');
+      return;
+    }
+    fetchUser();
+  }
+
+  async function toggleStatus(field: 'isApproved' | 'isActive') {
+    if (!user) return;
+    setStatusUpdating(field);
+    setStatusError(null);
+
+    const { ok, error: err } = await safeFetchJson<{ user: AdminUserDetail }>(`/api/admin/users/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ [field]: !user[field] }),
+    });
+
+    setStatusUpdating(null);
+    if (!ok) {
+      setStatusError(err ?? 'Could not update this user.');
+      return;
+    }
+    fetchUser();
+  }
+
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center" style={{ background: '#060B17' }}>
@@ -124,7 +166,51 @@ export default function AdminUserDetailPage({ params }: { params: { id: string }
           {user.email} {user.phone ? `· +91 ${user.phone}` : ''}
         </p>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {!user.isAdmin && (
+          <div className="mt-5 flex flex-wrap items-center gap-3 rounded-2xl border border-white/[0.08] bg-[#0B1424] p-5">
+            <button
+              type="button"
+              onClick={() => toggleStatus('isApproved')}
+              disabled={statusUpdating !== null}
+              className={`flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-[12.5px] font-bold transition disabled:opacity-60 ${
+                user.isApproved
+                  ? 'border border-white/10 text-slate-300 hover:border-white/20'
+                  : 'bg-amber-400/15 text-amber-400'
+              }`}>
+              {statusUpdating === 'isApproved' ? (
+                <Spinner className="h-3.5 w-3.5" />
+              ) : user.isApproved ? (
+                <CheckCircle2 className="h-3.5 w-3.5" />
+              ) : (
+                <Clock className="h-3.5 w-3.5" />
+              )}
+              {user.isApproved ? 'Approved' : 'Pending — click to approve'}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => toggleStatus('isActive')}
+              disabled={statusUpdating !== null}
+              className={`flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-[12.5px] font-bold transition disabled:opacity-60 ${
+                user.isActive
+                  ? 'border border-white/10 text-slate-300 hover:border-white/20'
+                  : 'bg-red-400/15 text-red-400'
+              }`}>
+              {statusUpdating === 'isActive' ? (
+                <Spinner className="h-3.5 w-3.5" />
+              ) : user.isActive ? (
+                <CheckCircle2 className="h-3.5 w-3.5" />
+              ) : (
+                <Ban className="h-3.5 w-3.5" />
+              )}
+              {user.isActive ? 'Active — click to deactivate' : 'Inactive — click to reactivate'}
+            </button>
+
+            {statusError && <p className="text-[12.5px] text-red-400">{statusError}</p>}
+          </div>
+        )}
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-white/[0.08] bg-[#0B1424] p-6">
             <p className="text-[11.5px] font-bold uppercase tracking-wider text-slate-500">Wallet Balance</p>
             <p className="mt-2 text-[32px] font-black text-white">
@@ -180,6 +266,13 @@ export default function AdminUserDetailPage({ params }: { params: { id: string }
               disabled={adjusting !== null}
               className="flex items-center gap-1.5 rounded-xl border border-red-400/30 px-4 py-2.5 text-[13.5px] font-bold text-red-400 disabled:opacity-60">
               {adjusting === 'deduct' ? <Spinner className="h-4 w-4" /> : <Minus className="h-4 w-4" />} Deduct
+            </button>
+            <button
+              type="button"
+              onClick={resetCredits}
+              disabled={adjusting !== null || (user.creditWallet?.balance ?? 0) === 0}
+              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-4 py-2.5 text-[13.5px] font-bold text-slate-300 transition hover:border-white/20 disabled:opacity-40">
+              {adjusting === 'reset' ? <Spinner className="h-4 w-4" /> : <RotateCcw className="h-4 w-4" />} Reset to 0
             </button>
           </div>
           {adjustError && <p className="mt-3 text-[12.5px] text-red-400">{adjustError}</p>}

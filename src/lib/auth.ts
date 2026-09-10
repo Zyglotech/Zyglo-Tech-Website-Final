@@ -19,13 +19,21 @@ export const authOptions: NextAuthOptions = {
         const valid = await verifyOtp(email, credentials.code);
         if (!valid) return null;
 
+        // New accounts start unapproved and require admin sign-off; existing accounts are untouched.
         const user = await prismadb.user.upsert({
           where: { email },
           update: {},
-          create: { email, creditWallet: { create: { balance: 0 } } },
+          create: { email, isApproved: false, creditWallet: { create: { balance: 0 } } },
         });
 
-        return { id: user.id, name: user.name, email: user.email, isAdmin: user.isAdmin };
+        return {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          isApproved: user.isApproved,
+          isActive: user.isActive,
+        };
       },
     }),
     CredentialsProvider({
@@ -45,7 +53,14 @@ export const authOptions: NextAuthOptions = {
         const valid = await bcrypt.compare(credentials.password, user.password);
         if (!valid) return null;
 
-        return { id: user.id, name: user.name, email: user.email, isAdmin: user.isAdmin };
+        return {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          isApproved: user.isApproved,
+          isActive: user.isActive,
+        };
       },
     }),
   ],
@@ -60,6 +75,8 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.id = user.id;
         token.isAdmin = user.isAdmin;
+        token.isApproved = user.isApproved;
+        token.isActive = user.isActive;
       }
       return token;
     },
@@ -70,6 +87,8 @@ export const authOptions: NextAuthOptions = {
           ...session.user,
           id: token.id as string,
           isAdmin: token.isAdmin === true,
+          isApproved: token.isApproved !== false,
+          isActive: token.isActive !== false,
         },
       };
     },
