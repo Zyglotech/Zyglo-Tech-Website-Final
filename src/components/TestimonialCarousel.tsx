@@ -42,7 +42,7 @@ function StarRating({ count }: { count: number }) {
 
 export function TestimonialCarousel() {
   return (
-    <div className="grid gap-6 lg:grid-cols-3">
+    <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
       {testimonials.map((item, index) => (
         <motion.div
           key={item.author}
@@ -50,7 +50,7 @@ export function TestimonialCarousel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.12, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col rounded-2xl border border-white/8 bg-[#0B1424] p-7">
+          className={`flex flex-col rounded-2xl border border-white/8 bg-[#0B1424] p-7 ${index === 0 ? 'lg:row-span-2' : ''}`}>
 
           {/* Quote icon */}
           <Quote className="mb-4 h-7 w-7 text-cyan-400/30" />

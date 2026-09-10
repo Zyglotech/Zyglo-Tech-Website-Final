@@ -223,8 +223,7 @@ export default function HomePage() {
             <div className="hero-enter">
               <div style={{ animationDelay: '0ms' }} className="hero-child">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[12px] font-medium text-slate-300">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400" />
-                  India's #1 AI & IT Enterprise — Chennai
+                  India's #1 AI & IT Enterprise, Chennai
                 </span>
               </div>
 
@@ -246,21 +245,6 @@ export default function HomePage() {
                   Book Free Consultation
                   <ArrowRight className="h-4 w-4" />
                 </Link>
-              </div>
-
-              {/* Trust badges */}
-              <div style={{ animationDelay: '320ms' }} className="hero-child mt-10 flex flex-wrap gap-3">
-                {[
-                  { label: '50+ Businesses', icon: Building2 },
-                  { label: 'GST-Ready ERP', icon: Shield },
-                  { label: 'WhatsApp AI Bots', icon: Bot },
-                  { label: 'Chennai', icon: MapPin },
-                ].map(({ label, icon: Icon }) => (
-                  <span key={label} className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2 text-[12.5px] font-medium text-slate-400">
-                    <Icon className="h-3.5 w-3.5 text-cyan-400" />
-                    {label}
-                  </span>
-                ))}
               </div>
             </div>
 
@@ -395,30 +379,10 @@ export default function HomePage() {
           <div className="mt-14 mx-auto max-w-5xl" style={{ animation: 'heroFadeIn 0.9s ease 0.4s both' }}>
             <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.8),0_0_0_1px_rgba(6,204,232,0.04)]" style={{ background: '#07101E' }}>
 
-              {/* Browser chrome — tab strip */}
-              <div className="border-b border-white/[0.05] px-4 pt-3 pb-0" style={{ background: '#060D1A' }}>
-                <div className="flex items-center gap-3">
-                  {/* Traffic lights */}
-                  <div className="flex shrink-0 items-center gap-1.5 pb-3">
-                    <div className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-                  </div>
-                  {/* Active tab */}
-                  <div className="flex items-center gap-2 rounded-t-lg border border-b-0 border-white/[0.07] px-4 py-2 text-[11px] font-medium text-slate-300" style={{ background: '#07101E' }}>
-                    <span className="h-2 w-2 rounded-full" style={{ background: '#06CCE8' }} />
-                    Dashboard — Zyglo
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-2 text-[11px] text-slate-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
-                    ERP Module
-                  </div>
-                  {/* URL bar */}
-                  <div className="ml-auto mb-2 flex items-center gap-2 rounded-lg px-3 py-1.5 text-[10px] text-slate-500" style={{ background: 'rgba(6,11,23,0.7)' }}>
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400 shrink-0" />
-                    <span className="hidden sm:block">app.zyglotech.com/dashboard</span>
-                  </div>
-                </div>
+              {/* Panel header */}
+              <div className="flex items-center gap-3 border-b border-white/[0.05] px-5 py-3.5" style={{ background: '#060D1A' }}>
+                <span className="h-2 w-2 rounded-full" style={{ background: '#06CCE8' }} />
+                <span className="text-[12px] font-semibold text-slate-300">Live operations overview</span>
               </div>
 
               {/* Dashboard layout */}
@@ -486,14 +450,32 @@ export default function HomePage() {
           style={{ background: 'linear-gradient(to bottom, transparent, #060B17)' }} />
       </section>
 
+      {/* ═══════════════ TRUST STRIP ═════════════════════════ */}
+      <section className="border-t border-white/[0.05] py-8" style={{ background: '#060B17' }}>
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { label: '50+ Businesses', icon: Building2 },
+              { label: 'GST-Ready ERP', icon: Shield },
+              { label: 'WhatsApp AI Bots', icon: Bot },
+              { label: 'Chennai HQ', icon: MapPin },
+            ].map(({ label, icon: Icon }) => (
+              <span key={label} className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2 text-[12.5px] font-medium text-slate-400">
+                <Icon className="h-3.5 w-3.5 text-cyan-400" />
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════════ CLIENT LOGOS TICKER ════════════════ */}
       <section className="border-t border-white/[0.05] py-10 sm:py-14" style={{ background: 'rgba(8,15,28,0.7)' }}>
         <div className="mx-auto max-w-7xl px-5 lg:px-8 mb-8 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-slate-600 mb-3">Trusted across industries</p>
           <p className="text-[22px] sm:text-[28px] font-black text-white tracking-tight">
             <span style={{ color: '#06CCE8' }}>50+</span> businesses run on Zyglo
           </p>
-          <p className="mt-2 text-[13px] text-slate-500">From Chennai startups to pan-India enterprises — across retail, healthcare, logistics, and more.</p>
+          <p className="mt-2 text-[13px] text-slate-500">From Chennai startups to pan-India enterprises, across retail, healthcare, logistics, and more.</p>
         </div>
         <ClientLogos />
       </section>
@@ -648,9 +630,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
             className="mb-10 text-center sm:mb-14">
-            <motion.div variants={fadeUp}><SectionLabel>Why Choose Zyglo</SectionLabel></motion.div>
             <motion.h2 variants={fadeUp}
-              className="mt-5 text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
+              className="text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
               What makes us different.
             </motion.h2>
           </motion.div>
@@ -699,9 +680,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
             className="mb-10 text-center sm:mb-16">
-            <motion.div variants={fadeUp}><SectionLabel>How We Work</SectionLabel></motion.div>
             <motion.h2 variants={fadeUp}
-              className="mt-5 text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
+              className="text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
               From idea to launch in weeks, not months.
             </motion.h2>
           </motion.div>
@@ -734,8 +714,7 @@ export default function HomePage() {
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <SectionLabel>AI Chatbot Demo</SectionLabel>
-              <h2 className="mt-5 text-[24px] font-black tracking-tight text-white sm:text-[34px] lg:text-[38px]">
+              <h2 className="text-[24px] font-black tracking-tight text-white sm:text-[34px] lg:text-[38px]">
                 Your smartest employee — live 24/7 on WhatsApp.
               </h2>
               <p className="mt-4 text-[15px] leading-7 text-slate-400">
@@ -787,9 +766,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
             className="mb-10 text-center sm:mb-16">
-            <motion.div variants={fadeUp}><SectionLabel>Real Results</SectionLabel></motion.div>
             <motion.h2 variants={fadeUp}
-              className="mt-5 text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
+              className="text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
               Numbers that speak for themselves.
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-4 text-[16px] text-slate-400">
@@ -870,9 +848,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-4xl px-5 lg:px-8">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
             className="mb-12 text-center">
-            <motion.div variants={fadeUp}><SectionLabel>FAQ</SectionLabel></motion.div>
             <motion.h2 variants={fadeUp}
-              className="mt-5 text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
+              className="text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
               Questions we get asked most.
             </motion.h2>
           </motion.div>
