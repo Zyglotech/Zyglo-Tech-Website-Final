@@ -10,20 +10,18 @@ import {
   Shield, Globe, Users, Clock, Award,
   Building2, Cpu, Code2, Smartphone, Search,
   MapPin, Brain, Target, ChevronDown,
-  Rocket, Heart, BadgeCheck, Layers, TrendingUp, Activity,
+  Rocket, Heart, BadgeCheck, Layers, TrendingUp,
 } from 'lucide-react';
-import { TestimonialCarousel } from '@/components/TestimonialCarousel';
-import { ClientLogos } from '@/components/ClientLogos';
 import { ChatbotDemo } from '@/components/ChatbotDemo';
 import { DashboardMockupPanel } from '@/components/DashboardMockupPanel';
 
 /* ─────────────────────── DATA ─────────────────────────────── */
 
 const stats = [
-  { value: '50+', label: 'Businesses Served', icon: Building2 },
-  { value: '100+', label: 'Students Trained', icon: GraduationCap },
-  { value: '99.9%', label: 'Platform Uptime', icon: Shield },
-  { value: '100+', label: 'Free Consultations', icon: Award },
+  { value: 'New', label: 'Studio, Full Attention', icon: Building2 },
+  { value: 'Direct', label: 'Access to the Builders', icon: Users },
+  { value: 'Free', label: 'Initial Consultation', icon: Award },
+  { value: 'India', label: 'Hosted & Compliant', icon: Shield },
 ];
 
 const itServices = [
@@ -248,135 +246,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right — AI visual illustration */}
-            <div className="relative hidden lg:block" style={{ animation: 'heroFadeIn 1s ease 0.2s both' }}>
-
-              {/* Ambient glow */}
-              <div className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[90px]"
-                style={{ background: 'radial-gradient(circle, rgba(6,204,232,0.14) 0%, transparent 72%)' }} />
-
-              {/* Orbital container */}
-              <div className="relative mx-auto w-full max-w-[460px] aspect-square">
-
-                {/* ── Background rings + nodes SVG ── */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Rings */}
-                  <circle cx="230" cy="230" r="212" stroke="rgba(6,204,232,0.06)" strokeWidth="1" />
-                  <circle cx="230" cy="230" r="168" stroke="rgba(6,204,232,0.05)" strokeWidth="1" strokeDasharray="3 9" />
-                  <circle cx="230" cy="230" r="118" stroke="rgba(6,204,232,0.06)" strokeWidth="1" />
-
-                  {/* Connection lines — center to anchors */}
-                  <line x1="230" y1="230" x2="350" y2="68"  stroke="rgba(6,204,232,0.13)" strokeWidth="1" />
-                  <line x1="230" y1="230" x2="52"  y2="198" stroke="rgba(6,204,232,0.1)" strokeWidth="1" />
-                  <line x1="230" y1="230" x2="230" y2="402" stroke="rgba(6,204,232,0.11)" strokeWidth="1" />
-                  <line x1="230" y1="230" x2="406" y2="318" stroke="rgba(6,204,232,0.09)"  strokeWidth="1" />
-                  {/* Cross links */}
-                  <line x1="350" y1="68"  x2="406" y2="318" stroke="rgba(6,204,232,0.05)" strokeWidth="0.8" />
-                  <line x1="52"  y1="198" x2="230" y2="402" stroke="rgba(6,204,232,0.05)"  strokeWidth="0.8" />
-
-                  {/* Anchor nodes */}
-                  <circle cx="350" cy="68"  r="5"  fill="rgba(6,204,232,0.9)" />
-                  <circle cx="350" cy="68"  r="11" fill="rgba(6,204,232,0.11)" />
-                  <circle cx="52"  cy="198" r="4.5" fill="rgba(6,204,232,0.75)" />
-                  <circle cx="52"  cy="198" r="9"  fill="rgba(6,204,232,0.1)" />
-                  <circle cx="230" cy="402" r="4.5" fill="rgba(6,204,232,0.85)" />
-                  <circle cx="230" cy="402" r="9"  fill="rgba(6,204,232,0.1)" />
-                  <circle cx="406" cy="318" r="4"  fill="rgba(6,204,232,0.7)" />
-                  <circle cx="406" cy="318" r="8"  fill="rgba(6,204,232,0.1)" />
-
-                  {/* Pulse ring */}
-                  <circle cx="230" cy="230" r="72" fill="none" stroke="rgba(6,204,232,0.13)" strokeWidth="1">
-                    <animate attributeName="r"       values="68;92;68"   dur="3.6s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.5;0;0.5"  dur="3.6s" repeatCount="indefinite" />
-                  </circle>
-                </svg>
-
-                {/* ── Center hub ── */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[122px] w-[122px] rounded-full flex flex-col items-center justify-center border border-cyan-400/25 shadow-[0_0_56px_rgba(6,204,232,0.2),inset_0_1px_0_rgba(255,255,255,0.05)]"
-                  style={{ background: 'radial-gradient(circle at 40% 35%, #121F38 0%, #0B1424 100%)' }}>
-                  <svg viewBox="0 0 70 70" className="h-12 w-12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="19" cy="21" r="8" fill="#06CCE8" />
-                    <rect x="-7" y="-24" width="14" height="48" rx="7" fill="#06CCE8" transform="translate(40 40) rotate(38)" />
-                  </svg>
-                  <span className="text-[7px] font-black tracking-[0.32em] mt-1" style={{ color: 'rgba(6,204,232,0.65)' }}>ZYGLO</span>
-                </div>
-
-                {/* ── Metric Card 1 · top-right · Bot Conversations ── */}
-                <div className="absolute top-[7%] right-[2%] w-[150px] rounded-2xl border border-cyan-400/[0.18] p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
-                  style={{ background: 'rgba(9,19,34,0.93)', backdropFilter: 'blur(14px)' }}>
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(6,204,232,0.12)' }}>
-                      <Bot className="h-3 w-3 text-cyan-400" />
-                    </div>
-                    <span className="text-[8.5px] font-medium leading-tight text-slate-400">Bot Conversations</span>
-                  </div>
-                  <div className="flex items-end justify-between">
-                    <span className="text-[22px] font-black leading-none text-white">4,832</span>
-                    <span className="rounded-md px-1.5 py-0.5 text-[9px] font-bold text-cyan-400" style={{ background: 'rgba(6,204,232,0.1)' }}>↑ 12%</span>
-                  </div>
-                  <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,0.05)' }}>
-                    <div className="h-full w-[72%] rounded-full" style={{ background: 'linear-gradient(to right, #06CCE8, rgba(6,204,232,0.2))' }} />
-                  </div>
-                </div>
-
-                {/* ── Metric Card 2 · left · Leads Qualified ── */}
-                <div className="absolute top-[38%] left-[0%] w-[140px] rounded-2xl border border-cyan-400/[0.18] p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
-                  style={{ background: 'rgba(9,19,34,0.93)', backdropFilter: 'blur(14px)' }}>
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(6,204,232,0.12)' }}>
-                      <Users className="h-3 w-3 text-cyan-400" />
-                    </div>
-                    <span className="text-[8.5px] font-medium text-slate-400">Leads Qualified</span>
-                  </div>
-                  <div className="flex items-end justify-between">
-                    <span className="text-[22px] font-black leading-none text-white">318</span>
-                    <span className="rounded-md px-1.5 py-0.5 text-[9px] font-bold text-cyan-400" style={{ background: 'rgba(6,204,232,0.1)' }}>↑ 8%</span>
-                  </div>
-                  <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,0.05)' }}>
-                    <div className="h-full w-[55%] rounded-full" style={{ background: 'linear-gradient(to right, #06CCE8, rgba(6,204,232,0.2))' }} />
-                  </div>
-                </div>
-
-                {/* ── Metric Card 3 · bottom-center · ERP Revenue ── */}
-                <div className="absolute bottom-[5%] left-[22%] w-[160px] rounded-2xl border border-cyan-400/[0.18] p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
-                  style={{ background: 'rgba(9,19,34,0.93)', backdropFilter: 'blur(14px)' }}>
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(6,204,232,0.12)' }}>
-                      <TrendingUp className="h-3 w-3 text-cyan-400" />
-                    </div>
-                    <span className="text-[8.5px] font-medium text-slate-400">ERP Revenue</span>
-                  </div>
-                  <div className="flex items-end justify-between">
-                    <span className="text-[22px] font-black leading-none text-white">₹18.4L</span>
-                    <span className="rounded-md px-1.5 py-0.5 text-[9px] font-bold text-cyan-400" style={{ background: 'rgba(6,204,232,0.1)' }}>↑ 24%</span>
-                  </div>
-                  <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full" style={{ background: 'rgba(255,255,255,0.05)' }}>
-                    <div className="h-full w-[86%] rounded-full" style={{ background: 'linear-gradient(to right, #06CCE8, rgba(6,204,232,0.2))' }} />
-                  </div>
-                </div>
-
-                {/* ── Metric Card 4 · bottom-right · Uptime ── */}
-                <div className="absolute bottom-[23%] right-[1%] w-[126px] rounded-2xl border border-cyan-400/[0.18] p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
-                  style={{ background: 'rgba(9,19,34,0.93)', backdropFilter: 'blur(14px)' }}>
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <div className="h-[22px] w-[22px] rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(6,204,232,0.12)' }}>
-                      <Activity className="h-3 w-3 text-cyan-400" />
-                    </div>
-                    <span className="text-[8.5px] font-medium text-slate-400">Uptime</span>
-                  </div>
-                  <span className="text-[22px] font-black leading-none text-white">99.9%</span>
-                  <div className="mt-2 flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                    <span className="text-[8px] font-medium text-emerald-400">All systems live</span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          {/* Dashboard mockup */}
-          <div className="mt-14 mx-auto max-w-5xl" style={{ animation: 'heroFadeIn 0.9s ease 0.4s both' }}>
+            {/* Right — Live dashboard preview */}
+            <div className="relative mt-14 xl:mt-0" style={{ animation: 'heroFadeIn 1s ease 0.2s both' }}>
             <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_40px_120px_rgba(0,0,0,0.8),0_0_0_1px_rgba(6,204,232,0.04)]" style={{ background: '#07101E' }}>
 
               {/* Panel header */}
@@ -386,10 +257,10 @@ export default function HomePage() {
               </div>
 
               {/* Dashboard layout */}
-              <div className="grid lg:grid-cols-[160px_1fr]">
+              <div className="grid xl:grid-cols-[160px_1fr]">
 
                 {/* Sidebar */}
-                <div className="hidden border-r border-white/[0.05] lg:flex lg:flex-col" style={{ background: '#060D1A' }}>
+                <div className="hidden border-r border-white/[0.05] xl:flex xl:flex-col" style={{ background: '#060D1A' }}>
                   {/* Logo mark */}
                   <div className="flex items-center gap-2 border-b border-white/[0.05] px-3.5 py-3.5">
                     <div className="h-6 w-6 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(6,204,232,0.22)' }}>
@@ -442,7 +313,9 @@ export default function HomePage() {
                 <DashboardMockupPanel />
               </div>
             </div>
+            </div>
           </div>
+
         </div>
 
         {/* Fade to next section */}
@@ -455,10 +328,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              { label: '50+ Businesses', icon: Building2 },
-              { label: 'GST-Ready ERP', icon: Shield },
+              { label: 'Founder-Led Delivery', icon: Building2 },
               { label: 'WhatsApp AI Bots', icon: Bot },
-              { label: 'Chennai HQ', icon: MapPin },
+              { label: 'Chennai', icon: MapPin },
             ].map(({ label, icon: Icon }) => (
               <span key={label} className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2 text-[12.5px] font-medium text-slate-400">
                 <Icon className="h-3.5 w-3.5 text-cyan-400" />
@@ -467,17 +339,6 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ═══════════════ CLIENT LOGOS TICKER ════════════════ */}
-      <section className="border-t border-white/[0.05] py-10 sm:py-14" style={{ background: 'rgba(8,15,28,0.7)' }}>
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 mb-8 text-center">
-          <p className="text-[22px] sm:text-[28px] font-black text-white tracking-tight">
-            <span style={{ color: '#06CCE8' }}>50+</span> businesses run on Zyglo
-          </p>
-          <p className="mt-2 text-[13px] text-slate-500">From Chennai startups to pan-India enterprises, across retail, healthcare, logistics, and more.</p>
-        </div>
-        <ClientLogos />
       </section>
 
       {/* ═══════════════ STATS BAR ═══════════════════════════ */}
@@ -746,96 +607,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════════ TESTIMONIALS ════════════════════════ */}
+      {/* ═══════════════ HOW WE WORK ═════════════════════════ */}
       <section className="border-t border-white/[0.06] py-16 sm:py-24" style={{ background: 'rgba(11,20,36,0.35)' }}>
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
             className="mb-10 text-center sm:mb-14">
-            <motion.div variants={fadeUp}><SectionLabel>Client Stories</SectionLabel></motion.div>
+            <motion.div variants={fadeUp}><SectionLabel>How We Work</SectionLabel></motion.div>
             <motion.h2 variants={fadeUp}
               className="mt-5 text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
-              Businesses that trust Zyglo Tech.
+              What working with us actually looks like.
             </motion.h2>
-          </motion.div>
-          <TestimonialCarousel />
-        </div>
-      </section>
-
-      {/* ═══════════════ REAL RESULTS ═══════════════════════ */}
-      <section className="border-t border-white/[0.06] py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}
-            className="mb-10 text-center sm:mb-16">
-            <motion.h2 variants={fadeUp}
-              className="text-[26px] font-black tracking-tight text-white sm:text-[38px] lg:text-[42px]">
-              Numbers that speak for themselves.
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mt-4 text-[16px] text-slate-400">
-              Measured outcomes from real deployments across industries.
+            <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-xl text-[15px] text-slate-400">
+              We're a new studio, so instead of client logos we'll show you exactly how an engagement runs.
             </motion.p>
           </motion.div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              {
-                industry: 'Real Estate',
-                company: 'Prestige Property Group',
-                metric: '2×', label: 'Inbound leads in 6 weeks',
-                detail: 'WhatsApp AI bot handles enquiries, property previews and site visit bookings automatically.',
-                color: '#06CCE8',
-              },
-              {
-                industry: 'Healthcare',
-                company: 'Wellness First Clinics',
-                metric: '85%', label: 'Improvement in patient follow-ups',
-                detail: 'ERP integration reduced billing errors to near zero and closed monthly books in 2 days vs. 2 weeks.',
-                color: '#14B8A6',
-              },
-              {
-                industry: 'Retail',
-                company: 'SunMart Retail Chain',
-                metric: '40%', label: 'Reduction in operational costs',
-                detail: 'Workflow automation eliminated manual purchase orders, reorder alerts, and daily reporting.',
-                color: '#F43F5E',
-              },
-              {
-                industry: 'Logistics',
-                company: 'Apex Logistics',
-                metric: '3×', label: 'Faster invoice processing',
-                detail: 'GST-ready ERP automated all billing, TDS tracking and vendor reconciliation processes.',
-                color: '#06CCE8',
-              },
-              {
-                industry: 'Education',
-                company: 'Sri Vidya Institutions',
-                metric: '100+', label: 'Students upskilled via Academy',
-                detail: 'Custom LMS with live sessions, certificate automation and placement tracking.',
-                color: '#10B981',
-              },
-              {
-                industry: 'F&B',
-                company: 'The Chennai Kitchen',
-                metric: '60%', label: 'More online orders from Google',
-                detail: 'Google Business optimisation + local SEO ranked the restaurant #1 in Chennai local search.',
-                color: '#F59E0B',
-              },
+              { step: '01', title: 'Free discovery call', detail: 'We talk through what you actually need — no sales script, just an honest read on scope and fit.', color: '#06CCE8' },
+              { step: '02', title: 'Fixed-price proposal', detail: 'A clear scope and price before any work starts. No hourly surprises.', color: '#14B8A6' },
+              { step: '03', title: 'You work with the builders', detail: 'Direct access to whoever is writing your code — not a project manager relaying messages.', color: '#F59E0B' },
+              { step: '04', title: 'Launch + support', detail: 'We stay on for fixes and iteration after launch — it\'s in the same relationship, not a separate contract.', color: '#10B981' },
             ].map((r, i) => (
-              <motion.div key={r.company}
+              <motion.div key={r.step}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0B1424] p-7">
-                <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-full blur-3xl"
+                className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0B1424] p-6">
+                <div className="pointer-events-none absolute right-0 top-0 h-24 w-24 rounded-full blur-3xl"
                   style={{ background: `${r.color}10` }} />
                 <div className="relative">
-                  <span className="inline-flex rounded-lg border border-white/[0.07] bg-white/[0.03] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                    {r.industry}
-                  </span>
-                  <div className="mt-4 flex items-end gap-2">
-                    <span className="text-[48px] font-black leading-none" style={{ color: r.color }}>{r.metric}</span>
-                  </div>
-                  <p className="mt-1 text-[15px] font-bold text-white">{r.label}</p>
-                  <p className="mt-3 text-[13px] leading-6 text-slate-400">{r.detail}</p>
-                  <p className="mt-4 text-[11.5px] font-semibold text-slate-600">— {r.company}</p>
+                  <span className="text-[13px] font-black" style={{ color: r.color }}>{r.step}</span>
+                  <p className="mt-3 text-[15px] font-bold text-white">{r.title}</p>
+                  <p className="mt-2 text-[13px] leading-6 text-slate-400">{r.detail}</p>
                 </div>
               </motion.div>
             ))}

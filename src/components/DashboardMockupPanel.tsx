@@ -1,11 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Bot, Users, TrendingUp, Search, Activity } from 'lucide-react';
 
 const fmtInt = (n: number) => Math.round(n).toLocaleString('en-US');
 const fmtRevenue = (n: number) => `₹${n.toFixed(1)}L`;
 const fmtRank = (n: number) => `#${n.toFixed(1)}`;
+
+const CHART_X = [0, 93, 187, 280, 373, 467, 560];
+const jitterY = (ys: number[]) =>
+  ys.map((y) => Math.min(70, Math.max(1, y + (Math.random() * 14 - 7))));
+const toPoints = (ys: number[]) => CHART_X.map((x, i) => `${x},${ys[i].toFixed(1)}`).join(' ');
+const toAreaPath = (ys: number[]) =>
+  `M${toPoints(ys).replace(/ /g, ' L')} L560,72 L0,72 Z`;
 
 const AGENT_META = [
   { name: 'WhatsApp Bot', sub: 'Real Estate', status: 'live' as const, color: '#06CCE8' },
@@ -22,6 +29,18 @@ export function DashboardMockupPanel() {
   const [uptime, setUptime] = useState(99.9);
   const [agentStats, setAgentStats] = useState({ whatsapp: 127, leads: 43, tasks: 12, ranksUp: 4 });
 
+  const revenueY0 = [61, 42, 51, 22, 30, 2, 17];
+  const aiY0 = [70, 54, 37, 45, 14, 27, 5];
+  const [revenueY, setRevenueY] = useState(revenueY0);
+  const [aiY, setAiY] = useState(aiY0);
+  const [tick, setTick] = useState(0);
+  const prevRevenuePoints = useRef(toPoints(revenueY0));
+  const prevAiPoints = useRef(toPoints(aiY0));
+  const prevRevenueArea = useRef(toAreaPath(revenueY0));
+  const prevAiArea = useRef(toAreaPath(aiY0));
+  const prevRevenueYRef = useRef(revenueY0);
+  const prevAiYRef = useRef(aiY0);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setBotChats((v) => v + Math.floor(Math.random() * 4) + 1);
@@ -35,9 +54,27 @@ export function DashboardMockupPanel() {
         tasks: Math.max(1, s.tasks + (Math.random() > 0.6 ? 1 : -1)),
         ranksUp: Math.max(1, Math.min(6, s.ranksUp + (Math.random() > 0.5 ? 1 : -1))),
       }));
+      setRevenueY((prev) => {
+        prevRevenuePoints.current = toPoints(prev);
+        prevRevenueArea.current = toAreaPath(prev);
+        prevRevenueYRef.current = prev;
+        return jitterY(prev);
+      });
+      setAiY((prev) => {
+        prevAiPoints.current = toPoints(prev);
+        prevAiArea.current = toAreaPath(prev);
+        prevAiYRef.current = prev;
+        return jitterY(prev);
+      });
+      setTick((t) => t + 1);
     }, 2600);
     return () => clearInterval(interval);
   }, []);
+
+  const revenuePoints = toPoints(revenueY);
+  const aiPoints = toPoints(aiY);
+  const revenueArea = toAreaPath(revenueY);
+  const aiArea = toAreaPath(aiY);
 
   const kpis = [
     {
@@ -153,22 +190,40 @@ export function DashboardMockupPanel() {
             {[18, 36, 54].map(y => (
               <line key={y} x1="0" y1={y} x2="560" y2={y} stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
             ))}
-            {/* Revenue area */}
-            <path d="M0,61 L93,42 L187,51 L280,22 L373,30 L467,2 L560,17 L560,72 L0,72 Z" fill="url(#rev-grad)" />
+            {/* Revenue area — morphs smoothly to freshly jittered data every tick */}
+            <path fill="url(#rev-grad)" d={revenueArea}>
+              <animate key={`ra-${tick}`} attributeName="d" from={prevRevenueArea.current} to={revenueArea} dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+            </path>
             {/* AI area */}
-            <path d="M0,70 L93,54 L187,37 L280,45 L373,14 L467,27 L560,5 L560,72 L0,72 Z" fill="url(#ai-grad)" />
+            <path fill="url(#ai-grad)" d={aiArea}>
+              <animate key={`aa-${tick}`} attributeName="d" from={prevAiArea.current} to={aiArea} dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+            </path>
             {/* Revenue line */}
-            <polyline points="0,61 93,42 187,51 280,22 373,30 467,2 560,17" fill="none" stroke="#06CCE8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            <polyline points={revenuePoints} fill="none" stroke="#06CCE8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <animate key={`rp-${tick}`} attributeName="points" from={prevRevenuePoints.current} to={revenuePoints} dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+            </polyline>
             {/* AI line */}
-            <polyline points="0,70 93,54 187,37 280,45 373,14 467,27 560,5" fill="none" stroke="#94A3B8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            {/* Highlight dots on last point — pulsing to feel live */}
-            <circle cx="560" cy="17" r="3" fill="#06CCE8" />
-            <circle cx="560" cy="17" r="5" fill="none" stroke="#06CCE8" strokeWidth="1" opacity="0.5">
+            <polyline points={aiPoints} fill="none" stroke="#94A3B8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <animate key={`ap-${tick}`} attributeName="points" from={prevAiPoints.current} to={aiPoints} dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+            </polyline>
+            {/* Data-point markers — every point gently moves, not just the last one */}
+            {CHART_X.map((x, i) => (
+              <circle key={`rv-dot-${i}`} cx={x} cy={revenueY[i]} r={i === CHART_X.length - 1 ? 3 : 1.6} fill="#06CCE8">
+                <animate key={`rv-dot-${tick}-${i}`} attributeName="cy" from={prevRevenueYRef.current[i]} to={revenueY[i]} dur="1.6s" fill="freeze" />
+              </circle>
+            ))}
+            {CHART_X.slice(0, -1).map((x, i) => (
+              <circle key={`ai-dot-${i}`} cx={x} cy={aiY[i]} r="1.4" fill="#94A3B8">
+                <animate key={`ai-dot-${tick}-${i}`} attributeName="cy" from={prevAiYRef.current[i]} to={aiY[i]} dur="1.6s" fill="freeze" />
+              </circle>
+            ))}
+            {/* Highlight ring on the last point — pulsing to feel live */}
+            <circle cx="560" cy={revenueY[6]} r="5" fill="none" stroke="#06CCE8" strokeWidth="1" opacity="0.5">
               <animate attributeName="r" values="3;8;3" dur="2.2s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.6;0;0.6" dur="2.2s" repeatCount="indefinite" />
             </circle>
-            <circle cx="560" cy="5" r="3" fill="#94A3B8" />
-            <circle cx="560" cy="5" r="5" fill="none" stroke="#94A3B8" strokeWidth="1" opacity="0.5">
+            <circle cx="560" cy={aiY[6]} r="3" fill="#94A3B8" />
+            <circle cx="560" cy={aiY[6]} r="5" fill="none" stroke="#94A3B8" strokeWidth="1" opacity="0.5">
               <animate attributeName="r" values="3;8;3" dur="2.2s" begin="0.4s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.6;0;0.6" dur="2.2s" begin="0.4s" repeatCount="indefinite" />
             </circle>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Building2, GraduationCap, Shield, Award, Rocket, Heart, Globe } from 'lucide-react';
+import { ArrowRight, Users2, ShieldCheck, Zap, Rocket, Heart, Shield, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Us — Chennai AI & IT Company',
@@ -8,24 +8,22 @@ export const metadata: Metadata = {
   keywords: ['Zyglo Tech Enterprise', 'about Zyglo Tech', 'Chennai IT company', 'AI company India', 'Zyglo AI solutions'],
   openGraph: {
     title: 'About Zyglo Tech Enterprise | Chennai AI & IT Company',
-    description: 'Zyglo Tech Enterprise builds AI chatbots, WhatsApp automation, GST-ready ERP, and mobile/web apps for 50+ Indian businesses.',
+    description: 'Zyglo Tech Enterprise builds AI chatbots, WhatsApp automation, GST-ready ERP, and mobile/web apps for Indian SMEs.',
     url: 'https://www.zyglotech.com/about',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Zyglo Tech Enterprise',
-    description: 'AI chatbots, ERP systems, and automation for 50+ Indian businesses.',
+    description: 'AI chatbots, ERP systems, and automation for Indian SMEs.',
   },
   alternates: { canonical: 'https://www.zyglotech.com/about' },
 };
 
-const timeline = [
-  { year: '2021', title: 'Founded in Chennai', desc: 'Zyglo Tech was founded with a mission to make enterprise AI accessible to every Indian business.' },
-  { year: '2022', title: 'First 50 Clients', desc: 'Delivered web platforms, GST-ready ERP and automation solutions to 50+ businesses across Tamil Nadu.' },
-  { year: '2023', title: 'AI Division Launch', desc: 'Launched the AI Services Division — bringing WhatsApp chatbots, lead agents, and workflow automation to market.' },
-  { year: '2024', title: '50+ Businesses', desc: 'Crossed 50 businesses served. Launched Zyglo Academy for corporate and student upskilling.' },
-  { year: '2025', title: 'Scale & Expand', desc: 'Expanded to serve clients across India. 35+ enterprise-grade products shipped. 100+ students trained.' },
+const founderPoints = [
+  { icon: Users2, title: 'Direct access to the team', desc: 'No account managers, no hand-offs — you work directly with the people actually building your system.' },
+  { icon: Zap, title: 'Full attention, not a queue', desc: 'As a new studio, your project gets our full focus instead of being one of fifty accounts on a support board.' },
+  { icon: ShieldCheck, title: 'Built right from day one', desc: 'Modern stack, GST-ready by design, and India-resident data — the same standards we\'d want for our own business.' },
 ];
 
 const values = [
@@ -61,53 +59,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-t border-white/[0.06] py-16" style={{ background: 'rgba(11,20,36,0.5)' }}>
+      {/* Why work with a new studio */}
+      <section className="border-t border-white/[0.06] py-20" style={{ background: 'rgba(11,20,36,0.4)' }}>
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {[
-              { value: '50+', label: 'Businesses Served', icon: Building2 },
-              { value: '100+', label: 'Students Trained', icon: GraduationCap },
-              { value: '35+', label: 'Products Shipped', icon: Award },
-              { value: '99.9%', label: 'Platform Uptime', icon: Shield },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <s.icon className="mx-auto mb-3 h-6 w-6 text-cyan-400/50" />
-                <p className="text-[38px] font-black tracking-tight text-white">{s.value}</p>
-                <p className="mt-1 text-[13px] text-slate-400">{s.label}</p>
+          <div className="mb-12 text-center">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-400">Why Zyglo</span>
+            <h2 className="mt-4 text-[34px] font-black tracking-tight text-white">We're new. Here's what that gets you.</h2>
+            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-7 text-slate-400">
+              Zyglo Tech Enterprise is a young studio — we're not going to pretend otherwise. What we lack in a long client roster, we make up for in attention: every project right now gets built by the founding team directly, not handed off down a chain.
+            </p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-3">
+            {founderPoints.map((p) => (
+              <div key={p.title} className="rounded-2xl border border-white/[0.07] bg-[#0B1424] p-7">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/10">
+                  <p.icon className="h-5 w-5 text-cyan-400" />
+                </div>
+                <h3 className="text-[15.5px] font-bold text-white">{p.title}</h3>
+                <p className="mt-2.5 text-[13.5px] leading-6 text-slate-400">{p.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="border-t border-white/[0.06] py-24" style={{ background: 'rgba(11,20,36,0.4)' }}>
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="mb-14 text-center">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-400">Our Journey</span>
-            <h2 className="mt-4 text-[34px] font-black tracking-tight text-white">From startup to 50+ clients.</h2>
-          </div>
-          <div className="relative mx-auto max-w-2xl">
-            <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/30 via-blue-400/20 to-transparent" />
-            <div className="space-y-10">
-              {timeline.map((item, i) => (
-                <div key={item.year} className="flex gap-6">
-                  <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-400/30 bg-[#0B1424] text-[11px] font-black text-cyan-400">
-                    {i === timeline.length - 1 ? (
-                      <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
-                    ) : (
-                      <CheckCircle2 className="h-4 w-4" />
-                    )}
-                  </div>
-                  <div className="pb-2">
-                    <p className="text-[11px] font-bold text-cyan-400">{item.year}</p>
-                    <h3 className="mt-0.5 text-[16px] font-bold text-white">{item.title}</h3>
-                    <p className="mt-1.5 text-[14px] leading-6 text-slate-400">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -140,7 +111,7 @@ export default function AboutPage() {
             Ready to work with us?
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-[16px] text-slate-400">
-            Join 50+ businesses that trust Zyglo Tech to deliver technology that works — on time, on budget, and built for growth.
+            Be one of our first clients and work directly with the team building your system — on time, on budget, and built for growth.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/demo" className="btn-primary text-[15px] px-8 py-4">

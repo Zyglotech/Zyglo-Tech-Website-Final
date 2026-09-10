@@ -30,7 +30,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Where is Zyglo Tech Enterprise located?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Zyglo Tech Enterprise is based in Chennai, Tamil Nadu, India. We serve clients across India including Bangalore, Hyderabad, Mumbai and Delhi, as well as international clients.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Zyglo Tech Enterprise is based in Chennai, Tamil Nadu, India, and works remotely with businesses anywhere in India as well as internationally.' },
     },
     {
       '@type': 'Question',
