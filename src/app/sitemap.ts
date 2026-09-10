@@ -1,6 +1,5 @@
 import { type MetadataRoute } from 'next';
 import { blogArticles } from '@/data/blog-articles';
-import { caseStudies } from '@/data/case-studies';
 
 const siteUrl = 'https://www.zyglotech.com';
 
@@ -8,12 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogUrls: MetadataRoute.Sitemap = blogArticles.map((a) => ({
     url: `${siteUrl}/blog/${a.slug}`,
     lastModified: a.isoDate,
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }));
-
-  const caseStudyUrls: MetadataRoute.Sitemap = caseStudies.map((c) => ({
-    url: `${siteUrl}/case-studies/${c.slug}`,
     changeFrequency: 'monthly',
     priority: 0.6,
   }));
@@ -39,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/academy/courses`, lastModified: '2026-05-01', changeFrequency: 'monthly', priority: 0.6 },
     { url: `${siteUrl}/academy/bootcamps`, lastModified: '2026-05-01', changeFrequency: 'monthly', priority: 0.6 },
     { url: `${siteUrl}/blog`, lastModified: '2026-05-14', changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${siteUrl}/case-studies`, lastModified: '2026-04-16', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${siteUrl}/pricing`, lastModified: '2026-04-01', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${siteUrl}/press`, lastModified: '2026-05-01', changeFrequency: 'monthly', priority: 0.5 },
     { url: `${siteUrl}/careers`, lastModified: '2026-05-01', changeFrequency: 'monthly', priority: 0.5 },
@@ -49,6 +41,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/legal/refund-policy`, lastModified: '2026-01-01', changeFrequency: 'yearly', priority: 0.3 },
     { url: `${siteUrl}/legal/cookie-policy`, lastModified: '2026-01-01', changeFrequency: 'yearly', priority: 0.3 },
     ...blogUrls,
-    ...caseStudyUrls,
   ];
 }

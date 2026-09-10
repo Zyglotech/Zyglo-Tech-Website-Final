@@ -34,12 +34,12 @@ export const metadata: Metadata = {
     default: 'Zyglo Tech Enterprise | AI, ERP & Automation for India',
     template: '%s | Zyglo Tech Enterprise',
   },
-  description: 'India\'s leading AI & IT enterprise platform. AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and corporate training — built for India\'s fastest-growing businesses. Headquartered in Salem.',
+  description: 'AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and corporate training for Indian businesses. Based in Chennai — direct access to the team building your system.',
   metadataBase: new URL('https://www.zyglotech.com'),
   keywords: [
-    'AI chatbot India', 'WhatsApp automation India', 'ERP solution India', 'web development Salem',
+    'AI chatbot India', 'WhatsApp automation India', 'ERP solution India', 'web development Chennai',
     'app development India', 'business automation India', 'AI assistant India', 'workflow automation',
-    'SEO AEO GEO India', 'GST ERP software', 'IT company Salem', 'digital transformation India',
+    'SEO AEO GEO India', 'GST ERP software', 'IT company Chennai', 'digital transformation India',
   ],
   authors: [{ name: 'Zyglo Tech Enterprise', url: 'https://www.zyglotech.com' }],
   creator: 'Zyglo Tech Enterprise',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Zyglo Tech Enterprise — AI Chatbots, ERP & Automation for India',
-    description: 'AI chatbots, ERP systems, business automation and web development from Salem. Trusted by 50+ Indian businesses.',
+    description: 'AI chatbots, ERP systems, business automation and web development from Chennai — work directly with the team building your system.',
     type: 'website',
     url: 'https://www.zyglotech.com',
     siteName: 'Zyglo Tech Enterprise',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Zyglo Tech Enterprise | AI, ERP & Automation',
-    description: 'AI chatbots, ERP and business automation built for India. 50+ businesses trust Zyglo.',
+    description: 'AI chatbots, ERP and business automation built for India — founder-led delivery, no account-manager layers.',
     images: ['/og-image.png'],
   },
   alternates: { canonical: 'https://www.zyglotech.com' },
@@ -99,7 +99,7 @@ const organizationSchema = {
         height: 60,
       },
       image: 'https://www.zyglotech.com/og-image.png',
-      description: 'India\'s leading AI & IT enterprise platform offering AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and workflow automation for Indian businesses.',
+      description: 'AI & IT studio offering AI chatbots, WhatsApp automation, GST-ready ERP, web & app development, and workflow automation for Indian businesses.',
       email: 'founder@zyglotech.com',
       address: {
         '@type': 'PostalAddress',
@@ -116,12 +116,6 @@ const organizationSchema = {
       },
       areaServed: [
         { '@type': 'Country', name: 'India' },
-        { '@type': 'City', name: 'Salem' },
-        { '@type': 'City', name: 'Chennai' },
-        { '@type': 'City', name: 'Bangalore' },
-        { '@type': 'City', name: 'Hyderabad' },
-        { '@type': 'City', name: 'Mumbai' },
-        { '@type': 'City', name: 'Delhi' },
       ],
       serviceType: [
         'AI Chatbot Development',

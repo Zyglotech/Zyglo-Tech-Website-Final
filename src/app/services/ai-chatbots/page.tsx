@@ -3,11 +3,11 @@ import { PageShell } from '@/components/PageShell';
 
 export const metadata: Metadata = {
   title: 'AI Chatbot Agency for WhatsApp',
-  description: 'Get a 24/7 AI chatbot for WhatsApp & web that books appointments and qualifies leads automatically. Trusted by 50+ Indian businesses — see it live free.',
+  description: 'Get a 24/7 AI chatbot for WhatsApp & web that books appointments and qualifies leads automatically — see it live, free.',
   keywords: ['Zyglo AI chatbot', 'AI chatbot India', 'ai chatbot agency', 'WhatsApp chatbot', 'appointment bot', 'chatbot service india', 'WhatsApp automation India'],
   openGraph: {
     title: 'AI Chatbot Agency for WhatsApp | Zyglo Tech Enterprise',
-    description: 'A 24/7 AI chatbot for WhatsApp & web that books appointments and qualifies leads automatically. Trusted by 50+ Indian businesses.',
+    description: 'A 24/7 AI chatbot for WhatsApp & web that books appointments and qualifies leads automatically.',
     url: 'https://www.zyglotech.com/services/ai-chatbots',
     type: 'website',
   },

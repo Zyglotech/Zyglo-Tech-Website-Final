@@ -22,7 +22,6 @@ const aiServices = [
 const company = [
   { label: 'About Us', href: '/about' },
   { label: 'Academy', href: '/academy' },
-  { label: 'Case Studies', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
   { label: 'Press & Media', href: '/press' },
   { label: 'Careers', href: '/careers' },

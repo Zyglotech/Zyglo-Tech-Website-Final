@@ -99,12 +99,12 @@ const coreValues = [
   {
     icon: Heart,
     title: 'Client Focused',
-    desc: 'Every decision starts with your outcomes — named PMs, real SLAs, and success measured by your results.',
+    desc: 'Every decision starts with your outcomes — you talk directly to the person building your system, not a relayed message.',
   },
   {
     icon: BadgeCheck,
     title: 'Quality Delivered',
-    desc: 'Reliable, secure and high-performance systems shipped on time — with a 99.9% uptime commitment.',
+    desc: 'Reliable, secure, production-grade systems, shipped on the timeline we agree to upfront.',
   },
   {
     icon: Layers,
@@ -221,7 +221,7 @@ export default function HomePage() {
             <div className="hero-enter">
               <div style={{ animationDelay: '0ms' }} className="hero-child">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[12px] font-medium text-slate-300">
-                  India's #1 AI & IT Enterprise, Chennai
+                  AI & IT Studio, Chennai
                 </span>
               </div>
 
@@ -680,7 +680,7 @@ export default function HomePage() {
               Let's build intelligent solutions that drive your business into the future.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[16px] text-slate-400">
-              Join 50+ businesses across India that trust Zyglo Tech Enterprise to deliver technology that works — on time, on budget, and built for growth.
+              Be one of our first clients and work directly with the team building your system — on time, on budget, and built for growth.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/demo" className="btn-primary text-[15px] px-10 py-4">

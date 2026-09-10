@@ -92,7 +92,7 @@ export default function AcademyPage() {
           <span className="text-[11px] font-semibold uppercase tracking-widest text-cyan-400">Zyglo Academy</span>
         </div>
         <h1 className="mx-auto mb-5 max-w-3xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
-          India&apos;s Most Complete<br />
+          A Complete<br />
           <span style={{ color: '#06CCE8' }}>AI & IT Learning Platform</span>
         </h1>
         <p className="mx-auto mb-8 max-w-2xl text-base text-slate-400 leading-relaxed">
@@ -105,7 +105,6 @@ export default function AcademyPage() {
             { value: '20', label: 'Courses' },
             { value: '10', label: 'IT Courses' },
             { value: '10', label: 'AI Courses' },
-            { value: '100+', label: 'Students Trained' },
           ].map(s => (
             <div key={s.label} className="text-center">
               <p className="text-2xl font-black" style={{ color: '#06CCE8' }}>{s.value}</p>

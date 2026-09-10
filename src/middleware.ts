@@ -46,7 +46,10 @@ export const config = {
   matcher: [
     '/dashboard/:path*',
     '/api/admin/:path*',
-    '/api/payments/:path*',
+    // NOT /api/payments/webhook or /api/payments/payu-return — those are
+    // server-to-server / gateway-initiated callbacks with no session cookie;
+    // they authenticate via their own signature verification, not login.
+    '/api/payments/create-order',
     '/api/wallet/:path*',
     '/api/user/:path*',
   ],
